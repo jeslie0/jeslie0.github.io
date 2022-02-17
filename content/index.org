@@ -1,0 +1,35 @@
+#+title: James Leslie
+
+# #+attr_html: :width 100px :class rounded-corners
+# [[./images/pic.jpg]]
+
+* About Me
+I am a PhD student at the University of Western Ontario with Chris Kapulkin as my supervisor. I graduated with an integrated masters at the University of Edinburgh in July 2018 (supervised by Antony Maciocia) and started my PhD in September 2019. My areas of research include homotopy type theory and higher category theory. I am generally interested in foundations of mathematics and their relations to category theory.
+
+Outside of mathematics, I enjoy running, cycling and swimming.
+* Talks
+| Date          | Title                                                            |
+|---------------+------------------------------------------------------------------+
+| May 2021      | Type Theoretic Models of HoTT                                    |
+| March 2021    | The Canonical Model Structure on Cat/Gpd                         |
+| June 2020     | Homotopy Theory in Contextual Categories                         |
+| June 2020     | Modelling Dependent Type Theories                                |
+| April 2020    | The HoTT Book - 8.2 and 8.3                                      |
+| December 2019 | A survey of Infinity Toposes                                     |
+| November 2019 | Toposes and their logic                                          |
+| April 2018    | Toposes (Masters thesis talk)                                    |
+| April 2017    | Mathematics and Logic: A theory of Sets (Bachelors project talk) |
+* Conferences
+| Date           | Conference                                             | Location   |
+|----------------+--------------------------------------------------------+------------|
+| October 2019   | Midwest Homotopy Type Theory Seminar                   | Ann Arbor  |
+| July 2019      | Category Theory 2019                                   | Edinburgh  |
+| June 2019      | Higher Topos Theory and Univalent Foundations          | Leeds      |
+| September 2017 | British Logic Colloquium 2017                          | Brighton   |
+| July 2015      | Hilbert Bernays Summer School on Logic and Computation | Goettingen |
+* Courses
+Courses I have taken in my PhD program at Western.
+| Date             | Courses                                            |
+|------------------+----------------------------------------------------|
+| Winter term 2020 | Algebraic Topology, Field Theory (audited)         |
+| Fall term 2019   | Higher Category Theory, Complex Analysis (audited) |

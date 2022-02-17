@@ -1,0 +1,7 @@
+#+TITLE: Contact
+You can email me "FIRST NAME"++"LASTNAME"@posteo.net. I use PGP/MIME to sign and encrypt email. You can find my [[https://github.com/jeslie0.gpg][public key linked here]]. Its fingerprint is *7BC253 447F90 1C3EBD 46AB5E DDFB27 273B2B FBB6*.
+* Online presence
+I have the following presence online. You are welcome to follow/contact me on all of them; however, I will respond quicker if contacted by email.
+- [[https://github.com/jeslie0][GitHub: jeslie0]];
+- [[https://twitter.com/KanFibration][Twitter: KanFibration]];
+- Gemini Capsule: gemini://KanFibration.xyz (you will need a gemini browser, such as elpher, to view this content).
