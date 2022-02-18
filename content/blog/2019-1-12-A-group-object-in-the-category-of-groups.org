@@ -1,0 +1,33 @@
+#+title: A group object in the category of groups
+#+OPTIONS: tex:t
+#+date:<2019-01-12 Sat>
+
+I think most people are surprised when they first discover what a group object in the category of groups is; I know I certainly was! I won't spoil what it is for you just now, but we will discuss it and why it is what it is later on in this post, so if you want to figure it out for yourself - read no further!
+
+First, I should talk about what a "- object" actually is. One of the themes of category theory is to take set based structures (monoids, rings, vector spaces, topological spaces etc) and lift them to arbitrary categories. This is done more or less by the word 'set' with the word 'object' and the word 'function' with the word 'morphism'. Lets look at a relevant example.
+
+A group object in a category \(\mathcal{C}\) with finite products, is an object G with morphisms \(\mu :G \times G \rightarrow G\), \(e: 1 \rightarrow G\) and \(\text{inv}:G \rightarrow G\), such that 
+
+1. \(\mu(\mu \times 1_G) = \mu(1_G \times \mu)\), 
+2. \(\mu(e \times 1_G) = \pi_{G,1}^1\) and \(\mu(1_G \times e) = \pi_{1,G}^2\)
+3. \(\mu(\text{inv} \times 1_G) \Delta = \mu(1_G \times \text{inv}) \Delta =e_G\), where \(e_G\) is the unique map \(G \rightarrow 1\) composed with \(e\), and \(\Delta\) is the diagonal map.
+
+Here, 1 is the terminal object (the 0-product) in \(\mathcal{C}\). 
+
+This definition is set up so that an ordinary group is simply just a group object in the category of sets. This allows us to easily define group objects in other categories, for example, a topological group is just a group object in the category of topological spaces. One key part of the definition is that the morphims of a group object must be in the category we are working over. 
+
+Now before we figure out what a group object the category of groups is, it will be helpful to go off on a slight tangent and answer a different question: when is a group's operation a group homomorphism? It is the case that the metric on a metric space is always continuous, but does it generalise? Let's take a look.
+
+Considering a group \(G\), we shall write it's operation simply as concatenation (or \(\times_G\)) and when regarding it as a function, we shall call it \(f:G \times G \rightarrow G\). The following then holds for all \(a,b,c \in G\):
+
+[[./Images/groupobject.png]]
+
+Therefore the group operation is a homomorphim if and only if the group is abelian! A surprise to be sure, but a welcome one. Now, how does this help us with our question? If there is a group homormorphism from \(G \times G \rightarrow G\) that satisfies the above properties, it must be the group operation on \(G\), by the following quick calculation:
+
+
+[[./Images/group-object-2.png]]
+
+
+However, we know that the group operation is a group homomorphim if and only the group is abelian! This then means that a group object in the category of groups is precisely an abelian group! This certainly seemed strange to me when I first saw the result. It does have uses though, for an example, if you want to show that some group is abelian, all you need to do is show it is a group object. This method can be implemented to show that the second fundamental group is abelian, which is done on page xix of Leinster's [[https://arxiv.org/abs/math/0305049][Higher Operads, Higher Categories]].
+
+This does raise other questions of a similar nature - what is a ring object in the category of rings for example? It is quick to see that such a ring \(R\) needs to be the trivial ring. We observe that the additive and multiplicative identities come from maps \(0_R, 1_R : 1 \rightarrow R\), that is they are encoded as maps from the terminal object to \(R\). In the category of rings, however, the terminal object is also the initial object. This forces \(1_R = 0_R\), hence \(R\) must be trivial.

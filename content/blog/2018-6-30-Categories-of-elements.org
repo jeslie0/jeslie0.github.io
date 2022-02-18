@@ -1,0 +1,118 @@
+#+title: Categories of elements
+#+STARTUP: latexpreview
+#+OPTIONS: tex:t
+#+date:<2018-06-30 Sat>
+When learning about colimits and presheaf categories, one often meets a category of elements. The definition of the category isn't particularly hard to understand or remember; however, I didn't immediately have an intuition for why it is useful or where the definition came from. This has lead me to play with it and try to understand some properties of it.
+
+#+BEGIN_definition
+Given a locally small category \( \mathbb{A}\) and a functor \( X:\mathbb{A}^{op} \rightarrow \mathbf{Set}\), the category of elements of \( X\), denoted \( \mathbb{E}(X)\) or \( \int^\mathbb{A} X\), is defined as follows:
+
+ * Objects are pairs \( (A \in \mathbb{A}, x \in X(A))\),
+ * Morphisms \( f:(A, x) \rightarrow (A',x')\) are maps \( f:A \rightarrow A' \in \mathbb{A}\) such that \( (Xf)(x')=x\).
+#+END_definition
+
+Every category of elements has a projection functor \( P:\mathbb{E}(x) \rightarrow \mathbb{A}\) associated with it that sends \( (A,x) \mapsto A\) and \( f \mapsto f\). There is a useful property tucked away in the definition: for any \( \mathbb{A}\)-arrow \( f:A' \rightarrow A\), there is a unique element \( x' \in X(A')\) such that there is an \( \mathbb{E}(X)\)-morphism \( f:(A',x') \rightarrow (A, x)\), namely \( x' = (Xf)(x)\). As a result of this, we will often write morphism as \( f:(A', (Xf)(x)) \rightarrow (A,x)\). Another observation is that we can write \( \mathbb{E}(X)\) as a comma category.
+
+#+BEGIN_lemma
+There is an isomorphism \( \mathbb{E}(X) \cong (1 \Rightarrow X)\).
+#+END_lemma
+
+#+BEGIN_proof
+We look at the comma category for the following diagram:
+
+[[./Images/2018/06/comma.png]]
+
+The double stroke 1 is the terminal category and the functor  1 is the functor that selects the terminal set. This category has as objects, pairs \( (A \in \mathbb{A}, x:1 \rightarrow X(A))\) and morphisms \( f:(A,x) \rightarrow (A',x')\) are commuting triangles:
+
+[[./Images/2018/06/comma11.png]]
+
+That this triangle commutes is the same as stating \( x = (Xf)(x')\), which is the condition above.
+#+END_proof
+
+We can use the category of elements to relate representablity to the existence of a terminal object.
+
+#+BEGIN_proposition
+[1, Exercise 6.2.23] Let \( X\) be a presheaf on a locally small category. \( X\) is representable if and only if \( \mathbb{E}(X)\) has a terminal object.
+#+END_proposition
+
+#+BEGIN_proof
+The category \( \mathbb{E}(X)\) has a terminal object if and only if there is an object \( (A, x)\) such that for any \( (A',x')\), there is exactly one morphism \( f:(A',x') \rightarrow (A,x)\). This is equivalent to there being an \( A \in \mathbb{A}\) and \( x \in X(A)\) such that for all \( A' \in \mathbb{A}\), \( x \in X(A')\), there is a unique morphism \( f:A' \rightarrow A\) such that \( (Xf)(x) = x'\). This condition is equivalent to \( X\) being representable, by [Corollary 4.3.2, 1].
+#+END_proof
+
+One of the most important uses of the category of elements is to show that any presheaf is a colimit of a certain diagram, in a canonical way. This is the main purpose of the category of elements in [1, Definition 6.2.16].
+
+#+BEGIN_proposition
+[1, Theorem 6.2.17] *Let \( \mathbb{A}\) be small and \( X:\mathbb{A}^{op} \rightarrow \mathbf{Set}\) a presheaf. Then \( X\) is the colimit of the following diagram:
+
+[[./Images/2018/06/diagram.png]]
+
+That is, \( X \cong \lim{\rightarrow \mathbb{E}(X)}(H\bullet \circ P)\).
+#+END_proposition
+
+#+BEGIN_proof
+We should first note that this does make sense; as \( \mathbb{A}\) is small, so is \( \mathbb{E}(X)\), hence a colimit does indeed exist.
+
+We know that presheaf categories have all (small) limits and colimits, so a colimit of \( H_\bullet \circ P\) exists. Let \( Y \in [\mathbb{A}^{op}, \mathbf{Set}]\) be a presheaf and let \( (\alpha_{(A,x)}:(H_\bullet \circ P)(A,x) \rightarrow Y)_{(A,x)\in \mathbb{E}(X)}\) be a cocone on \( H_\bullet \circ P\) with vertex \( Y\). We can simply this to have \( (\alpha_{(A,x)}:(H_A \rightarrow Y)_{(A,x)\in \mathbb{E}(X)}\). This is a family of natural transformations, so for all \( f:(A',x') \rightarrow (A, x)\) in \( \mathbb{E}(X)\), the folowing diagram commutes
+
+[[./Images/2018/06/img1.png]]
+
+By the Yoneda lemma, every natural transformation \( \alpha_{(A,x)}:H_A \rightarrow Y\) corresponds to a unique element \( (\alpha_{(A,x)})_A(1_A) \in Y(A)\), which we shall denote \( y_{(A,x)}\). As the diagram above commutes, it commutes for all \( A \in \mathbb{A}\), so in particular it commutes for \( A'\). This gives us the following:
+
+[[./Images/2018/06/img2.png]]
+
+This gives us \( y_{(A',(Xf)(x))} = (\alpha_{(A,x)})_{A'}(f)\). As \( \alpha_{(A,x)}\) is a natural transformation, the following square commutes:
+
+[[./Images/2018/06/img3.png]]
+
+This gives us \( (Yf)(y_{(A,x)}) = (\alpha_{(A,x)})_{A'}(f)\). Combining this with the above we see that a cocone on \( Y\) is a collection of elements \( (y_{(A,x)})_{(A,x)\in \mathbb{E}(X)}\) such that for any \( f:(A',(Xf)(x)) \rightarrow (A,x)\) in \( \mathbb{E}(X)\), \( (Yf)(y_{(A,x)}) = y_{(A', (Xf)(x))}\).
+
+An equivalent way to write \( y_{(A,x)}\) is \( \overline{\alpha}_A(x):X(A) \rightarrow Y(A)\) and treat it as a function.The properties above then say for any \( f:(A', (Xf)(x)) \rightarrow (A,x)\) in \( \mathbb{E}(X)\), \( (Yf)(\overline{\alpha}_A(x)) = \overline{\alpha}_{A'}((Xf)(x))\), that is to say the following diagram commutes for all \( f:A' \rightarrow A\) in \( \mathbb{A}\):
+
+[[./Images/2018/06/img4.png]]
+
+This shows that \( \overline{\alpha}:X \rightarrow Y\) is a natural transformation. As all of the above is equivalent, we see that a cocone on \( Y\) is the same as a map from \( X\) into \( Y\), hence \( X\) is the colimit of \( H_\bullet \circ P\). We can write this as equivalence formally as
+
+\( [\mathbb{E}(X), [\mathbb{A}^{op}, \mathbf{Set}]](H_\bullet \circ P, \Delta Y) \cong [\mathbb{A}^{op}, \mathbf{Set}](X,Y)\).
+
+This is an application of the dual of [Equation 6.2, 1].
+#+END_proof
+
+The property that morphisms in \( \mathbb{E}(X)\) have is vital to this proof and, to myself atleast, shows why we need to use this particular small category.
+
+Given a set \( S\), there is an equivalence of categories \( \mathbf{Set}/S \simeq \mathbf{Set}^S\), where the latter has as objects \( S\) indexed tuples of sets. Given \( (A, f:A \rightarrow S) \in \mathbf{Set}/S\), we form the tuple \( (f^{-1}(s))_{s \in S}\) and given a tuple \( (A_s)_{s \in S}\), we form the disjoint union \( \coprod_{s \in S}A_s\) along with the function \( g:\coprod_{s \in S}A_s \rightarrow S\) that sends every element in each \( A_s\) to \( s\). This equivalence can be abstracted to categories by the following theorem.
+
+#+BEGIN_theorem
+[2, Proposition 1.1.7] Let \( \mathbb{A}\) be a small category and \( X: \mathbb{A}^{op} \rightarrow \mathbf{Set}\) a presheaf on \( \mathbb{A}\). Then there is an equivalence of categories:
+
+\( [\mathbb{A}^{op}, \mathbf{Set}]/X \simeq [\mathbb{E}(X)^{op}, \mathbf{Set}]\).
+#+END_theorem
+
+
+
+#+BEGIN_proof
+I will give the functors required and leave the checking of the equivalence out, as it is pretty involved. The definitions of the functors require a proof to show that they are well defined (it needs to be shown that the natural transformations are indeed natural), however as this isn't too hard, we omit it. First, we define the following functor:
+
+[[./Images/2018/06/functor.png]]
+
+The functor \( \widehat{(F,\alpha)}\) is defined as follows:
+
+[[./Images/2018/06/functor2.png]]
+
+Where \( \widehat{(F,\alpha)}(f)(y) = (Ff)(y)\). The natural transformation \( \hat{\lambda}\) has components \( \hat{\lambda}_{(A,x)}:\alpha_A^{-1} \rightarrow \beta_A^{-1}(x)\) with \( \hat{\lambda}_{(A,x)}(y) = \lambda_A(y)\). We now define a map in the other direction:
+
+[[./Images/2018/06/functor3.png]]
+
+The functor \( P_x: \mathbb{A}^{op} \rightarrow \mathbf{Set}\) is defined as \( P_x(A) = P(A,x)\). This can then be made into a functor \( \coprod_{x \in X(-)}P_x:\mathbb{A}^{op} \rightarrow \mathbf{Set}\). The natural transformation \( \tilde{P}\) has components defined by the universal property of the coproduct. If \( y \in P_x(A)\) then \( \tilde{P}_A(y) = x\). The natural transformation \( \tilde{\lambda}\) has components with the following action on \( y \in P(A,x)\) - \( \tilde{\lambda}_A(y) = \lambda_{(A,x)}(y)\).
+
+It is shown in the attached pdf that these functors give rise to an equivalence, hence proving the claim.
+#+END_proof
+
+In conclusion, the category of elements is vital to proving that any presheaf is actually a colimit of a certain diagram. It also shows that slice categories of presheaf categories can be seen as a presheaf category themselves.
+
+***
+
+(1) T. Leinster, Basic category theory, 2014, 2016.
+
+(2) T. Leinster, Higher operads, higher categories, 2013.
+
+(3) J. Leslie, [Category of elements](/files/category-elemets.pdf)

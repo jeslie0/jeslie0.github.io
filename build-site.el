@@ -95,6 +95,7 @@
 	     :with-date nil         ;; Don't include time stamp in file
 	     :with-timestamps nil
 	     :with-title nil
+	     :html-head-extra "<link rel=\"stylesheet\" href=\"/CSS/theorem.css\" />"
 	     :html-preamble "<div class=\"topnav\">
 <a href=\"/index.html\">Home</a>
 <a href=\"/blog/index.html\">Blog</a>

@@ -1,0 +1,38 @@
+#+title: Why isn't every category isomorphic to its opposite?
+#+STARTUP: latexpreview
+#+OPTIONS: tex:t
+#+date:<2018-07-07 Sat>
+
+Whenever one comes across a mathematical object, such as a group, topological space etc, it is important to look at how it interacts with other similar objects. The same goes for categories with functors being how they interact.
+
+#+BEGIN_definition
+Given two categories \( \mathscr{A}, \mathscr{B}\), a (covariant) functor \( F\) from \( \mathscr{A}\) to \( \mathscr{B}\) assigns to each object \( A \in \mathscr{A}\) an object \( F(A) \in \mathscr{B}\) and to each \( \mathscr{A}\)-morphism \( f:A \rightarrow A'\), a \( \mathscr{B}\)-morphism \( F(f):F(A) \rightarrow F(A')\). The assignements must respect composition and identities, so
+
+  * \( F(g \circ h) = F(g) \circ F(h)\), for \( \mathscr{A}\)-maps \( f,g\),
+  * \( F(1_A) = 1_{F(A)}\), for all \( A \in \mathscr{A}\).
+
+#+END_definition
+ 
+We write functors as \( F: \mathscr{A} \rightarrow \mathscr{B}\). This then leads to the category \( \mathbf{CAT}\) whose objects are categories and whose morphisms are functors. We say that two categories are isomorphic if they are isomorphic in \( \mathbf{CAT}\). Given a category \( \mathscr{A}\), we can form its opposite category \( \mathscr{A}^{op}\), whose objects are the same as those in \( \mathscr{A}\), with \( \mathscr{A}^{op}\)-morphisms \( f:A' \rightarrow A\) in one to one correspondence with \( \mathscr{A}\)-morphisms \( f:A \rightarrow A'\). This means we can think of \( \mathscr{A}^{op}\) as being \( \mathscr{A}\) with it's morphisms turned around. It is clear from the definition of a functor that the obvious correspondence between a category and its opposite is not a functor. However, we can define a new type of functor that makes this possible.
+
+#+BEGIN_definition
+A contravariant functor \( F\) from \( \mathscr{A}\) to \( \mathscr{B}\) is a (covariant) functor \( F:\mathscr{A}^{op} \rightarrow \mathscr{B}\).
+#+END_definition
+
+The key property of a contravariant functor is that it reverses composition. If \( F\) from \( \mathscr{A}\) to \( \mathscr{B}\) is a contravariant functor, then for \( \mathscr{A}\)-morphisms \( f, g\), we have \( F(f \circ g) = F(g) \circ F(f)\).
+
+A question one may ask is whether or not a category is isomorphic to its opposite. In general this is false; however, to newcomers this isn't always obvious why. A typical false proof goes along the following lines:
+
+1. For any category \( \mathscr{A}\), there are canonical contravariant functors \( F:\mathscr{A}^{op} \rightarrow \mathscr{A}\) and \( G:\mathscr{A} \rightarrow \mathscr{A}^{op}\).
+2. Clearly \( F\circ G= 1_{\mathscr{A}}\) and \( G\circ F= 1_{\mathscr{A}^{op}}\).
+3. \( \mathscr{A} \cong \mathscr{A}^{op}\).
+
+The reason this doesn't hold is because the functors defined are contravariant, not covariant. To show such an isomorphism exists, one would need to construct a covariant functor \( F:\mathscr{A}^{op} \rightarrow \mathscr{A}\), so in particular the composition rule in Definition 1 must hold. Clearly for an arbitrary category, the canonical (contravariant) functor breaks this rule. A counter-example is to have a category with a terminal object and but no initial object. Its opposite has an initial object but no terminal, hence the two aren't isomorphic.
+
+#+begin_ex
+Take the following two categories \(\mathcal A\) and \(\mathcal B\), where \(\mathcal B = \mathcal A ^{\text{op}}\). 
+
+[[./Images/untitled.png]]
+
+Suppose we have a covariant functor from \(\mathcal A \rightarrow \mathcal B\) that fixes the objects. The issue is that there are no arrows in \(\mathcal B\) that we can map \(f\) or \(g\) to. Since such a functor doesn't exist, \(\mathcal A\) and \(\mathcal B\) cannot be isomorphic. For such a functor to exist, it must be contravariant.
+#+end_ex

@@ -1,0 +1,70 @@
+#+title: Yoneda, Yoneda, Yoneda
+#+date: <2018-04-23 Mon>
+#+OPTIONS: tex:t num:nil toc:nil
+
+The Yoneda Lemma is one of the few 'theorems' one learns in a first course on category theory and it is an invaluable tool.
+
+Suppose we have a locally small category \( \mathcal{A}\), then for any two objects \( A, B\) there is a set of maps from \( A\) to \( B\), denoted \( \mathcal{A}(A,B)\). We can make this into a functor by forgetting about the domain. We define the following functor:
+
+\( H_B:\mathcal{A}^{op} \rightarrow \mathbf{Set}\),
+
+such that \( A \mapsto H_B(A) = \mathcal{A}(A, B)\) and \((f:A \rightarrow C) \mapsto (H_A(f):H_A(C) \rightarrow H_A(A))\). Given any map \( g:C \rightarrow A\), \( (H_A(f))(g) = g \circ f:A \rightarrow A\). We can go further however, by removing our choice of \(A\). We define a functor
+
+\(H_\cdot:\mathcal{A} \rightarrow [\mathcal{A}^\text{op}, \mathbf{Set}]\),
+
+where \( A \mapsto H_A\) and \( (f:A \rightarrow B) \mapsto (H_f:H_A \rightarrow H_B)\), where \( H_f\) is a natural transformation. For any \( C \in \mathcal{A}\), the \( C\) component of \( H_f\) is a function \( (H_f)_C:H_A(C) \rightarrow H_B(C)\) such that for any map \( g:C \rightarrow A\), \( ((H_f)_C)(g) = f \circ g:C \rightarrow B\).
+
+The functor \( H_\cdot\) is known as the Yoneda embedding. It comes hand in hand with the Yoneda Lemma.
+
+* Yoneda lemma
+#+BEGIN_theorem
+Let \(\mathcal{A}\) be a locally small category. Then 
+
+\([\mathcal{A}^\text{op}, \mathbf{Set}](H_A, X) \cong X(A)\),
+
+naturally in \(A \in \mathcal{A}\) and \( X \in  [\mathcal{A}^\text{op}, \mathbf{Set}]\).
+#+END_theorem
+
+There are many discussions on the importance of Yoneda, however we shall skip over them and instead look at the Yoneda embedding. This functor can only really be called an embedding if it is both full and faithful. This is a trivial result of the Yoneda lemma, however it is not necessary to invoke the lemma and it can be proven without it.
+
+* Yoneda embedding is full and faithful
+
+Let \( A, A' \in \mathcal{A}\), and let \( \alpha:H_A \rightarrow H_{A'}\) be a natural transformation. We need to find a map \( f:A \rightarrow A'\) such that \( \alpha = H_f\). Looking at the \( A\) component of \( \alpha\) gives us a function
+
+\(\alpha_A:H_A(A) \rightarrow H_{A'}(A)\).
+
+We apply this to the identity map on \( A\) to get a map \( \alpha_A(1_A):A \rightarrow A'\). I claim that this is the required map. For notation, we shall call it \( f\). It is the case that \( H_f = \alpha\) if and only if each component is equal, that is \( (H_f)_B = \alpha_B\) for all objects \( B \in \mathcal{A}\). Choosing an arbitrary \( B \in \mathcal{A}\), as both  \( (H_f)_B\) and \( \alpha_B\) are functions, they are equal if and only if they take the same values on the same inputs. Recall the domains and codomains of the functions:
+
+\((H_f)_B, \alpha_B: H_A(B) \rightarrow H_{A'}(B)\).
+
+Take an arbitrary map \( g:B \rightarrow A\). Then \( ((H_f)_B)(g) = f \circ g = \alpha_A(1_A) \circ g\). We need to show that this is \( \alpha_B(g)\). This follows from the naturality of \( \alpha\). Indeed, for naturality gives us the following commutative square:
+
+\[\begin{tikzcd}
+H_A(A) \arrow[r, "- \circ g"] \arrow[d, "\alpha_A"'] & H_A(B) \arrow[d, "\alpha_B"] \\
+H_{A'}(A) \arrow[r, "-\circ g"']                     & H_A'(B)                     
+\end{tikzcd}\]
+
+These functions take the following on \( 1_A\):
+
+\[\begin{tikzcd}
+1_A \arrow[dd, maps to] \arrow[r, maps to] & g \arrow[d, maps to]  \\
+                                           & \alpha_B(g)           \\
+\alpha_A(1_A) \arrow[r, maps to]           & \alpha_A(1_A) \circ g
+\end{tikzcd}\]
+
+This says that \( \alpha_B(g) = \alpha_A(1_A) \circ g\). This means \( \alpha_B\) and \( (H_f)_B\) are equal as functions, which means that \( H_f = \alpha\). which by our reasoning above shows that \( \alpha = H_f\), hence \( H_\cdot\) is full.
+
+For faithfulness, again fix \( A, A' \in \mathcal{A}\) and consider two natural transformations \( H_f, H_g: H_A \rightarrow H_A'\). Supposing \( H_f = H_g\), we need to show that \( f=g\). As \( H_f = H_g\), \( (H_f)_A = (H_g)_A)\). These are both functions, so we apply them to \( 1_A\) giving us \( f \circ 1_A = g \circ 1_A\), therefore \( f = g\), proving faithfulness.
+
+Despite not explicitly using the Yoneda lemma, everything we have done is used in the proof of it. There is one more result that helps capture the idea behind the proof for Yoneda.
+
+* Yoneda embedding is injective on isomorphism classes
+
+Suppose for two objects \( A, B \in \mathcal{A}\) that \( H_A \cong H_{B}\). This means that we have two natural isomorphisms:
+
+\(\alpha:H_A \rightarrow H_B, \qquad \beta:H_B \rightarrow H_A\)
+
+which are inverses to each other. By reasoning from above, we a map \( \alpha_A(1_A):A \rightarrow B\) and \( \beta_B(1_B):B \rightarrow A\). For notation, we shall call \( \alpha_A(1_A) = f\) and \( \beta_B(1_B) = g\). Again from above, we see that \( \alpha_B(g) = \alpha_A(1_A) \circ g\). Substituting for \( g\) gives that \( \alpha_B(\beta_B(1_B)) = \alpha_A(1_A) \circ \beta_B(1_B)\). As \( \alpha\) and \( \beta\) are inverses, their components are mutual inverses. This means \( \alpha_B(\beta_B(1_B)) = 1_B\), so \( \alpha_A(1_A) \circ \beta_B(1_B) = 1_B\). A similar argument shows that \( \beta_B(1_B) \circ \alpha_A(1_A) = 1_A\), hence \( \alpha_A(1_A)\) and \( \beta_B(1_B)\) are isomorphisms. Therefore, \( A \cong B\).
+
+The results from this post are from Chapter 4 of Tom Leinster's Basic Category Theory textbook, which can be found [[https://arxiv.org/abs/1612.09375][here]].
+
