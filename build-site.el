@@ -34,10 +34,6 @@
       '(("timestamp" . "@@html:<span class=\"timestamp\">[$1]</span>@@")))
 
 
-
-
-
-
 ;; Define the publishing project
 (setq org-html-validation-link nil
       org-html-head-include-scripts nil
@@ -110,7 +106,43 @@
 	     :publishing-function 'org-publish-attachment)))
 
 
+
+;;; RSS
+(package-install 'org-static-blog)
+
+
+(setq org-static-blog-publish-title "James Leslie's Blog")
+(setq org-static-blog-publish-url "https://jeslie0.github.io")
+
+(setq org-static-blog-posts-directory "./content/blog")
+(setq org-static-blog-publish-directory "./RSS/")
+
+(setq org-static-blog-drafts-directory "./drafts/")
+(setq org-static-blog-enable-tags t)
+(setq org-export-with-toc nil)
+(setq org-export-with-section-numbers nil)
+
+;; This header is inserted into the <head> section of every page:
+;;   (you will need to create the style sheet at
+;;    ~/projects/blog/static/style.css
+;;    and the favicon at
+;;    ~/projects/blog/static/favicon.ico)
+(setq org-static-blog-page-header "<link rel=\"stylesheet\" href=\"/CSS/theorem.css\" />")
+
+;; This preamble is inserted at the beginning of the <body> of every page:
+;;   This particular HTML creates a <div> with a simple linked headline
+(setq org-static-blog-page-preamble "")
+
+;; This postamble is inserted at the end of the <body> of every page:
+;;   This particular HTML creates a <div> with a link to the archive page
+;;   and a licensing stub.
+(setq org-static-blog-page-postamble "")
+
+;; This HTML code is inserted into the index page between the preamble and
+;;   the blog posts
+(setq org-static-blog-index-front-matter "")
+
 ;; Generate the site output
 (org-publish-all) ;; Add t here when testing html and css changes. Remove when just updating content
-
+(org-static-blog-publish)
 (message "Build Complete")

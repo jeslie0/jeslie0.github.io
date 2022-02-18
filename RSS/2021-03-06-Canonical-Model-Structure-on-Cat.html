@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="alternate"
+      type="application/rss+xml"
+      href="https://jeslie0.github.io/rss.xml"
+      title="RSS feed for https://jeslie0.github.io">
+<title>The Canonical Model Structure on Cat/Gpd</title>
+</head>
+<body>
+<div id="preamble" class="status"></div>
+<div id="content">
+<div class="post-date">06 Mar 2021</div><h1 class="post-title"><a href="https://jeslie0.github.io/2021-03-06-Canonical-Model-Structure-on-Cat.html">The Canonical Model Structure on Cat/Gpd</a></h1>
+<p>
+When one first starts studying category theory, they learn that the correct notion of "the same" for categories is that of equivalence, rather than the stronger notion isomorphism. For those that have studied some algebraic topology, the situation is very similar to identifying spaces if they are homotopic, rather than homeomorphic. This is often given as an analogy, but the two notions can be reconciled by giving model structures where the weaker form of identification forms the subcategory of weak equivalences. Here, we define and present the so called canonical model structure on the category of categories. The proof of each step given can also be applied to the category of groupoids. 
+</p>
+
+<p>
+We denote the category of (small) categories by \(\mathbf{Cat}\) and the category of (small) groupoids \(\mathbf{Gpd}\).
+</p>
+
+<p>
+This proof can be found on the nLab's "<a href="https://ncatlab.org/nlab/show/canonical+model+structure+on+Cat">canonical model structure on Cat</a>" page, but here we go into a lot more detail of the constructions.
+</p>
+<div id="outline-container-org2843360" class="outline-2">
+<h2 id="org2843360">The model structure</h2>
+<div class="outline-text-2" id="text-org2843360">
+<div class="definition" id="orgadd9aa9">
+<p>
+Let \(C\) be a category and \((A, B)\) a pair of subcategories. The pair \((A, B)\) is a <i>weak factorisation system</i> if:
+</p>
+<ol class="org-ol">
+<li>Both \(A\) and \(B\) are stable under retracts;</li>
+<li>\(A\) is in the left lifting class of \(B\) (\(A \subset LB\));</li>
+<li>Every morphism \(f : X \to Y\) in \(C\) factors as \(f = pi\) with \(i \in A\) and \(p \in B\).</li>
+</ol>
+
+</div>
+
+<div class="definition" id="org95c657a">
+<p>
+A <i>model structure</i> on a category \(\mathcal{C}\) consists of a triple of wide subcategories \(W, F, C \) whose morphisms are called <i>weak equivalences</i> (anotated with a \(\sim\)), <i>fibrations</i> (annotated with a double head \(\twoheadrightarrow\)) and <i>cofibrations</i> (annotated with a tail \(\rightarrowtail\)), respectively. This triple must satisfy the following three axioms:
+</p>
+<ol class="org-ol">
+<li>\(W\) satisfies 2-out-of-3;</li>
+<li>\((F, W \cap C)\) is a weak factorisation system;</li>
+<li>\((F \cap W, C)\) is a weak factorisation system.</li>
+</ol>
+
+</div>
+
+<div class="definition" id="orgcdc51c8">
+<p>
+A <i>model category</i> is a finitely bicomplete category, along with a model structure on it.
+</p>
+
+</div>
+
+<p>
+Before giving the main result, we need one more definition.
+</p>
+
+<div class="definition" id="org8b48181">
+<p>
+Let \(F: \mathcal{A} \to \mathcal{B}\) be a functor. We say \(F\) is an <i>isofibration</i> if for every \(a \in \mathcal{A}\) and isomorphism \(f : Fa \to b \in \mathcal{B}\), there is an isomorphism \(g: a \to a' \in \mathcal{A}\) such that \(Ff = g\).
+</p>
+
+</div>
+
+<p>
+Our main result is the following:
+</p>
+<div class="theorem" id="orgeb95f40">
+<p>
+The category \(\mathbf{Cat}\) has a model structure on it with:
+</p>
+<ol class="org-ol">
+<li>\(W\) being the class of categorical equivalences;</li>
+<li>\(F\) being the class of isofibrations;</li>
+<li>\(C\) being the class of functors injective on objects.</li>
+</ol>
+
+</div>
+
+<p>
+The rest of this section will be proving the above theorem. That \(\mathbf{Cat}\) and \(\mathbf{Gpd}\) has all finite limits follows from it having a terminal object, binary products and equalisers. The theory of categories and groupoids are generalised algebraic theories, so the category of models (\(\mathbf{Cat}\) and \(\mathbf{Gpd}\), respectively) has all (finite) colimits.
+</p>
+
+<p>
+We now break down each of the defining features of a model structure and show that they hold here.
+</p>
+</div>
+
+<div id="outline-container-orga099778" class="outline-3">
+<h3 id="orga099778">2-out-of-3</h3>
+<div class="outline-text-3" id="text-orga099778">
+<div class="lemma" id="orga224df2">
+<p>
+Categorical equivalences are closed under 2-out-of-3.
+</p>
+
+</div>
+
+<div class="proof" id="orgb972bc0">
+<p>
+This follows by basic diagram chasing. If we have the following commuting triangle, with any two maps being equivalences, we can take pseudo-inverses to construct a pseudo-inverse to the third map.
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X \ar[rr, "f"] \ar[rd, "g"'] & & Y \\
+    & Z \ar[ru, "h"'] &
+  \end{tikzcd}
+\end{center}
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org29bbb0f" class="outline-3">
+<h3 id="org29bbb0f">Retracts</h3>
+<div class="outline-text-3" id="text-org29bbb0f">
+<div class="lemma" id="org5bed558">
+<p>
+The class of categorical equivalences is stable under retracts.
+</p>
+
+</div>
+
+<div class="proof" id="org0affbd8">
+<p>
+Suppose we have the following commuting diagram where \(g\) is an equivalence. We show \(f\) is also an equivalence:
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X \arrow[r, "i"] \arrow[d, "f"] \arrow[rr, "1_X", bend left] & U \arrow[r, "u"] \arrow[d, "\sim", "g"'] & X \arrow[d, "f"] \\
+    Y \arrow[r, "j"] \arrow[rr, "1_Y", bend right]               & V \arrow[r, "v"]                   & Y               
+  \end{tikzcd}
+\end{center}
+
+<p>
+Since \(g\) is an equivalence, there exists a functor \(g'\) such that \(gg' \cong 1_V\) and \(g'g \cong 1_U\). The morphism \(pg'j\) is then easily seen to be a pseudo-inverse to \(f\), showing that it is also an equivalence.
+</p>
+
+</div>
+
+<div class="lemma" id="org703ed12">
+<p>
+The class of isofibrations is stable under retracts.
+</p>
+
+</div>
+
+<div class="proof" id="org2546d1e">
+<p>
+Suppose the following diagram commutes and \(g\) is an isofibration. We need to show that \(f\) is an isofibration also:
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X \arrow[r, "i"] \arrow[d, "f"] \arrow[rr, "1_X", bend left] & U \arrow[r, "p"] \arrow[d, "g", two heads] & X \arrow[d, "f"] \\
+    Y \arrow[r, "j"] \arrow[rr, "1_Y", bend right]               & V \arrow[r, "q"]                           & Y               
+  \end{tikzcd}
+\end{center}
+<p>
+Let \(x \in X\) and \(\alpha : fx \to y\) be an isomorphism in \(Y\). We apply \(j\) to get an isomorphism \(j\alpha : jfx=gix \to jy\). As \(g\) is an isofibration, there is an isomorphism \(\beta : ix \to u \in U\) such that \(g\beta = j\alpha\). Applying \(p\), we have an isomorphism \(p\beta : pix=x \to pu \in X\). If we apply \(f\) to this map, we have:
+</p>
+\begin{align*}
+  fp\beta &= qg\beta && \text{right square}\\
+          &= qj\alpha && \text{definition of }\beta\\
+          &= \alpha.
+\end{align*}
+<p>
+Hence, given an isomorphism \(\alpha\), there exists an isomorphism \(p\beta\) such that \(fp\beta = \alpha\), so \(f\) is also an isofibration.
+</p>
+
+</div>
+
+<div class="lemma" id="org432c6e6">
+<p>
+The class of functors injective on objects is stable under retracts.
+</p>
+
+</div>
+
+<div class="proof" id="orgb15a8d9">
+<p>
+Suppose we have the following diagram in \(\mathbf{Cat}\), where \(g\) is a functor injective on objects. We need to show that \(f\) is injective on objects also:
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X \arrow[r, "i"] \arrow[d, "f"] \arrow[rr, "1_X", bend left] & U \arrow[r, "p"] \arrow[d, "g", tail] & X \arrow[d, "f"] \\
+    Y \arrow[r, "j"] \arrow[rr, "1_Y", bend right]               & V \arrow[r, "q"]                      & Y               
+  \end{tikzcd}
+\end{center}
+
+<p>
+Suppose \(x\) and \(y\) are objects in \(X\) such that \(fx = fy\). We have the following chain of equalities:
+</p>
+\begin{align*}
+  fx = fy &\implies jfx=jfy\\
+          &\implies gix=giy && \text{(left square)}\\
+          &\implies ix=iy && (g \in C)\\
+          &\implies pix=piy\\
+          &\implies x=y.
+\end{align*}
+<p>
+Hence \(f\) is also injective on objects.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgca7c4d4" class="outline-3">
+<h3 id="orgca7c4d4">Lifting properties</h3>
+<div class="outline-text-3" id="text-orgca7c4d4">
+<p>
+We first give a lemma that will be useful in solving the lifting problems in this section.
+</p>
+
+<div class="lemma" id="orge8f9267">
+<p>
+Isofibrations that are equivalences are exactly the equivalences that are surjective on objects.
+</p>
+
+</div>
+
+<div class="proof" id="orge2133c3">
+<p>
+Suppose that \(F: \mathcal{A} \to \mathcal{B}\) is an isofibration and an equivalence. To see that it is surjective on objects, let \(b \in B\). As \(F\) is an equivalence, it is fully faithful, so there is some \(a \in \mathcal{A}\) and isomorphism \(\beta : Fa \to b \in \mathcal{B}\). As \(F\) is an isofibration, there is an isomorphism \(\alpha : a \to a' \in \mathcal{A}\) such that \(F\alpha = \beta\). Then, we must have that \(Fa' = b\), so \(F\) is surjective on objects.
+</p>
+
+<p>
+If \(F\) is an equivalence that is surjective on objects, it is also an isofibration. Let \(a \in \mathcal{A}\) and \(\beta : Fa \to b\) be an isomorphism in \(\mathcal{B}\). As \(F\) is surjective on objects, \(b = Fa'\) for some \(a' \in \mathcal{A}\), so \(\beta\) is a map \(Fa \to Fa'\). By \(F\) being full, there is a morphism \(\alpha : a \to a'\) such that \(F\alpha = \beta\). By \(F\) being faithful, this \(\alpha\) must be an isomorphism, so \(F\) is an isofibration.
+</p>
+
+</div>
+
+<div class="lemma" id="orgdccfe53">
+<p>
+The class of functors injective on objects has the left lifting property with respect to functors that are isofibrations and equivalences.
+</p>
+
+</div>
+
+<div class="proof" id="orga6faccc">
+<p>
+Suppose we have the following commuting diagram, where \(f\) is injective on objects and \(g\) is an equivalence and isofibration:
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X \arrow[r, "i"] \arrow[d, "f"', tail] & U \arrow[d, "g"', "\sim", two heads] \\
+    Y \arrow[r, "j"']                      & V                             
+  \end{tikzcd}
+\end{center}
+
+<p>
+As this commutes, we have the following ``object square'' commuting in \(\mathbf{Set}\):
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X_0 \arrow[r, "i_0"] \arrow[d, "f_0"', tail] & U_0 \arrow[d, "g_0", two heads] \\
+    Y_0 \arrow[r, "j_0"']                        & V_0                            
+  \end{tikzcd}
+\end{center}
+
+<p>
+In particular, \(f_0\) is injective and by Lemma 10, \(g_0\) is surjective. As \((\text{inj}, \text{surj})\) form a weak factorisation system on \(\mathbf{Set}\), there is a lift \(h_0\). We now aim to turn \(h_0\) into a functor. Let \(\alpha: y \to y'\) be a morphism in \(Y\). We then have a morphism \(j\alpha : jy = gh_0y \to gh_0y'=jy' \in V_0\). As \(g\) is fully faithful, there is a unique morphism \(\beta : h_0 y \to h_0 y' \in U\) such that \(g\beta = j\alpha\). We define \(h\alpha := \beta\). As \(j\) is a functor, it must preserve identity morphisms and as \(g\) is fully faithful, the lift of an identity morphism from \(v\) to \(u\) must be the identity, so \(h\) preserves identity morphisms. Similarly, by functorality of \(j\) and fully faithfulness of \(g\), we have that composites are mapped to composites, so \(h\) is a functor and makes the bottom triangle commute:
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X \arrow[r, "i"] \arrow[d, "f"', tail] & U \arrow[d, "g"', "\sim", two heads] \\
+    Y \arrow[r, "j"']  \ar[ru, "h"]                    & V                             
+  \end{tikzcd}
+\end{center}
+
+<p>
+The top triangle commutes on objects, so we need to check it commutes on maps. Given \(\alpha : x \to x' \in X\),
+</p>
+\begin{align*}
+  g i \alpha &= j f \alpha\\
+             &= g h f \alpha
+\end{align*}
+<p>
+So \(i \alpha = h f \alpha\) by fully faithfulness of \(g\), meaning that the top triangle commutes. This means that \(h\) is indeed a lift, which shows that functors injective on objects are in the left lifting class of fucntors that are equivalences and isofibrations.
+</p>
+
+</div>
+
+<div class="lemma" id="org2a9302a">
+<p>
+The class of functors injective on objects which are also equivalences has the left lifting property with respect to functors that are isofibrations.
+</p>
+
+</div>
+
+<div class="proof" id="orgb701f41">
+<p>
+Suppose we have the following diagram commuting, with \(f\) an equivalence that is injective on objects and \(g\) an isofibration:
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X \arrow[r, "i"] \arrow[d, "f"', "\sim", tail] & U \arrow[d, "g", two heads] \\
+    Y \arrow[r, "j"']                      & V                          
+  \end{tikzcd}
+\end{center}
+
+<p>
+To construct a functor \(h:Y \to U\), we use the axiom of choice to get some extra structure. As \(f\) is essentially surjective, for every object \(y \in Y\), we choose an isomorphism \(\alpha_y : fx_y \to y\), picking the identity morphism wherever possible, i.e \(\alpha_{fx} = 1_{fx}\) (we call the argument of \(f\) \(x_y\), which is well defined at \(f\) is injective on objects). As \(g\) is an isofibration, we choose for every \(y \in Y\) a morphism \(\beta_y : ix_y \to u_y \in U\) such that \(g\beta_y = j\alpha_y\), again, picking the identity morphism whenever possible, i.e \(\beta_{fx} = 1_{ix}\). On objects, we define \(h(y) = u_y\). For morphisms, the output is a little more complicated. Starting with a map \(\gamma : y \to y'\), we form the composite \(\alpha_{y'}^{-1} \gamma \alpha_y : fx_y \to fx_{y'}\). We let \(\overline{\alpha_{y'}^{-1} \gamma \alpha_y} : x_y \to x_{y'}\) be the unique map that \(f\) maps to \(\alpha_{y'}^{-1} \gamma \alpha_y\). Then, applying \(i\), we have a map \(i \overline{\alpha_{y'}^{-1} \gamma \alpha_y} : ix_y \to ix_{y'}\). We can then compose with maps \(\beta_y^{-1}\) and \(\beta_{y'}\) to get \(\beta_{y'} i \left(\overline{\alpha_{y'}^{-1} \gamma \alpha_y}\right) \beta_{y}^{-1} : u_y \to u_{y'}\). This is what we define \(h\gamma\) to be.
+</p>
+
+<p>
+To see that \(h\) is a functor, we see that it sends the identity to the identity:
+</p>
+\begin{align*}
+  \beta_{y} i \left(\overline{\alpha_{y}^{-1} 1_y \alpha_y}\right) \beta_{y}^{-1} &= \beta_y i\left( \overline{1_y}\right) \beta_y^{-1} \\
+  &= \beta_y i(1_{x_y}) \beta_y^{-1}\\
+  &=1_{u_y}.
+\end{align*}
+<p>
+We also see that \(h\) preserves composites: let \(\gamma : y \to y'\) and \(\delta : y' \to y''\). Then:
+</p>
+\begin{align*}
+  \beta_{y''} i \left(\overline{\alpha_{y''}^{-1} \delta \alpha_{y'}}\right) \beta_{y'}^{-1} \circ \beta_{y'} i \left(\overline{\alpha_{y'}^{-1}\gamma \alpha_y}\right) \beta_y^{-1} &=  \beta_{y''} i \left( \overline{\alpha_{y''}^{-1} \delta \alpha_{y'}}\right) i \left( \overline{\alpha_{y'}^{-1}\gamma \alpha_y}\right) \beta_y^{-1}\\
+                                                                                                                                                                                     &= \beta_{y''}i \left( \overline{\alpha_{y''}^{-1} \delta \alpha_{y'}} \circ \overline{\alpha_{y'}^{-1} \gamma \alpha_y} \right) \beta_y^{-1}\\
+  &= \beta_{y''} i \left( \alpha^{-1}_{y''} \delta \gamma \alpha_y \right) \beta_y^{-1}
+\end{align*}
+
+<p>
+We now show that it makes both the triangles commute:
+</p>
+\begin{center}
+  \begin{tikzcd}
+    X \arrow[r, "i"] \arrow[d, "\sim", "f"', tail] & U \arrow[d, "g", two heads] \\
+    Y \arrow[r, "j"'] \arrow[ru, "h"]      & V                          
+  \end{tikzcd}
+\end{center}
+
+<p>
+Given \(x \in X\), we need \(ix = u_{fx}\), however this follows from our choice of maps being the identity wherever possible, which means \(\beta_{fx} = 1_{ix}\). Likewise, for maps \(\gamma: x \to x'\), our chosen isomorphisms are the identity, giving \(hf\gamma = i\gamma\). Now, if \(y \in Y\), we see by definition that \(gu_y = jy\), so the bottom triangle commutes on objects. Given a map \(\gamma : y \to y' \in Y\), by the properties of \(\beta_y\) we have:
+</p>
+\begin{align*}
+  g\left( \beta_{y'} i \left(\overline{\alpha_{y'}^{-1} \gamma \alpha_y}\right) \beta_{y}^{-1} \right) &= g(\beta_{y'}) gi \left(\overline{\alpha_{y'}^{-1} \gamma \alpha_y}\right) g(\beta_{y})^{-1}\\
+                                                                                                         &= j(\alpha_{y'}) jf \left( \overline{\alpha_{y'}^{-1} \gamma \alpha_y} \right) j(\alpha_y)^{-1}\\
+                                                                                                         &= j(\alpha_{y'}) j(\alpha_{y'})^{-1} j\gamma j(\alpha_y) j(\alpha_y)^{-1}\\
+                                                                                                         &=j\gamma
+\end{align*}
+
+<p>
+Hence \(h\) is a lift, as required.
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7c77f33" class="outline-3">
+<h3 id="org7c77f33">Factorisations</h3>
+<div class="outline-text-3" id="text-org7c77f33">
+<div class="lemma" id="orgc96eccd">
+<p>
+Every functor can be factored as a functor injective on objects, followed by a functor that is an isofibration and equivalence.
+</p>
+
+</div>
+
+<div class="proof" id="org900bb51">
+<p>
+Given \(f:X \to Y\), we form a new category \(Z\) with objects given by \(X_0 \coprod Y_0\). We define the hom-sets as follows:
+</p>
+\begin{align*}
+  Z(x,y) := \begin{cases}
+    x \in X, y \in X &\implies Y(fx, fy),\\
+    x \in X, y \in Y &\implies Y(fx, y),\\
+    x \in Y, y \in X &\implies Y(x, fy),\\
+    x \in Y, y \in Y &\implies Y(x, y).
+  \end{cases}
+\end{align*}
+
+<p>
+We then have a functor \(X \to Z\) which is the identity on objects, and \(f\) on maps, which, in particular, is injective on objects. We can also construct another functor \(Z \to Y\) which is formed by applying \(f\) to objects from \(X\) and the identity to objects from \(y\). It is then the identity morphism on maps, which means it is fully faithful. It is also surjective on objects as every object in \(Y\) is mapped to itself by this functor. The composite of these two morphisms is \(f\) on objects and \(f\) on maps, hence it is a factorisation of \(f\) into a functor injective on objects, followed by a surjective equivalence (which by Lemma 10) is an equivalence and isofibration), as required.
+</p>
+
+</div>
+
+<div class="lemma" id="org0e2a8f5">
+<p>
+Every functor can be factored as a functor injective on objects and an equivalence, followed by an isofibration.
+</p>
+
+</div>
+
+<div class="proof" id="orge0ca9a4">
+<p>
+Given \(f:X \to Y\) we form the comma category \(F \downarrow 1_Y\), then take the full subcategory spanned by objects \((x, y, \phi : fx \to y)\) where \(\phi\) is an isomorphism in \(Y\). Denote this category as \(F \downarrow_{\cong} 1_Y\)
+Note that we have a functor \(X \to F \downarrow_{\cong} 1_Y\) defined by sending \(x \mapsto (x , fx, 1_{fx})\) and \(\alpha : x \to x' \mapsto (\alpha, f\alpha)\). This is clearly injective on objects and fully faithful. We also have that every \((x, y, \phi) \cong (x, fx, 1_{fx})\) by the following commuting square in \(Y\) (with horizontal maps being isomorphisms):
+</p>
+\begin{center}
+  \begin{tikzcd}
+    fx \ar[r, "f1_{x}"] \ar[d, "\phi"'] & fx \ar[d, "1_{fx}"] \\
+    y \ar[r, "\phi^{-1}"'] & fx
+  \end{tikzcd}
+\end{center}
+
+<p>
+We have a functor \(f \downarrow_{\cong} 1_Y \to Y\) given by projecting out the second component. This functor is also seen to be an isofibration: given \((x, y, \phi)\) and an isomorphism \(\alpha : y \to y' \in Y\), the following square commutes, with horizontal maps isomorphisms, so is an isomorphism in \(f \downarrow_{\cong} 1_Y\):
+</p>
+\begin{center}
+  \begin{tikzcd}
+    fx \ar[r, "\phi"] \ar[d, "\phi"'] & y \ar[d, "\alpha"] \\
+    y \ar[r, "\alpha"'] & y' 
+  \end{tikzcd}
+\end{center}
+<p>
+Our projection functor sends this isomorphism to \(\alpha\), so it is an isofibration. The composite of the two functors defined is easily seen to be equal to \(f\), completing the factorisation of \(f\) as an equivalence that is injective on objects, followed by an isofibration.
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2a10e08" class="outline-2">
+<h2 id="org2a10e08">Putting it all together</h2>
+<div class="outline-text-2" id="text-org2a10e08">
+<div class="corollary" id="org37a40d0">
+<p>
+Functors injective on objects and equivalences that are isofibrations, form a weak factorisation system on \(\mathbf{Cat}\).
+</p>
+
+</div>
+
+<div class="proof" id="org36b2168">
+<p>
+Lemma 9 shows functors injective on objects are stable under retracts. Lemmas 9 and 9 show that equivalences that are isofibrations are also stable under retracts. Lemma 13 gives the desired lifting data and Lemma 14 gives the desired factorisation.
+</p>
+
+</div>
+
+<div class="corollary" id="org8ad1995">
+<p>
+Equivalences that are injective on objects and isofibrations form a weak factorisation system on \(\mathbf{Cat}\).
+</p>
+
+</div>
+
+<div class="proof" id="orgd4c7033">
+<p>
+Lemmas 7 and 9 show that the class of equivalences that are injective on objects is stable under retracts. Lemma 8 shows the class of isofibrations are stable under retracts. Lemma 12 gives the desired lifting data and Lemma 14 gives the desired factorisation.
+</p>
+
+</div>
+
+<div class="corollary" id="org3af87b9">
+<p>
+The category \(\mathbf{Cat}\) has a model structure on it with:
+</p>
+<ol class="org-ol">
+<li>\(W\) being the class of equivalences;</li>
+<li>\(F\) being the class of isofibrations;</li>
+<li>\(C\) being the class of functors injective on objects.</li>
+</ol>
+
+</div>
+
+<div class="proof" id="org311be67">
+<p>
+Lemma shows that \(W\) satisfies 2-out-of-3. Corollaries 15 and 16 show that \((C \cap W, F)\) and \((C, F \cap W)\) are weak factorisation systems.
+</p>
+
+</div>
+
+<p>
+This proves Theorem 5. To see that this restricts to \(\mathbf{Gpd}\) we only need to realise that if \(X\) and \(Y\) are groupoids, the categories constructed in the Factorisations section are also groupoids. This means we have the following:
+</p>
+
+<div class="corollary" id="orge789810">
+<p>
+The category \(\mathbf{Gpd}\) has a model structure on it with:
+</p>
+<ol class="org-ol">
+<li>\(W\) being the class of categorical equivalences;</li>
+<li>\(F\) being the class of isofibrations;</li>
+<li>\(C\) being the class of functors injective on objects.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="taglist"></div></div>
+<div id="postamble" class="status"></div>
+</body>
+</html>
