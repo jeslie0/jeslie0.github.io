@@ -1,38 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<link rel="alternate"
-      type="application/rss+xml"
-      href="https://jeslie0.github.io/rss.xml"
-      title="RSS feed for https://jeslie0.github.io">
-<title>Monoidal Categories</title>
-</head>
-<body>
-<div id="preamble" class="status"></div>
-<div id="content">
-<div class="post-date">15 Apr 2018</div><h1 class="post-title"><a href="https://jeslie0.github.io/2018-04-15-Monoidal-Categories.html">Monoidal Categories</a></h1>
-<p>
+#+title: Monoidal Categories
+#+options: tex:t
+#+date:<2018-04-15 Sun>
+
 In mathematics, we are familiar with putting structure on sets, for example a group is a set with a binary operation satisfying certain properties. We can extend this notion to categories. The first examples I came across in my studies were monoidal categories, which are used to abstract the notion of a tensor product, and have deep ties to quantum mechanics and physics.
-</p>
-<div class="definition" id="orgd343065">
-<p>
-A <i>monoidal category</i> is a category \(\mathcal{C}\) with a functor \( \otimes: \mathcal{C} \times \mathcal{C} \rightarrow \mathcal{C}\), an object \( I \in \mathcal{C}\) called the unit and the following natural isomorphisms, written in terms of their components:
-</p>
+#+BEGIN_definition
+A /monoidal category/ is a category \(\mathcal{C}\) with a functor \( \otimes: \mathcal{C} \times \mathcal{C} \rightarrow \mathcal{C}\), an object \( I \in \mathcal{C}\) called the unit and the following natural isomorphisms, written in terms of their components:
 
-<ol class="org-ol">
-<li>An associator \(\alpha_{A,B,C}: (A \otimes B) \otimes C \rightarrow A \otimes (B \otimes C)\),</li>
-<li>A left unitor \(\lambda_A: I \otimes A \rightarrow A\),</li>
-<li>A right unitor \(\rho_A: A \otimes I \rightarrow A\).</li>
-</ol>
+1. An associator \(\alpha_{A,B,C}: (A \otimes B) \otimes C \rightarrow A \otimes (B \otimes C)\),
+2. A left unitor \(\lambda_A: I \otimes A \rightarrow A\),
+3. A right unitor \(\rho_A: A \otimes I \rightarrow A\).
 
 
-<p>
-These maps all have to satisfy the following diagrams, aptly named the triangle and pentagon identities.
-</p>
+ These maps all have to satisfy the following diagrams, aptly named the triangle and pentagon identities.
 
 
-<p>
 \[\begin{tikzcd}
                                                                                                                                     & (A \otimes I) \otimes B \arrow[rr, "{\alpha_{A, I , B}}"] \arrow[rd, "\rho_A \otimes \text{id}_B"'] &                                                                                & A \otimes (I \otimes B) \arrow[ld, "\text{id}_A \otimes \lambda_B"]                    &                                     \\
                                                                                                                                     &                                                                                                     & A \otimes B                                                                    &                                                                                        &                                     \\
@@ -40,85 +21,49 @@ These maps all have to satisfy the following diagrams, aptly named the triangle 
 ((A \otimes B)\otimes C) \otimes D \arrow[ru, "{\alpha_{A,B,C} \otimes \text{id}_D}"] \arrow[rrd, "{\alpha_{A \otimes B, C , D}}"'] &                                                                                                     &                                                                                &                                                                                        & A \otimes (B \otimes (C \otimes D)) \\
                                                                                                                                     &                                                                                                     & (A \otimes B) \otimes (C \otimes D) \arrow[rru, "{\alpha_{A,B,C \otimes D}}"'] &                                                                                        &                                    
                                                                                                                                     \end{tikzcd}\]
-</p>
 
-</div>
+#+END_definition
 
-<p>
 These two diagrams remarkably lead to a coherence theorem which states that every well formed formula built from \(\alpha, \lambda, \rho\) and their inverses holds. This gives us for free that \( \rho_I = \lambda_I\), which would otherwise be very painful to prove.
-</p>
 
-<p>
 The classic example of a monoidal category is \( \mathbf{Hilb}\), the category of Hilbert spaces with morphisms as bounded linear maps. The tensor functor simply gives the tensor product of two Hilbert spaces and the unit object is \( \mathbb{C}\), the complex numbers. The natural transformations are given in the obvious way. We can turn \( \mathbf{Set}\) into a monoidal category by having the \( \otimes\) functor give the Cartesian product of two sets and having the terminal object 1 as the unit.
-</p>
 
-<p>
 The study of both \( \mathbf{Hilb}\) and \( \mathbf{Set}\) are useful for physics. The former is used to formalize quantum mechanics and the latter classical physics. One property that \(\mathbf{Hilb}\) has that \(\mathbf{Set}\) doesn't is the existence of a zero object. This is an object, denoted \(0\), which is both initial and terminal, that is, given any other object \( A\), there is exactly one morphism \( 0 \rightarrow A\) and exactly one morphism \( A \rightarrow 0\). It isn't hard to see that \( \mathbf{Hilb}\), the zero object is simply the Hilbert space consisting of just a zero vector. It is also not difficult to show that \( \mathbf{Set}\) doesn't have a zero object, since if it did it would need to be isomorphic to both the one element set and the empty set, which is impossible.
-</p>
 
-<p>
 It is easy to see that in \( \mathbf{Hilb}\), we have \( 0 \otimes 0 \cong 0\). This is true for all monoidal categories with a zero object, as we shall now prove. I highly recommend trying this exercise for yourself first!
-</p>
 
-<p>
 We have the following unique arrows: \( f: I \rightarrow 0\) and \( g:0 \rightarrow I\). These give rise to maps \( f \otimes 1_0:I \otimes 0 \rightarrow 0 \otimes 0\) and \( g \otimes 1_0: 0 \otimes 0 \rightarrow I \otimes0\). We then get the following composites:
-</p>
 
-<p>
-&lt;a class="btn btn-rss" href="/feed.xml" target="<sub>blank</sub>"&gt;RSS&lt;/a&gt;
-</p>
-<ol class="org-ol">
-<li>\( 0 \xrightarrow{\lambda_0^{-1}} I \otimes 0 \xrightarrow{f \otimes 1_0} 0 \otimes 0\),</li>
-<li>\(0 \otimes 0 \xrightarrow{g \otimes 1_0} I \otimes 0 \xrightarrow{\lambda_0} 0\).</li>
-</ol>
+<a class="btn btn-rss" href="/feed.xml" target="_blank">RSS</a>
+1. \( 0 \xrightarrow{\lambda_0^{-1}} I \otimes 0 \xrightarrow{f \otimes 1_0} 0 \otimes 0\),
+2. \(0 \otimes 0 \xrightarrow{g \otimes 1_0} I \otimes 0 \xrightarrow{\lambda_0} 0\).
 
 
-<p>
 As \( 0\) is a zero-object, there is only one map \( 0 \rightarrow 0\), namely the identity map \( 1_0\). This means
-</p>
 
-<p>
 \(\left(\lambda_0 \circ (g \otimes 1_0)\right) \circ \left((f \otimes 1_0) \circ \lambda_0^{-1} \right)= 1_0\).
-</p>
 
-<p>
 We also see that \( f \circ g:0 \rightarrow 0\), so \( f \circ g = 1_0\). We can then build the following commuting square:
-</p>
 
-<p>
 \[ \begin{tikzcd}
 0 \arrow[r, "g"] \arrow[d, "1_0"'] & I \arrow[d, "1_I"] \\
 0                                  & I \arrow[l, "f"]  
 \end{tikzcd} \]
-</p>
 
-<p>
 We can apply the functor \( - \otimes 0\) to this square to get the following square:
 \[\begin{tikzcd}
 0 \otimes 0 \arrow[r, "g \otimes 1_0"] \arrow[d, "1_0 \otimes 1_0"'] & I \otimes 0 \arrow[d, "1_I"]           \\
 0 \otimes 0                                                          & I \otimes 0 \arrow[l, "f \otimes 1_0"]
 \end{tikzcd}\]
-</p>
 
-<p>
 Factoring \( 1_{I \otimes 0} = \lambda_0^{-1} \circ \lambda_0\) gives the following diagram:
-</p>
 
-<p>
 \[\begin{tikzcd}
 0 \otimes 0 \arrow[r, "g \otimes 1_0"] \arrow[d, "1_0 \otimes 1_0"'] & I \otimes 0 \arrow[d, "1_I"] \arrow[r, "\lambda_0"] & 0 \arrow[ld, "\lambda_0^{-1}"] \\
 0 \otimes 0                                                          & I \otimes 0 \arrow[l, "f \otimes 1_0"]              &                               
 \end{tikzcd}\]
-</p>
 
-<p>
 We also know that \( 1_0 \otimes 1_0 = 1_{0 \otimes0}\), from the tensor product functor. As this commutes, we have \( \left((f \otimes 1_0) \circ \lambda_0^{-1} \right) \circ  \left(\lambda_0 \circ (g \otimes 1_0)\right) = 1_{0\otimes0}\). This results in the maps (1) and (2) being mutual inverses, hence \( 0 \cong 0 \otimes 0\), as required.
-</p>
 
-<p>
-This is only the tip of the iceberg when it comes to monoidal categories, for example, we might want \( A \otimes B \cong B \otimes A\), in which case we need to look at braided monoidal categories. This post has been inspired by revision for one of my exams. The content is from lecture notes by my lecturer Chris Heunen which can (currently) be found <a href="http://www.inf.ed.ac.uk/teaching/courses/cqi/">here</a>.
-</p>
-<div class="taglist"></div></div>
-<div id="postamble" class="status"></div>
-</body>
-</html>
+This is only the tip of the iceberg when it comes to monoidal categories, for example, we might want \( A \otimes B \cong B \otimes A\), in which case we need to look at braided monoidal categories. This post has been inspired by revision for one of my exams. The content is from lecture notes by my lecturer Chris Heunen which can (currently) be found [[http://www.inf.ed.ac.uk/teaching/courses/cqi/][here]].
+

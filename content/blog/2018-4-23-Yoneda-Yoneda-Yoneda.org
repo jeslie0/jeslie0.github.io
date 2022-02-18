@@ -17,6 +17,10 @@ where \( A \mapsto H_A\) and \( (f:A \rightarrow B) \mapsto (H_f:H_A \rightarrow
 The functor \( H_\cdot\) is known as the Yoneda embedding. It comes hand in hand with the Yoneda Lemma.
 
 * Yoneda lemma
+:PROPERTIES:
+:ID:       859e4151-c3e2-4279-984c-32a42a904715
+:PUBDATE:  <2022-02-18 Fri 20:46>
+:END:
 #+BEGIN_theorem
 Let \(\mathcal{A}\) be a locally small category. Then 
 
@@ -28,6 +32,10 @@ naturally in \(A \in \mathcal{A}\) and \( X \in  [\mathcal{A}^\text{op}, \mathb
 There are many discussions on the importance of Yoneda, however we shall skip over them and instead look at the Yoneda embedding. This functor can only really be called an embedding if it is both full and faithful. This is a trivial result of the Yoneda lemma, however it is not necessary to invoke the lemma and it can be proven without it.
 
 * Yoneda embedding is full and faithful
+:PROPERTIES:
+:ID:       d167065e-fad8-49d4-84c1-b7dbb38f1b58
+:PUBDATE:  <2022-02-18 Fri 20:46>
+:END:
 
 Let \( A, A' \in \mathcal{A}\), and let \( \alpha:H_A \rightarrow H_{A'}\) be a natural transformation. We need to find a map \( f:A \rightarrow A'\) such that \( \alpha = H_f\). Looking at the \( A\) component of \( \alpha\) gives us a function
 
@@ -59,6 +67,10 @@ For faithfulness, again fix \( A, A' \in \mathcal{A}\) and consider two natural 
 Despite not explicitly using the Yoneda lemma, everything we have done is used in the proof of it. There is one more result that helps capture the idea behind the proof for Yoneda.
 
 * Yoneda embedding is injective on isomorphism classes
+:PROPERTIES:
+:ID:       00791ca4-1719-4261-93ea-48bcb4bcaf51
+:PUBDATE:  <2022-02-18 Fri 20:46>
+:END:
 
 Suppose for two objects \( A, B \in \mathcal{A}\) that \( H_A \cong H_{B}\). This means that we have two natural isomorphisms:
 

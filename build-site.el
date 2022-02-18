@@ -15,7 +15,7 @@
 
 ;; load the publishing system
 (require 'ox-publish)
-
+(load-file "./ox-rss.el")
 ;; Custom functions
 
 ;; Taken from https://taingram.org/blog/org-mode-blog.html
@@ -75,6 +75,7 @@
        (list "blog"
 	     :base-directory "./content/blog"
 	     :base-extension "org"
+	     :recursive t
 	     :publishing-directory "./public/blog"
 	     :publishing-function 'org-html-publish-to-html
 	     :auto-sitemap t            ;; Builds a blog post page
@@ -83,7 +84,7 @@
 	     :sitemap-sort-files 'anti-chronologically
 	     :sitemap-format-entry 'my/org-sitemap-date-entry-format
 	     :with-date t
-
+	     :html-link-use-abs-url t
 	     :with-author nil           ;; Don't include author name
 	     :with-creator nil          ;; Include Emacs and Org versions in footer
 	     :with-toc nil              ;; Don't include a table of contents
@@ -103,46 +104,26 @@
 	     :base-extension "css\\|txt\\|jpg\\|gif\\|png\\|jpeg\\|pdf"
 	     :recursive t
 	     :publishing-directory "./public"
-	     :publishing-function 'org-publish-attachment)))
+	     :publishing-function 'org-publish-attachment)
+       (list "rss"
+             :base-directory "./content/blog"
+             :base-extension "org"
+             ;; :rss-image-url "https://example.com/images/image"
+             :html-link-home "https://jeslie0.github.io/blog"
+             :html-link-use-abs-url t
+             :rss-extension "xml"
+             :publishing-directory "./RSS"
+             :publishing-function 'org-rss-publish-to-rss
+	     :section-numbers nil
+	     :exclude "index.org"            ;; To exclude all files...
+	     ;; :include ("index.org")   ;; ... except index.org.
+	     :table-of-contents nil
+	     )
+
+       ))
 
 
-
-;;; RSS
-(package-install 'org-static-blog)
-
-
-(setq org-static-blog-publish-title "James Leslie's Blog")
-(setq org-static-blog-publish-url "https://jeslie0.github.io")
-
-(setq org-static-blog-posts-directory "./content/blog")
-(setq org-static-blog-publish-directory "./RSS/")
-
-(setq org-static-blog-drafts-directory "./drafts/")
-(setq org-static-blog-enable-tags t)
-(setq org-export-with-toc nil)
-(setq org-export-with-section-numbers nil)
-
-;; This header is inserted into the <head> section of every page:
-;;   (you will need to create the style sheet at
-;;    ~/projects/blog/static/style.css
-;;    and the favicon at
-;;    ~/projects/blog/static/favicon.ico)
-(setq org-static-blog-page-header "<link rel=\"stylesheet\" href=\"/CSS/theorem.css\" />")
-
-;; This preamble is inserted at the beginning of the <body> of every page:
-;;   This particular HTML creates a <div> with a simple linked headline
-(setq org-static-blog-page-preamble "")
-
-;; This postamble is inserted at the end of the <body> of every page:
-;;   This particular HTML creates a <div> with a link to the archive page
-;;   and a licensing stub.
-(setq org-static-blog-page-postamble "")
-
-;; This HTML code is inserted into the index page between the preamble and
-;;   the blog posts
-(setq org-static-blog-index-front-matter "")
 
 ;; Generate the site output
-(org-publish-all) ;; Add t here when testing html and css changes. Remove when just updating content
-(org-static-blog-publish)
+(org-publish-all t) ;; Add t here when testing html and css changes. Remove when just updating content
 (message "Build Complete")

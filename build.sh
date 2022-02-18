@@ -1,4 +1,4 @@
 #!/bin/sh
 emacs -Q --script build-site.el
-
-cp ./RSS/rss.xml ./public/
+cd ./RSS
+xml_grep ./RSS/ > ./public/rss.xml

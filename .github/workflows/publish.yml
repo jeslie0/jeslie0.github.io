@@ -15,8 +15,12 @@ jobs:
       - name: Install Emacs
         run: sudo apt install emacs-nox --yes
 
+      - name: Install XMLTwigTools
+        run: sudo apt install xml-twig-tools --yes
+
       - name: Build the site
         run: ./build.sh
+
 
       - name: Publish generated content to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.4

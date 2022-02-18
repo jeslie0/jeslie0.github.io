@@ -8,10 +8,6 @@ We denote the category of (small) categories by \(\mathbf{Cat}\) and the categor
 
 This proof can be found on the nLab's "[[https://ncatlab.org/nlab/show/canonical+model+structure+on+Cat][canonical model structure on Cat]]" page, but here we go into a lot more detail of the constructions.
 * The model structure
-:PROPERTIES:
-:ID:       1dc4233d-9dfe-41b2-a49c-bc731c6ef086
-:PUBDATE:  <2022-02-18 Fri 20:46>
-:END:
 #+BEGIN_definition
   Let \(C\) be a category and \((A, B)\) a pair of subcategories. The pair \((A, B)\) is a /weak factorisation system/ if:
   1. Both \(A\) and \(B\) are stable under retracts;
@@ -49,9 +45,6 @@ The rest of this section will be proving the above theorem. That \(\mathbf{Cat}\
 We now break down each of the defining features of a model structure and show that they hold here.
 
 ** 2-out-of-3
-:PROPERTIES:
-:ID:       59ec12bd-0de5-434b-a4e1-85acdb8bda94
-:END:
 
 #+BEGIN_lemma
   Categorical equivalences are closed under 2-out-of-3.
@@ -68,9 +61,6 @@ We now break down each of the defining features of a model structure and show th
 #+END_proof
 
 ** Retracts
-:PROPERTIES:
-:ID:       0c5d6093-f55c-440b-8244-a1bb980a4e7e
-:END:
 
 #+BEGIN_lemma
   The class of categorical equivalences is stable under retracts.
@@ -134,9 +124,6 @@ We now break down each of the defining features of a model structure and show th
 #+END_proof
 
 ** Lifting properties
-:PROPERTIES:
-:ID:       8af699ec-11f5-480f-97a5-8eb143d939c6
-:END:
 
 We first give a lemma that will be useful in solving the lifting problems in this section.
 
@@ -235,9 +222,6 @@ Hence \(h\) is a lift, as required.
 #+END_proof
 
 ** Factorisations
-:PROPERTIES:
-:ID:       2f6e6f48-c519-4915-b86f-22b3a0b57fc9
-:END:
 #+BEGIN_lemma
 Every functor can be factored as a functor injective on objects, followed by a functor that is an isofibration and equivalence.
 #+END_lemma
@@ -281,10 +265,6 @@ We then have a functor \(X \to Z\) which is the identity on objects, and \(f\) o
 #+END_proof
 
 * Putting it all together
-:PROPERTIES:
-:ID:       fc50452c-f12c-4d2d-9b31-5ef7e76ee461
-:PUBDATE:  <2022-02-18 Fri 20:46>
-:END:
 
 #+BEGIN_corollary
 Functors injective on objects and equivalences that are isofibrations, form a weak factorisation system on \(\mathbf{Cat}\).
