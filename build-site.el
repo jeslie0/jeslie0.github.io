@@ -129,8 +129,28 @@
 ;; Generate the site output
 (org-publish-all t) ;; Add t here when testing html and css changes. Remove when just updating content
 
+;; list-filter :: (a -> Bool) -> [a] -> [a]
+(defun list-filter (predicate list)
+  "Filters the LIST by the PREDICATE."
+  (pcase list
+    (nil nil)
+    ()
+    )
+  )
+
+(defun html-dir-to-rss-list (directory)
+  "Takes a DIRECTORY and return a list of files to be used for RSS creation."
+  (butlast (butlast (cdr (cdr (directory-files directory))))))
+
+
+
 ;; Build Atom feed
-(webfeeder-build "atom.xml" "./public" "https://jeslie0.github.io/blog" '("./blog/2022-02-18-test.html" "./blog/2018-4-23-Yoneda-Yoneda-Yoneda.html"))
+(webfeeder-build "atom.xml"
+		 "./public/blog"
+		 "https://jeslie0.github.io/blog"
+		 (html-dir-to-rss-list "./public/blog")
+		 :title "James Leslie's Blog"
+		 :description "foo")
 
 
 (message "Build Complete")
