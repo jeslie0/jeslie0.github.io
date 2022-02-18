@@ -2,10 +2,9 @@
 #+attr_html: :width 200px :class rounded-corners :align right
 [[./images/pic.jpg]]
 * About Me
-I am a mathematics masters graduate from The University of Edinburgh (2018). From 2019-2021, I was at The University of Western Ontario doing graduate research. Academically, my interests are in the foundations of mathematics, through logic, set and topos theory, and (homotopy) type theory. I am in the process of building an Agda library for homotopy type theory, mainly based off of work from The HoTT Book. Outside of mathematics, I enjoy programming in Haskell and learning about its interactions with category theory. I am a Linux and Emacs user and enjoy system crafting as a hobby (my dotfiles repository for my NixOS system can be found [[https://github.com/jeslie0/.dotfiles][here]].)
+I am a mathematics masters graduate from The University of Edinburgh (2018). From 2019-2021, I was at The University of Western Ontario doing graduate research. Academically, my interests are in the foundations of mathematics, through logic, set and topos theory, and (homotopy) type theory. I am in the process of building an Agda library for homotopy type theory, mainly based off of work from The HoTT Book. Outside of mathematics, I enjoy programming in Haskell and learning about its interactions with category theory. I am a Linux and Emacs user and enjoy system crafting as a hobby (my dotfiles repository for my NixOS system can be found [[https://github.com/jeslie0/.dotfiles][here]]).
 
-Outside of mathematics, I enjoy [[file:images/running.jpg][running]], [[file:images/cycling.jpg][cycling]] and swimming.
-
+Other things that I enjoy include [[file:images/running.jpg][running]], [[file:images/cycling.jpg][cycling]] and swimming, as well as artisan coffee brewing and tasting.
 * Talks
 I have given talks throughout my time as a student. This is a list of them.
 | Date          | Title                                                            | Resources |
