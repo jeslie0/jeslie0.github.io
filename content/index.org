@@ -50,7 +50,3 @@ During my time at Western, I participated in the Directed Reading Program as a m
 |-----------------+------------------------------------------------------------------------------------------|
 | 2020 Semester 1 | I was a mentor for the [[https://www.math.uwo.ca/undergraduate/directed_reading_program.html][directed reading program]] for a project on bicategories and mates. |
 | 2019 Semester 1 | I was a mentor for the [[https://www.math.uwo.ca/undergraduate/directed_reading_program.html][directed reading program]] covering category theory.                |
-
-
-
-
