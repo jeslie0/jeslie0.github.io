@@ -12,10 +12,12 @@
 
 ;; Install dependencies
 (package-install 'htmlize)
-
+(package-install 'webfeeder)
 ;; load the publishing system
 (require 'ox-publish)
-(load-file "./ox-rss.el")
+
+
+
 ;; Custom functions
 
 ;; Taken from https://taingram.org/blog/org-mode-blog.html
@@ -105,20 +107,20 @@
 	     :recursive t
 	     :publishing-directory "./public"
 	     :publishing-function 'org-publish-attachment)
-       (list "rss"
-             :base-directory "./content/blog"
-             :base-extension "org"
-             ;; :rss-image-url "https://example.com/images/image"
-             :html-link-home "https://jeslie0.github.io/blog"
-             :html-link-use-abs-url t
-             :rss-extension "xml"
-             :publishing-directory "./RSS"
-             :publishing-function 'org-rss-publish-to-rss
-	     :section-numbers nil
-	     :exclude "index.org"            ;; To exclude all files...
-	     ;; :include ("index.org")   ;; ... except index.org.
-	     :table-of-contents nil
-	     )
+       ;; (list "rss"
+       ;;       :base-directory "./content/blog"
+       ;;       :base-extension "org"
+       ;;       ;; :rss-image-url "https://example.com/images/image"
+       ;;       :html-link-home "https://jeslie0.github.io/blog"
+       ;;       :html-link-use-abs-url t
+       ;;       :rss-extension "xml"
+       ;;       :publishing-directory "./RSS"
+       ;;       :publishing-function 'org-rss-publish-to-rss
+       ;; 	     :section-numbers nil
+       ;; 	     :exclude "index.org"            ;; To exclude all files...
+       ;; 	     ;; :include ("index.org")   ;; ... except index.org.
+       ;; 	     :table-of-contents nil
+       ;; 	     )
 
        ))
 
@@ -126,4 +128,9 @@
 
 ;; Generate the site output
 (org-publish-all t) ;; Add t here when testing html and css changes. Remove when just updating content
+
+;; Build Atom feed
+(webfeeder-build "atom.xml" "./public" "https://jeslie0.github.io/blog" '("./blog/2022-02-18-test.html" "./blog/2018-4-23-Yoneda-Yoneda-Yoneda.html"))
+
+
 (message "Build Complete")
