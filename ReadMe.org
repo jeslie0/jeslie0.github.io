@@ -1,3 +1,12 @@
+#+title: jeslie0.github.io
+#+author: James Leslie
+This is my GitHub pages site! It is built entirely using Emacs' org-mode, based off the [[https://systemcrafters.net/publishing-websites-with-org-mode/][System Crafters guide]]. This file is the literate configuration for building everything.
+* Emacs packages
+:PROPERTIES:
+:header-args:elisp: :tangle ./build-site.el
+:END:
+We use =package.el= to download the emacs dependencies. and set the installation path to be in the root of this folder (that way we don't install stuff to our own system).
+#+BEGIN_SRC elisp
 (require 'package)
 (setq package-user-dir (expand-file-name "./.packages"))
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
@@ -7,11 +16,20 @@
 (package-initialize)
 (unless package-archive-contents
   (package-refresh-contents))
+#+END_SRC
 
+We install =htmlize= for making code-blocks nice, and =webfeeder= to make the RSS feed.
+#+BEGIN_SRC elisp
 (package-install 'htmlize)
 (package-install 'webfeeder)
 (require 'ox-publish)
-
+#+END_SRC
+* Custom functions
+:PROPERTIES:
+:header-args:elisp: :tangle ./build-site.el
+:END:
+I use a few functions in the creation of the site and feed. Firstly, I use the following (taken from https://taingram.org/blog/org-mode-blog.html) to stylise the date entries on the blog post list.
+#+BEGIN_SRC elisp
 (defun my/org-sitemap-date-entry-format (entry style project)
   "Format ENTRY in org-publish PROJECT Sitemap format ENTRY ENTRY STYLE format that includes date."
   (let ((filename (org-publish-find-title entry project)))
@@ -25,11 +43,20 @@
 
 (setq org-export-global-macros
       '(("timestamp" . "@@html:<span class=\"timestamp\">[$1]</span>@@")))
+#+END_SRC
 
+I use the following hack to filter out the non-blog posts in the =/blog/= directory.
+#+BEGIN_SRC elisp
 (defun html-dir-to-rss-list (directory)
   "Takes a DIRECTORY and return a list of files to be used for RSS creation."
   (butlast (butlast (cdr (cdr (directory-files directory))))))
-
+#+END_SRC
+* Publishing the site
+:PROPERTIES:
+:header-args:elisp: :tangle ./build-site.el
+:END:
+The site is published with =ox-publish=. Here, we set some global variables.
+#+BEGIN_SRC elisp
 (setq org-html-validation-link nil
       org-html-head-include-scripts nil
       org-html-head-include-default-style nil
@@ -45,7 +72,10 @@
 <p>Last modified on %C</p>
 <a href=\"/blog/rss.xml/\"> <i class=\"fas fa-rss-square\"></i></a>
 </footer>")
+#+END_SRC
 
+Now, the heart of the publishing configuration.
+#+BEGIN_SRC elisp
 (setq org-publish-project-alist
       (list
        (list "my-site"
@@ -99,9 +129,17 @@
 	     :recursive t
 	     :publishing-directory "./public"
 	     :publishing-function 'org-publish-attachment)))
-
+#+END_SRC
+Then, to publish everything, we run the following.
+#+BEGIN_SRC elisp
 (org-publish-all)
-
+#+END_SRC
+* RSS Feed
+:PROPERTIES:
+:header-args:elisp: :tangle ./build-site.el
+:END:
+This is not currently up to snuff, but it mostly works with some issues about the publishing dates.
+#+BEGIN_SRC elisp
 (webfeeder-build "rss.xml"
 		 "./public/blog"
 		 "https://jeslie0.github.io/blog"
@@ -109,5 +147,21 @@
 		 :title "James Leslie's Blog"
 		 :description "RSS feed for James Leslie's Blog Posts"
 		 :builder 'webfeeder-make-rss)
-
+#+END_SRC
+* Friendly message
+:PROPERTIES:
+:header-args:elisp: :tangle ./build-site.el
+:END:
+To let me know that it has built, we have the following message.
+#+BEGIN_SRC elisp
 (message "Build Complete")
+#+END_SRC
+* Builder script
+:PROPERTIES:
+:header-args:shell: :tangle ./build.sh
+:END:
+The site is then built by the following bash script.
+#+begin_src shell
+#!/bin/sh
+emacs -Q --script build-site.el
+#+end_src
