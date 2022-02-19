@@ -43,7 +43,7 @@
 <p>Author: James Leslie</p>
 <p>Made with <a href=\"https://www.gnu.org/software/emacs/\">Emacs</a> and <a href=\"https://orgmode.org/\">org-mode.</a></p>
 <p>Last modified on %C</p>
-<a href=\"/blog/rss.xml/\"> <i class=\"fas fa-rss-square\"></i></a>
+<a href=\"/blog/rss.xml\"> <i class=\"fas fa-rss-square\"></i></a>
 </footer>")
 
 (setq org-publish-project-alist
