@@ -145,12 +145,13 @@
 
 
 ;; Build Atom feed
-(webfeeder-build "atom.xml"
+(webfeeder-build "rss.xml"
 		 "./public/blog"
 		 "https://jeslie0.github.io/blog"
 		 (html-dir-to-rss-list "./public/blog")
 		 :title "James Leslie's Blog"
-		 :description "foo")
+		 :description "RSS feed for James Leslie's Blog Posts"
+		 :builder 'webfeeder-make-rss)
 
 
 (message "Build Complete")
