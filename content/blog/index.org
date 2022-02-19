@@ -3,7 +3,7 @@
 - {{{timestamp(2021-06-08)}}} [[file:2021-06-08-Stoicism-and-raising-a-puppy.org][Stoicism and raising a puppy]]
 - {{{timestamp(2021-03-06)}}} [[file:2021-03-06-Canonical-Model-Structure-on-Cat.org][The Canonical Model Structure on Cat/Gpd]]
 - {{{timestamp(2021-03-05)}}} [[file:2021-03-05-Zoom-screen-sharing.org][iPad Screen Sharing to Zoom on a University Network]]
-- {{{timestamp(2019-04-15)}}} [[file:2019-04-15-is-zero-a-natural-number.org][Is zero a natural number]]
+- {{{timestamp(2019-04-15)}}} [[file:2019-04-15-is-zero-a-natural-number.org][Is zero a natural number?]]
 - {{{timestamp(2019-01-12)}}} [[file:2019-1-12-A-group-object-in-the-category-of-groups.org][A group object in the category of groups]]
 - {{{timestamp(2018-07-07)}}} [[file:2018-7-7-Why-isn't-every-category-isomorphic-to-its-opposite.org][Why isn't every category isomorphic to its opposite?]]
 - {{{timestamp(2018-06-30)}}} [[file:2018-6-30-Categories-of-elements.org][Categories of elements]]

@@ -12,11 +12,17 @@
 
 ;; Install dependencies
 (package-install 'htmlize)
-
+(package-install 'webfeeder)
 ;; load the publishing system
 (require 'ox-publish)
 
-;; Custom functions
+
+
+;;; Custom functions
+
+(defun html-dir-to-rss-list (directory)
+  "Takes a DIRECTORY and return a list of files to be used for RSS creation."
+  (butlast (butlast (cdr (cdr (directory-files directory))))))
 
 ;; Taken from https://taingram.org/blog/org-mode-blog.html
 (defun my/org-sitemap-date-entry-format (entry style project)
@@ -34,10 +40,6 @@
       '(("timestamp" . "@@html:<span class=\"timestamp\">[$1]</span>@@")))
 
 
-
-
-
-
 ;; Define the publishing project
 (setq org-html-validation-link nil
       org-html-head-include-scripts nil
@@ -45,14 +47,15 @@
 
       org-html-head "<link rel=\"stylesheet\" href=\"/CSS/simple.css\" />
 <link rel=\"stylesheet\" href= \"/CSS/navbar.css\" />
-<link rel=\"stylesheet\" href= \"/CSS/misc.css\" />"
+<link rel=\"stylesheet\" href= \"/CSS/misc.css\" />
+<link rel=\"stylesheet\" href=\"https://use.fontawesome.com/releases/v5.2.0/css/all.css\">"
       org-html-postamble "<hr/>
 <footer>
 <p>Author: James Leslie</p>
-<p>Made with <a href=\"https://www.gnu.org/software/emacs/\">Emacs</a> and <a href=\"https://orgmode.org/\">org-mode</a></p>
+<p>Made with <a href=\"https://www.gnu.org/software/emacs/\">Emacs</a> and <a href=\"https://orgmode.org/\">org-mode.</a></p>
 <p>Last modified on %C</p>
-</footer>"
-      )
+<a href=\"/blog/rss.xml/\"> <i class=\"fas fa-rss-square\"></i></a>
+</footer>")
 
 
 
@@ -79,6 +82,7 @@
        (list "blog"
 	     :base-directory "./content/blog"
 	     :base-extension "org"
+	     :recursive t
 	     :publishing-directory "./public/blog"
 	     :publishing-function 'org-html-publish-to-html
 	     :auto-sitemap t            ;; Builds a blog post page
@@ -87,7 +91,7 @@
 	     :sitemap-sort-files 'anti-chronologically
 	     :sitemap-format-entry 'my/org-sitemap-date-entry-format
 	     :with-date t
-
+	     :html-link-use-abs-url t
 	     :with-author nil           ;; Don't include author name
 	     :with-creator nil          ;; Include Emacs and Org versions in footer
 	     :with-toc nil              ;; Don't include a table of contents
@@ -107,10 +111,23 @@
 	     :base-extension "css\\|txt\\|jpg\\|gif\\|png\\|jpeg\\|pdf"
 	     :recursive t
 	     :publishing-directory "./public"
-	     :publishing-function 'org-publish-attachment)))
+	     :publishing-function 'org-publish-attachment)
+       ))
+
 
 
 ;; Generate the site output
-(org-publish-all) ;; Add t here when testing html and css changes. Remove when just updating content
+(org-publish-all t) ;; Add t here when testing html and css changes. Remove when just updating content
+
+
+;; Build RSS feed
+(webfeeder-build "rss.xml"
+		 "./public/blog"
+		 "https://jeslie0.github.io/blog"
+		 (html-dir-to-rss-list "./public/blog")
+		 :title "James Leslie's Blog"
+		 :description "RSS feed for James Leslie's Blog Posts"
+		 :builder 'webfeeder-make-rss)
+
 
 (message "Build Complete")
