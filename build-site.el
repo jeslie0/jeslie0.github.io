@@ -95,7 +95,7 @@
 <h1 class=\"title\">%t</h1>%d")
        (list "static"
 	     :base-directory "./content"
-	     :base-extension "css\\|txt\\|jpg\\|gif\\|png\\|jpeg\\|pdf"
+	     :base-extension "css\\|txt\\|jpg\\|gif\\|png\\|jpeg\\|pdf\\|key"
 	     :recursive t
 	     :publishing-directory "./public"
 	     :publishing-function 'org-publish-attachment)))
