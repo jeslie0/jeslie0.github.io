@@ -1,5 +1,5 @@
 #+TITLE: Contact
-You can email me "FIRST NAME"++"LASTNAME"@posteo.net. I use PGP/MIME to sign and encrypt email. You can find my [[./files/JLpublic.key][public key linked here]] (the file's SHA256= 24280761bbcda19afccf01b99a1a0a209aadfec8038b6facde1bab17b9a963e9). Its fingerprint is *86AC9 FE03B 59F91 47252 08DEC F6607 D8EB3 02630*. This has recently (as of February 2022) been updated from an old key (7BC25 3447F 901C3 EBD46 AB5ED DFB27 273B2 BFBB6). I still have access to the old key, but at some point I will fully transition to the new one, so please update you key repositories!
+You can email me "FIRST NAME"++"LASTNAME"@posteo.net. I use PGP/MIME to sign and encrypt email. You can find my [[./files/JLpublic.key][public key linked here]] (the file's SHA256= 24280761bbcda19afccf01b99a1a0a209aadfec8038b6facde1bab17b9a963e9). Its fingerprint is *86AC 9FE0 3B59 F914 7252  08DE CF66 07D8 EB30 2630*. This has recently (as of February 2022) been updated from an old key (7BC25 3447F 901C3 EBD46 AB5ED DFB27 273B2 BFBB6). I still have access to the old key, but at some point I will fully transition to the new one, so please update you key repositories!
 * Online presence
 I have the following presence online. You are welcome to follow/contact me on all of them; however, I will respond quicker if contacted by email.
 - [[https://github.com/jeslie0][GitHub: jeslie0]];
