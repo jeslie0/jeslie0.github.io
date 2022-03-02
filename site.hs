@@ -1,8 +1,13 @@
 --------------------------------------------------------------------------------
 {-# LANGUAGE OverloadedStrings #-}
-import           Data.Monoid (mappend)
+import           Data.Char
+import           Data.List
+import           Data.Monoid      (mappend)
+import           GHC.IO.Exception
 import           Hakyll
 import           Text.Pandoc
+import           System.Process
+import qualified Data.Text as T
 
 --------------------------------------------------------------------------------
 config :: Configuration
@@ -77,7 +82,7 @@ postCtx =
 
 defaultContext' :: Context String
 defaultContext' =
-  modificationTimeField "modified" "%B %e, %Y" <>
+  versionField "commit" Full <>
   defaultContext
 
 
@@ -97,6 +102,11 @@ myFeedConfiguration = FeedConfiguration
     , feedRoot        = "https://jeslie0.github.com"
     }
 --------------------------------------------------------------------------------
+
+-- * Userjy
+-- This mathjax config was taken from
+-- https://userjy.github.io/posts/2021-08-23-HakyllSetupMathjax.html
+-- Many thanks!
 mathjaxExtensions :: Extensions
 mathjaxExtensions = extensionsFromList
                     [Ext_tex_math_dollars --  $...$ or $$...$$
@@ -119,3 +129,56 @@ writeMathjaxOptions = defaultHakyllWriterOptions
 --Step 4: Build the compiler using the ReaderOption and Writer Option from Step 2, 3.
 mathJaxAddedCompiler :: Compiler (Item String)
 mathJaxAddedCompiler = pandocCompilerWith readMathjaxOptions writeMathjaxOptions
+
+
+
+-- * Ysndr
+-- The following was taken from
+-- https://blog.ysndr.de/posts/internals/2020-03-22-built-with-hakyll-part-2/
+-- Many thanks!
+
+
+-- Git related fields
+--------------------------------------------------------------------------------
+data GitVersionContent = Hash | Commit | Full
+     deriving (Eq, Read)
+
+instance Show GitVersionContent where
+    show content = case content of
+        Hash   -> "%h"
+        Commit -> "%h: %s"
+        Full   -> "%h: %s (%ai)"
+
+-- Query information of a given file tracked with git
+getGitVersion :: GitVersionContent -- Kind of information
+              -> FilePath          -- File to query information of
+              -> IO String         --
+getGitVersion content path = do
+    (status, stdout, _) <- readProcessWithExitCode "git" [
+        "log",
+        "-1",
+        "--format=" ++ (show content),
+        "--",
+        "./" ++ path] ""
+
+    return $ case status  of
+        ExitSuccess -> trim stdout
+        _           -> ""
+
+    where trim = dropWhileEnd isSpace
+
+-- Field that contains the latest commit hash that hash touched the current item.
+versionField :: String -> GitVersionContent -> Context String
+versionField name content = field name $ \item -> unsafeCompiler $ do
+    let path = toFilePath $ itemIdentifier item
+    getGitVersion content  path
+
+-- Field that contains the commit hash of HEAD.
+headVersionField :: String -> GitVersionContent -> Context String
+headVersionField name content  = field name $ \_ -> unsafeCompiler $ getGitVersion content  "."
+
+readTimeField :: String -> Snapshot -> Context String
+readTimeField name snapshot = field name $ \item -> do
+    body <- itemBody <$> loadSnapshot (itemIdentifier item) snapshot
+    let words = length (T.words . T.pack $ body)
+    return $ show $ div words 200
