@@ -1,2 +1,6 @@
 public/
 .packages/
+
+.direnv/
+result
+_cache/

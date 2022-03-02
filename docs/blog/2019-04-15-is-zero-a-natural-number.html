@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Hakyll Blog - Is zero a natural number?</title>
+        <link rel="stylesheet" href="../css/simple.css" />
+        <link rel="stylesheet" href="../css/navbar.css" />
+        <link rel="stylesheet" href="../css/misc.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    </head>
+    <body>
+           <div class="topnav">
+             <a href="../index.html">Home</a>
+             <a href="../blog.html">Blog</a>
+             <a href="../contact.html">Contact</a>
+           </div>
+
+        <main role="main">
+            <h1>Is zero a natural number?</h1>
+            <head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="../css/theorem.css" />
+</head>
+<section class="header">
+  Posted on April 15, 2019
+  
+  by James Leslie
+  
+</section>
+<section>
+  <p>I help tutor an introductory course on pure mathematics at Edinburgh University. One my responsibilities is to help answer questions that the students have in person and online on Piazza; a Q&amp;A forum used by the class. The other day, a student created a poll asking whether or not zero is a natural number. I have found that this question usually always splits the audience, with a majority usually favouring “no” as the correct answer. I remember the first time I came across this debate was during my final year of high school, when our teacher described the “home of zero” as a controversial topic. At that time, for no legitimate reason, I chose to believe that it should be a natural number and this choice has more or less stuck with me till this day. Being a student of pure mathematics, it does strike me as an odd that this causes such a debate. Having the natural numbers with or without zero doesn’t affect mathematics in the slightest; we can simply define a new set to be the naturals with or without zero.</p>
+<p>When debating against zero being natural, more often than not, one will make some form of an appeal to tradition. Usually, it goes something like: “people thought up and used other natural numbers before coming up with the concept of zero, so it is not natural”. I personally don’t think this is a good argument as we don’t follow conventions from the past blindly; they can be updated and changed if necessary. A better (and also common) argument is that the naturals are used for counting. By starting our counting system at 1, the set <span class="math inline">\( \{1, 2, \ldots, n \}\)</span> contains exactly <span class="math inline">\( n\)</span> elements, while if treat <span class="math inline">\( 0\)</span> as the start, then the set of elements up to <span class="math inline">\( n\)</span> will have cardinality <span class="math inline">\( n+1\)</span>. If you have <span class="math inline">\( n\)</span> objects, it seems more natural to put them in a bijection in the following way, your first object is identified with <span class="math inline">\( 1\)</span>, your second with <span class="math inline">\( 2\)</span> and so on. This idea comes from treating the naturals just as an ordered set. There is no need for something to come before the object that we call <em>first</em>, and if there was, our language would arguably be nefarious.</p>
+<p>I think the most compelling argument for including zero in the natural numbers is from how the naturals are constructed through Peano’s axioms. Simply, one starts with <span class="math inline">\( 0\)</span> and applies a successor operation, <span class="math inline">\( S\)</span> to it. This gives a new term <span class="math inline">\( S0\)</span> which we treat as being distinct from <span class="math inline">\( 0\)</span>, by some of Peano’s other axioms. We then define <span class="math inline">\( 1:= S0\)</span>, and in general define <span class="math inline">\( n:= S(n-1)\)</span>. Peano’s axioms; however, don’t construct a set, per se, but a <em>Peano Structure</em>. By saying this is not a set, I mean in the same sense that a group is not a set, but a set with structure, not that it forms a proper class. There are many different Peano structures, but the naturals with <span class="math inline">\( 0\)</span> and the usual successor function, <span class="math inline">\( - + 1\)</span> satisfy a nice universal property. We can define a category whose objects are (set based) Peano structures, that is, triples <span class="math inline">\( (X, S:X \rightarrow X, a \in X)\)</span> and whose maps <span class="math inline">\( f: (X, S, a) \rightarrow (Y, S', b)\)</span> are functions <span class="math inline">\( f:X \rightarrow Y\)</span> that make the following commute:</p>
+<p><span class="math display">\[\begin{tikzcd} 1 \ar[r, &quot;a&quot;] \ar[rd, &quot;b&quot;'] &amp; X \ar[r, &quot;S&quot;] \ar[d, &quot;f&quot;] &amp; X \ar[d, &quot;f&quot;] \\
+ &amp; Y \ar[r, &quot;S'&quot;'] &amp; Y\end{tikzcd}\]</span></p>
+<p>The universal property satisfied by <span class="math inline">\( (\mathbb{N}, S, 0)\)</span> is that it is initial in this category, that is, given any other object <span class="math inline">\( (Y, S', b \in Y)\)</span>, there is a unique map <span class="math inline">\( f: (\mathbb{N}, S, 0) \rightarrow (Y, S', b )\)</span>. This effectively is what lets us define functions recursively. From a category theory perspective, <span class="math inline">\( 0:1 \rightarrow \mathbb{N}\)</span> is a generalised element of <span class="math inline">\( \mathbb{N}\)</span>. However, we could equally define an isomorphic copy of our initial Peano structure by swapping some symbols around and renaming our generalised element “0” as “1”. Then, applying the obvious forgetful functor we can get something that looks like a natural number object, but starts at 1. This leads me to a critique of most arguments about the naturality of zero: mostly the argument revolves around what it means to be a natural number, when really it should be based on what it means to be <em>zero.</em></p>
+<p>When speaking in terms of sets, the only difference between the naturals with or without zero, is what we call the elements. As a set, the element <span class="math inline">\( 0 \in \mathbb{N}\)</span> can be interpreted to be any element we want, precisely because there is no structure on a set. If we were feeling perverse, we could say that <span class="math inline">\( 0+1 = 7\)</span>, simply by interpreting the symbols differently. It is when we add certain structure that the notion of zero becomes necessary. If we are needing an additive identity then the natural numbers begin to resemble a monoid and hence should be taken to include a zero. Are we simply counting objects or treating the naturals as an ordered set? Then there is no need for the additive identity, so the first element should probably be <span class="math inline">\( 1\)</span>.</p>
+<p>So is zero a natural number? In my opinion, that depends on the problem you are working on. I think the reason that most people say that zero is not part of the naturals, is due to them thinking of the naturals as being an ordered set. This concept is taught much earlier in people’s lives than the idea of a monoid, or just the notion of an identity. This debate won’t be over any time soon, but hopefully people can start understanding the other side of the debate and see that both notions of the natural numbers make sense in their given context.</p>
+</section>
+</article>
+
+        </main>
+
+        <footer>
+          <p>Site made with love using <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll">Hakyll</a></p>
+          <p> <a href="../rss.xml"> <i class="fas fa-rss-square"></i></a></p>
+        </footer>
+    </body>
+</html>

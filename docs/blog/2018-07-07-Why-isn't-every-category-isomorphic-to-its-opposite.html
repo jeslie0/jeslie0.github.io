@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Hakyll Blog - Why isn't every category isomorphic to its opposite?</title>
+        <link rel="stylesheet" href="../css/simple.css" />
+        <link rel="stylesheet" href="../css/navbar.css" />
+        <link rel="stylesheet" href="../css/misc.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    </head>
+    <body>
+           <div class="topnav">
+             <a href="../index.html">Home</a>
+             <a href="../blog.html">Blog</a>
+             <a href="../contact.html">Contact</a>
+           </div>
+
+        <main role="main">
+            <h1>Why isn't every category isomorphic to its opposite?</h1>
+            <head>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="../css/theorem.css" />
+</head>
+<section class="header">
+  Posted on July  7, 2018
+  
+  by James Leslie
+  
+</section>
+<section>
+  <p>Whenever one comes across a mathematical object, such as a group, topological space etc, it is important to look at how it interacts with other similar objects. The same goes for categories with functors being how they interact.</p>
+<div class="definition">
+<p>Given two categories <span class="math inline">\( \mathscr{A}, \mathscr{B}\)</span>, a (covariant) functor <span class="math inline">\( F\)</span> from <span class="math inline">\( \mathscr{A}\)</span> to <span class="math inline">\( \mathscr{B}\)</span> assigns to each object <span class="math inline">\( A \in \mathscr{A}\)</span> an object <span class="math inline">\( F(A) \in \mathscr{B}\)</span> and to each <span class="math inline">\( \mathscr{A}\)</span>-morphism <span class="math inline">\( f:A \rightarrow A'\)</span>, a <span class="math inline">\( \mathscr{B}\)</span>-morphism <span class="math inline">\( F(f):F(A) \rightarrow F(A')\)</span>. The assignements must respect composition and identities, so</p>
+<ul>
+<li><span class="math inline">\( F(g \circ h) = F(g) \circ F(h)\)</span>, for <span class="math inline">\( \mathscr{A}\)</span>-maps <span class="math inline">\( f,g\)</span>,</li>
+<li><span class="math inline">\( F(1_A) = 1_{F(A)}\)</span>, for all <span class="math inline">\( A \in \mathscr{A}\)</span>.</li>
+</ul>
+</div>
+<p>We write functors as <span class="math inline">\( F: \mathscr{A} \rightarrow \mathscr{B}\)</span>. This then leads to the category <span class="math inline">\( \mathbf{CAT}\)</span> whose objects are categories and whose morphisms are functors. We say that two categories are isomorphic if they are isomorphic in <span class="math inline">\( \mathbf{CAT}\)</span>. Given a category <span class="math inline">\( \mathscr{A}\)</span>, we can form its opposite category <span class="math inline">\( \mathscr{A}^{op}\)</span>, whose objects are the same as those in <span class="math inline">\( \mathscr{A}\)</span>, with <span class="math inline">\( \mathscr{A}^{op}\)</span>-morphisms <span class="math inline">\( f:A' \rightarrow A\)</span> in one to one correspondence with <span class="math inline">\( \mathscr{A}\)</span>-morphisms <span class="math inline">\( f:A \rightarrow A'\)</span>. This means we can think of <span class="math inline">\( \mathscr{A}^{op}\)</span> as being <span class="math inline">\( \mathscr{A}\)</span> with it’s morphisms turned around. It is clear from the definition of a functor that the obvious correspondence between a category and its opposite is not a functor. However, we can define a new type of functor that makes this possible.</p>
+<div class="definition">
+<p>A contravariant functor <span class="math inline">\( F\)</span> from <span class="math inline">\( \mathscr{A}\)</span> to <span class="math inline">\( \mathscr{B}\)</span> is a (covariant) functor <span class="math inline">\( F:\mathscr{A}^{op} \rightarrow \mathscr{B}\)</span>.</p>
+</div>
+<p>The key property of a contravariant functor is that it reverses composition. If <span class="math inline">\( F\)</span> from <span class="math inline">\( \mathscr{A}\)</span> to <span class="math inline">\( \mathscr{B}\)</span> is a contravariant functor, then for <span class="math inline">\( \mathscr{A}\)</span>-morphisms <span class="math inline">\( f, g\)</span>, we have <span class="math inline">\( F(f \circ g) = F(g) \circ F(f)\)</span>.</p>
+<p>A question one may ask is whether or not a category is isomorphic to its opposite. In general this is false; however, to newcomers this isn’t always obvious why. A typical false proof goes along the following lines:</p>
+<ol>
+<li>For any category <span class="math inline">\( \mathscr{A}\)</span>, there are canonical contravariant functors <span class="math inline">\( F:\mathscr{A}^{op} \rightarrow \mathscr{A}\)</span> and <span class="math inline">\( G:\mathscr{A} \rightarrow \mathscr{A}^{op}\)</span>.</li>
+<li>Clearly <span class="math inline">\( F\circ G= 1_{\mathscr{A}}\)</span> and <span class="math inline">\( G\circ F= 1_{\mathscr{A}^{op}}\)</span>.</li>
+<li><span class="math inline">\( \mathscr{A} \cong \mathscr{A}^{op}\)</span>.</li>
+</ol>
+<p>The reason this doesn’t hold is because the functors defined are contravariant, not covariant. To show such an isomorphism exists, one would need to construct a covariant functor <span class="math inline">\( F:\mathscr{A}^{op} \rightarrow \mathscr{A}\)</span>, so in particular the composition rule in Definition 1 must hold. Clearly for an arbitrary category, the canonical (contravariant) functor breaks this rule. A counter-example is to have a category with a terminal object and but no initial object. Its opposite has an initial object but no terminal, hence the two aren’t isomorphic.</p>
+<div class="ex">
+<p>Take the following two categories <span class="math inline">\(\mathcal A\)</span> and <span class="math inline">\(\mathcal B\)</span>, where <span class="math inline">\(\mathcal B = \mathcal A ^{\text{op}}\)</span>.</p>
+<p><img src="./Images/untitled.png" /></p>
+<p>Suppose we have a covariant functor from <span class="math inline">\(\mathcal A \rightarrow \mathcal B\)</span> that fixes the objects. The issue is that there are no arrows in <span class="math inline">\(\mathcal B\)</span> that we can map <span class="math inline">\(f\)</span> or <span class="math inline">\(g\)</span> to. Since such a functor doesn’t exist, <span class="math inline">\(\mathcal A\)</span> and <span class="math inline">\(\mathcal B\)</span> cannot be isomorphic. For such a functor to exist, it must be contravariant.</p>
+</div>
+</section>
+</article>
+
+        </main>
+
+        <footer>
+          <p>Site made with love using <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll">Hakyll</a></p>
+          <p> <a href="../rss.xml"> <i class="fas fa-rss-square"></i></a></p>
+        </footer>
+    </body>
+</html>
