@@ -26,7 +26,7 @@ main = hakyllWith config $ do
     match "contact.org" $ do
         route   $ setExtension "html"
         compile $ pandocCompiler
-            >>= loadAndApplyTemplate "templates/default.html" defaultContext
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext'
             >>= relativizeUrls
 
     match "blog/*" $ do
@@ -48,7 +48,6 @@ main = hakyllWith config $ do
 
             makeItem ""
                 >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
-                >>= loadAndApplyTemplate "templates/default.html" archiveCtx
                 >>= relativizeUrls
 
 
@@ -56,7 +55,7 @@ main = hakyllWith config $ do
         route $ setExtension "html"
         compile $ do
             pandocCompiler
-                >>= loadAndApplyTemplate "templates/default.html" defaultContext
+                >>= loadAndApplyTemplate "templates/default.html" defaultContext'
                 >>= relativizeUrls
 
     match "templates/*" $ compile templateBodyCompiler
@@ -73,8 +72,13 @@ main = hakyllWith config $ do
 --------------------------------------------------------------------------------
 postCtx :: Context String
 postCtx =
-    dateField "date" "%B %e, %Y" `mappend`
-    defaultContext
+    dateField "date" "%B %e, %Y" <>
+    defaultContext'
+
+defaultContext' :: Context String
+defaultContext' =
+  modificationTimeField "modified" "%B %e, %Y" <>
+  defaultContext
 
 
     -- match (fromList ["about.rst", "contact.markdown"]) $ do

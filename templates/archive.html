@@ -1,2 +1,32 @@
-Here you can find all my previous posts:
-$partial("templates/post-list.html")$
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Hakyll Blog - $title$</title>
+        <link rel="stylesheet" href="/css/simple.css" />
+        <link rel="stylesheet" href="/css/navbar.css" />
+        <link rel="stylesheet" href="/css/misc.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+    </head>
+    <body>
+           <div class="topnav">
+             <a href="/index.html">Home</a>
+             <a href="/blog.html">Blog</a>
+             <a href="/contact.html">Contact</a>
+           </div>
+
+        <main role="main">
+            <h1>$title$</h1>
+            Here you can find all my previous posts:
+            $partial("templates/post-list.html")$
+        </main>
+
+        <footer>
+          <p>Site made with love using <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll">Hakyll</a></p>
+          <p><a href="/rss.xml"> <i class="fas fa-rss-square"></i></a></p>
+        </footer>
+    </body>
+</html>
