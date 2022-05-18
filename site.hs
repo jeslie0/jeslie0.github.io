@@ -34,6 +34,12 @@ main = hakyllWith config $ do
             >>= loadAndApplyTemplate "templates/default.html" defaultContext'
             >>= relativizeUrls
 
+    match "projects.org" $ do
+        route   $ setExtension "html"
+        compile $ pandocCompiler
+            >>= loadAndApplyTemplate "templates/default.html" defaultContext'
+            >>= relativizeUrls
+
     match "blog/*" $ do
         route $ setExtension "html"
         compile $ mathJaxAddedCompiler

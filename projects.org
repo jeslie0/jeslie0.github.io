@@ -1,0 +1,37 @@
+---
+title: Projects
+---
+#+title: Projects
+I this is a growing list of projects that I have worked on.
+
+** [[https://github.com/jeslie0/flake-templates][flake-templates]]
+My Nix Flake templates, which make it easier to write nix packages.
+
+** [[https://github.com/jeslie0/Project-Euler][Project Euler]]
+My Project Euler solutions.
+
+** [[https://www.mohabatmath.ca/][mohabatt.github.io]]
+Implemented a blog for [[https://github.com/mohabatt/][Mohabat]] using Jekyll and the Minimal Mistakes theme.
+
+** [[https://mraheb.github.io/][mraheb.github.io]]
+Implemented a blog for [[https://github.com/mraheb/mraheb.github.io][Maria]] using Jekyll and the Hyde theme.
+
+** [[https://github.com/jeslie0/bemenuFocus][bemenuFocus]]
+Makes bemenu appear on the correct monitor that it is called from, on SwayWM.
+
+** [[https://github.com/jeslie0/swaybgchanger][swaybgchanger]]
+Changes the background on SwayWM every 15 minutes, from images in a given folder.
+** [[https://github.com/jeslie0/p2p-chat][p2p-chat]]
+A TCP chat project, written in Haskell.
+
+** [[https://github.com/jeslie0/Univalent-Agda][Univalent Agda]]
+Univalent Mathematics implemented in Agda.
+
+** [[https://github.com/jeslie0/Haskell-Compiler][Haskell-Compiler]]
+The second coursework from Graham Hutton's Advanced Functional Programming course, the purpose of which was to build a (virtual) stack based compiler for a given imperative language.
+
+** [[https://github.com/jeslie0/Gemini-Exporter][Gemini-Exporter]]
+Converts a directory of =.org= files into =.gem= files, for being hosted on [[https://gemini.circumlunar.space/][Gemini]].
+
+** [[https://github.com/jeslie0/julia-mandel][Julia-Mandel]]
+Code for generating and tweeting Julia sets, using C and Python.
