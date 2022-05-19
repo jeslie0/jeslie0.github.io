@@ -31,6 +31,22 @@
 <p>Attached is a picture of the (not so little) Woody. Today, he has been a real star of a puppy and as I type this, he is fast asleep in his bed.</p>
 <p><img src="../images/woody.jpeg" class="rounded corners" width="300" /></p>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Tue, 08 Jun 2021 00:00:00 UT</pubDate>
@@ -250,6 +266,22 @@ Note that we have a functor <span class="math inline">\(X \to F \downarrow_{\con
 </ol>
 </div>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Sat, 06 Mar 2021 00:00:00 UT</pubDate>
@@ -278,6 +310,22 @@ Note that we have a functor <span class="math inline">\(X \to F \downarrow_{\con
 <p>The current solution I use works on Windows 10 laptops. Windows 10 has the functionality to be connected to a network whilst also being a WiFi hotspot. Information on how to enable this can be found <a href="https://support.microsoft.com/en-us/windows/use-your-pc-as-a-mobile-hotspot-c89b0fad-72d5-41e8-f7ea-406ad9036b85">here</a>. Once the hotspot is up and running, we can connect the iPad to the network. Then, Zoom can detect the IPad, and we can share content over this network. So far, this has worked well for me. The only caveat is that it seems like you can’t get access to the internet on the IPad whilst connected to the network. This isn’t a major problem for me, as I still have access through my laptop.</p>
 <p>This setup might work for other operating systems, but I am not able to test that theory out.</p>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Fri, 05 Mar 2021 00:00:00 UT</pubDate>
@@ -308,6 +356,22 @@ Note that we have a functor <span class="math inline">\(X \to F \downarrow_{\con
 <p>When speaking in terms of sets, the only difference between the naturals with or without zero, is what we call the elements. As a set, the element <span class="math inline">\( 0 \in \mathbb{N}\)</span> can be interpreted to be any element we want, precisely because there is no structure on a set. If we were feeling perverse, we could say that <span class="math inline">\( 0+1 = 7\)</span>, simply by interpreting the symbols differently. It is when we add certain structure that the notion of zero becomes necessary. If we are needing an additive identity then the natural numbers begin to resemble a monoid and hence should be taken to include a zero. Are we simply counting objects or treating the naturals as an ordered set? Then there is no need for the additive identity, so the first element should probably be <span class="math inline">\( 1\)</span>.</p>
 <p>So is zero a natural number? In my opinion, that depends on the problem you are working on. I think the reason that most people say that zero is not part of the naturals, is due to them thinking of the naturals as being an ordered set. This concept is taught much earlier in people’s lives than the idea of a monoid, or just the notion of an identity. This debate won’t be over any time soon, but hopefully people can start understanding the other side of the debate and see that both notions of the natural numbers make sense in their given context.</p>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Mon, 15 Apr 2019 00:00:00 UT</pubDate>
@@ -359,6 +423,22 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
 <p>However, we know that the group operation is a group homomorphim if and only the group is abelian! This then means that a group object in the category of groups is precisely an abelian group! This certainly seemed strange to me when I first saw the result. It does have uses though, for an example, if you want to show that some group is abelian, all you need to do is show it is a group object. This method can be implemented to show that the second fundamental group is abelian, which is done on page xix of Leinster’s <a href="https://arxiv.org/abs/math/0305049">Higher Operads, Higher Categories</a>.</p>
 <p>This does raise other questions of a similar nature - what is a ring object in the category of rings for example? It is quick to see that such a ring <span class="math inline">\(R\)</span> needs to be the trivial ring. We observe that the additive and multiplicative identities come from maps <span class="math inline">\(0_R, 1_R : 1 \rightarrow R\)</span>, that is they are encoded as maps from the terminal object to <span class="math inline">\(R\)</span>. In the category of rings, however, the terminal object is also the initial object. This forces <span class="math inline">\(1_R = 0_R\)</span>, hence <span class="math inline">\(R\)</span> must be trivial.</p>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Sat, 12 Jan 2019 00:00:00 UT</pubDate>
@@ -406,6 +486,22 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
 <p>Suppose we have a covariant functor from <span class="math inline">\(\mathcal A \rightarrow \mathcal B\)</span> that fixes the objects. The issue is that there are no arrows in <span class="math inline">\(\mathcal B\)</span> that we can map <span class="math inline">\(f\)</span> or <span class="math inline">\(g\)</span> to. Since such a functor doesn’t exist, <span class="math inline">\(\mathcal A\)</span> and <span class="math inline">\(\mathcal B\)</span> cannot be isomorphic. For such a functor to exist, it must be contravariant.</p>
 </div>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Sat, 07 Jul 2018 00:00:00 UT</pubDate>
@@ -496,6 +592,22 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
 <p>(2) T. Leinster, Higher operads, higher categories, 2013.</p>
 <p>(3) J. Leslie, [Category of elements](/files/category-elemets.pdf)</p>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Sat, 30 Jun 2018 00:00:00 UT</pubDate>
@@ -556,6 +668,22 @@ H_{A&#39;}(A) \arrow[r, &quot;-\circ g&quot;&#39;]                     &amp; H_A
 <p>which are inverses to each other. By reasoning from above, we a map <span class="math inline">\( \alpha_A(1_A):A \rightarrow B\)</span> and <span class="math inline">\( \beta_B(1_B):B \rightarrow A\)</span>. For notation, we shall call <span class="math inline">\( \alpha_A(1_A) = f\)</span> and <span class="math inline">\( \beta_B(1_B) = g\)</span>. Again from above, we see that <span class="math inline">\( \alpha_B(g) = \alpha_A(1_A) \circ g\)</span>. Substituting for <span class="math inline">\( g\)</span> gives that <span class="math inline">\( \alpha_B(\beta_B(1_B)) = \alpha_A(1_A) \circ \beta_B(1_B)\)</span>. As <span class="math inline">\( \alpha\)</span> and <span class="math inline">\( \beta\)</span> are inverses, their components are mutual inverses. This means <span class="math inline">\( \alpha_B(\beta_B(1_B)) = 1_B\)</span>, so <span class="math inline">\( \alpha_A(1_A) \circ \beta_B(1_B) = 1_B\)</span>. A similar argument shows that <span class="math inline">\( \beta_B(1_B) \circ \alpha_A(1_A) = 1_A\)</span>, hence <span class="math inline">\( \alpha_A(1_A)\)</span> and <span class="math inline">\( \beta_B(1_B)\)</span> are isomorphisms. Therefore, <span class="math inline">\( A \cong B\)</span>.</p>
 <p>The results from this post are from Chapter 4 of Tom Leinster’s Basic Category Theory textbook, which can be found <a href="https://arxiv.org/abs/1612.09375">here</a>.</p>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Mon, 23 Apr 2018 00:00:00 UT</pubDate>
@@ -623,6 +751,22 @@ H_{A&#39;}(A) \arrow[r, &quot;-\circ g&quot;&#39;]                     &amp; H_A
 <p>We also know that <span class="math inline">\( 1_0 \otimes 1_0 = 1_{0 \otimes0}\)</span>, from the tensor product functor. As this commutes, we have <span class="math inline">\( \left((f \otimes 1_0) \circ \lambda_0^{-1} \right) \circ  \left(\lambda_0 \circ (g \otimes 1_0)\right) = 1_{0\otimes0}\)</span>. This results in the maps (1) and (2) being mutual inverses, hence <span class="math inline">\( 0 \cong 0 \otimes 0\)</span>, as required.</p>
 <p>This is only the tip of the iceberg when it comes to monoidal categories, for example, we might want <span class="math inline">\( A \otimes B \cong B \otimes A\)</span>, in which case we need to look at braided monoidal categories. This post has been inspired by revision for one of my exams. The content is from lecture notes by my lecturer Chris Heunen which can (currently) be found <a href="http://www.inf.ed.ac.uk/teaching/courses/cqi/">here</a>.</p>
 </section>
+<hr>
+<script src="https://giscus.app/client.js"
+        data-repo="jeslie0/jeslie0.github.io"
+        data-repo-id="R_kgDOG3FkcQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOG3Fkcc4CPMWW"
+        data-mapping="title"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="light"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
 </article>
 ]]></description>
     <pubDate>Sun, 15 Apr 2018 00:00:00 UT</pubDate>
