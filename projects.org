@@ -2,11 +2,12 @@
 title: Projects
 ---
 #+title: Projects
-I this is a growing list of projects that I have worked on.
+I this is a growing list of projects that I have worked on, all found at [[https://github.com/jeslie0][GitHub]].
 
+** [[https://github.com/jeslie0/mkElmDerivation][mkElmDerivation]]
+A nix flake for making it easier to package Elm applications with the Nix package manager. This also has been a test project for me to practice improving my Haskell.
 ** [[https://github.com/jeslie0/flake-templates][flake-templates]]
 My Nix Flake templates, which make it easier to write nix packages.
-
 ** [[https://github.com/jeslie0/Project-Euler][Project Euler]]
 My Project Euler solutions.
 
