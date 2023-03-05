@@ -69,6 +69,10 @@ main = hakyllWith config $ do
                 >>= loadAndApplyTemplate "templates/default.html" defaultContext'
                 >>= relativizeUrls
 
+    match "elmFourier/*" $ do
+        route   idRoute
+        compile copyFileCompiler
+
     match "templates/*" $ compile templateBodyCompiler
 
     create ["rss.xml"] $ do
