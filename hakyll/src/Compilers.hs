@@ -23,7 +23,7 @@ mathExtensions =
 pandocWriterOptions :: WriterOptions
 pandocWriterOptions =
   defaultHakyllWriterOptions
-    { writerHTMLMathMethod = KaTeX ""
+    { writerHTMLMathMethod = MathJax ""
     }
 
 pandocReaderOptions :: ReaderOptions
