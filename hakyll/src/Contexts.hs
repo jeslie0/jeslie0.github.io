@@ -13,5 +13,5 @@ blogPostCtx =
 
 defaultContext' :: Context String
 defaultContext' =
-  versionField "commit" Full <>
+  versionField "commit" HashAndDate <>
   defaultContext

@@ -11,7 +11,7 @@ import Data.List
 import Data.Char
 import System.Process
 
-data GitVersionContent = Hash | Commit | Full
+data GitVersionContent = Hash | Commit | Full | HashAndDate
      deriving (Eq, Read)
 
 instance Show GitVersionContent where
@@ -19,6 +19,7 @@ instance Show GitVersionContent where
         Hash   -> "%h"
         Commit -> "%h: %s"
         Full   -> "%h: %s (%ai)"
+        HashAndDate -> "%h on %as, by %an"
 
 -- Query information of a given file tracked with git
 getGitVersion :: GitVersionContent -- Kind of information
@@ -42,14 +43,9 @@ getGitVersion content path = do
 versionField :: String -> GitVersionContent -> Context String
 versionField name content = field name $ \item -> unsafeCompiler $ do
     let path = toFilePath $ itemIdentifier item
-    getGitVersion content  path
+    getGitVersion content path
 
 -- Field that contains the commit hash of HEAD.
 headVersionField :: String -> GitVersionContent -> Context String
 headVersionField name content  = field name $ \_ -> unsafeCompiler $ getGitVersion content  "."
 
-readTimeField :: String -> Snapshot -> Context String
-readTimeField name snapshot = field name $ \item -> do
-    body <- itemBody <$> loadSnapshot (itemIdentifier item) snapshot
-    let words = length (T.words . T.pack $ body)
-    return . show $ div words 200
