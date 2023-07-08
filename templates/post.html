@@ -1,0 +1,15 @@
+<head>
+  <link rel="stylesheet" href="/css/theorem.css" />
+</head>
+<section class="header">
+  Posted on $date$
+  $if(author)$
+  by $author$
+  $endif$
+</section>
+<section>
+  $body$
+</section>
+<hr>
+$partial("templates/giscus.html")$
+
