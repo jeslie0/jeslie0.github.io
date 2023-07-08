@@ -19,14 +19,10 @@
       <h1>$title$</h1>
       $body$
     </main>
-
-    <footer>
-      <p>Site made with ♥ using <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll">hakyll</a></p>
-      <p><a href="/rss.xml"> <i class="fas fa-rss-square"></i></a></p>
-      <p>Page updated with commit: $commit$</p>
-    </footer>
+    $partial("templates/footer.html")$
   </body>
 </html>
+
 $if(mathjax)$
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>

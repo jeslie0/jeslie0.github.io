@@ -10,9 +10,12 @@ import Hakyll.Core.File
 import Hakyll.Core.Item
 import Hakyll.Web.CompressCss
 import Hakyll.Web.Template
+import Hakyll.Web.Template.Context
+import Hakyll.Web.Template.List
 import Hakyll.Web.Pandoc
 import Hakyll.Web.Html.RelativizeUrls
 
+import GitCommit
 import Compilers
 import Contexts
 import Routes
@@ -38,6 +41,20 @@ main = hakyll $ do
         >>= loadAndApplyTemplate "templates/post.html" blogPostCtx
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/default.html" defaultContext'
+        >>= relativizeUrls
+
+  create ["blog.html"] $ do
+    route idRoute
+    compile $ do
+      posts <- recentFirst =<< loadAll "site/blog/*"
+      let archiveCtx =
+            listField "posts" blogPostCtx (return posts) <>
+            constField "title" "Blog" <>
+            headVersionField "commit" HashAndDate <>
+            defaultContext
+
+      makeItem ""
+        >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
         >>= relativizeUrls
 
   match "site/*.org" $ do
