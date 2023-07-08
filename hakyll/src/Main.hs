@@ -42,6 +42,7 @@ main = hakyll $ do
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/default.html" defaultContext'
         >>= relativizeUrls
+        >>= minifyHtmlCompiler
 
   create ["blog.html"] $ do
     route idRoute
@@ -56,12 +57,14 @@ main = hakyll $ do
       makeItem ""
         >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
         >>= relativizeUrls
+        >>= minifyHtmlCompiler
 
   match "site/*.org" $ do
     route $ composeRoutes stripSite (setExtension "html")
     compile $ shiftedHeaderPandocCompiler
       >>= loadAndApplyTemplate "templates/default.html" defaultContext'
       >>= relativizeUrls
+      >>= minifyHtmlCompiler
 
   match "templates/*" $
     compile templateBodyCompiler

@@ -15,23 +15,29 @@
           packageName = with builtins;
             let cabalFileName = head ((filter (pkgs.lib.hasSuffix ".cabal")) (attrNames (readDir hakyllDirectory)));
             in head (match "^.*name\:\ *([^[:space:]]*).*$" (readFile "${hakyllDirectory}\/${cabalFileName}"));
+          hakyll = haskellPackages.callCabal2nix packageName hakyllDirectory {};
       in
         {
           packages = {
-            ${packageName} = haskellPackages.callCabal2nix packageName hakyllDirectory {};
-            default = self.packages.${system}.${packageName};
+            hakyll = pkgs.haskell.lib.overrideCabal hakyll (old: {
+              buildDepends = [ pkgs.makeWrapper ];
+              postInstall = ''
+                            wrapProgram $out/bin/hakyll \
+                            --prefix PATH : ${pkgs.lib.getBin pkgs.minify}/bin
+                          '';
+            });
+            default = self.packages.${system}.hakyll;
           };
 
 
           devShell = haskellPackages.shellFor {
 
             # The packages that the shell is for.
-            packages = hp:[ self.packages.${system}.default ];
+            packages = hp: [ self.packages.${system}.hakyll ];
 
             # Other useful tools
             buildInputs = with haskellPackages;
-              [ # haskell-language-server
-                cabal-install
+              [ cabal-install
               ];
 
             # Add build inputs of the following derivations.

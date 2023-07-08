@@ -1,5 +1,5 @@
 cabal-version:      2.4
-name:               Blog
+name:               HakyllBlogBuilder
 version:            0.1.0.0
 
 author:             James Leslie

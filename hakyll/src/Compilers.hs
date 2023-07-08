@@ -8,6 +8,8 @@ import Hakyll.Core.Item
 import Hakyll.Web.Pandoc
 import Text.Pandoc.Options
 import Text.Pandoc.Shared
+import System.Process
+import GHC.IO.Exception
 
 mathExtensions :: Extensions
 mathExtensions =
@@ -35,3 +37,14 @@ pandocReaderOptions =
 shiftedHeaderPandocCompiler :: Compiler (Item String)
 shiftedHeaderPandocCompiler =
   pandocCompilerWithTransform pandocReaderOptions pandocWriterOptions (headerShift 1)
+
+
+minifyHtmlCompiler :: Item String -> Compiler (Item String)
+minifyHtmlCompiler item = do
+  let minifyCmd = "minify" :: String
+  minified <- unsafeCompiler $
+    readProcessWithExitCode minifyCmd ["--type", "html"] item.itemBody
+
+  case minified of
+    (ExitSuccess, minifiedOutput, _) -> return $ itemSetBody minifiedOutput item
+    (_, _, _) -> return item
