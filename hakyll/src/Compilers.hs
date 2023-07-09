@@ -41,7 +41,7 @@ pandocReaderOptions =
 
 shiftedHeaderPandocCompiler :: Compiler (Item String)
 shiftedHeaderPandocCompiler =
-  pandocCompilerWithTransformM pandocReaderOptions pandocWriterOptions (tikzcdTransformM . headerShift 1)
+  pandocCompilerWithTransform pandocReaderOptions pandocWriterOptions (headerShift 1)
 
 
 minifyHtmlCompiler :: Item String -> Compiler (Item String)
@@ -53,37 +53,3 @@ minifyHtmlCompiler item = do
   case minified of
     (ExitSuccess, minifiedOutput, _) -> return $ itemSetBody minifiedOutput item
     (_, _, _) -> return item
-
-
---
-
-
-tikzcdTransformM :: Pandoc -> Compiler Pandoc
-tikzcdTransformM = walkM convertTikzCodeM
-
-convertTikzCodeM :: Block -> Compiler Block
-convertTikzCodeM (RawBlock (Format "latex") code) =
-    if isTikzcdEnvironment code
-        then do
-            svgFilePath <- unsafeCompiler $ generateSvgFromTikzCode code
-            return $ case svgFilePath of
-                Just path -> Para [Image nullAttr [Str ""] (path, "")]
-                Nothing -> RawBlock (Format "latex") code
-        else return $ RawBlock (Format "latex") code
-convertTikzCodeM block = return block
-
-isTikzcdEnvironment :: T.Text -> Bool
-isTikzcdEnvironment code =
-  "\\begin{tikzcd}" `T.isPrefixOf` code && "\\end{tikzcd}" `T.isSuffixOf` code
-
-generateSvgFromTikzCode :: T.Text -> IO (Maybe T.Text)
-generateSvgFromTikzCode tikzCode = do
-    let svgFilePath = "path/to/save/generated/svg.svg"
-    let tikz2svgCmd = "tikz2svg --outfile " <> svgFilePath
-
-    TIO.writeFile "tikzcd.tex" tikzCode
-    _ <- system $ "pdflatex tikzcd.tex && " <> tikz2svgCmd
-    fileExists <- doesFileExist svgFilePath
-    if fileExists
-        then return (Just . T.pack $ svgFilePath)
-        else return Nothing
