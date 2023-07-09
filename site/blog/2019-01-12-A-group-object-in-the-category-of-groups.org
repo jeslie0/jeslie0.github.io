@@ -1,11 +1,9 @@
----
-title: A group object in the category of groups
-author: James Leslie
----
 #+title: A group object in the category of groups
+#+date: 2019-01-12
+#+author: James Leslie
+#+katex: true
 #+OPTIONS: tex:t
 #+LATEX_HEADER: \input{org-math-packages.tex} \usepackage{math-macros} \usepackage{math-environments}
-#+date:<2019-01-12 Sat>
 
 I think most people are surprised when they first discover what a group object in the category of groups is; I know I certainly was! I won't spoil what it is for you just now, but we will discuss it and why it is what it is later on in this post, so if you want to figure it out for yourself - read no further!
 

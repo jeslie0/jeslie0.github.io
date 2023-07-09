@@ -1,8 +1,4 @@
----
-title: James Leslie
----
 #+title: James Leslie
-
 # #+attr_html: :width 200px :class rounded-corners :align right
 # [[file:./images/pic.jpg]]
 

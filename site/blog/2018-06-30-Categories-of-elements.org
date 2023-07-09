@@ -1,11 +1,8 @@
----
-title: Categories of elements
-author: James Leslie
----
 #+title: Categories of elements
-#+STARTUP: latexpreview
+#+author: James Leslie
+#+katex: true
 #+OPTIONS: tex:t
-#+date:<2018-06-30 Sat>
+#+date: 2018-06-30
 When learning about colimits and presheaf categories, one often meets a category of elements. The definition of the category isn't particularly hard to understand or remember; however, I didn't immediately have an intuition for why it is useful or where the definition came from. This has lead me to play with it and try to understand some properties of it.
 
 #+BEGIN_definition

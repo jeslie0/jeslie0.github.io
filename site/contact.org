@@ -1,7 +1,5 @@
----
-title: Contact
----
 #+TITLE: Contact
+#+author: James Leslie
 You can email me using "FIRST NAME"++"LASTNAME"@posteo.net. I use PGP/MIME to sign and encrypt email. You can find my [[./files/public_key.asc][public key linked here]] (the file's SHA256= 24280761bbcda19afccf01b99a1a0a209aadfec8038b6facde1bab17b9a963e9). Its fingerprint is *86AC 9FE0 3B59 F914 7252  08DE CF66 07D8 EB30 2630*.
 * Online presence
 I have a small online presence. You are welcome to follow/contact me on all of them; however, I will respond quicker if contacted by email.

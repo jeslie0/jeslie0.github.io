@@ -1,11 +1,8 @@
----
-title: Why isn't every category isomorphic to its opposite?
-author: James Leslie
----
 #+title: Why isn't every category isomorphic to its opposite?
-#+STARTUP: latexpreview
+#+author: James Leslie
+#+date: 2018-07-07
+#+katex: t
 #+OPTIONS: tex:t
-#+date:<2018-07-07 Sat>
 
 Whenever one comes across a mathematical object, such as a group, topological space etc, it is important to look at how it interacts with other similar objects. The same goes for categories with functors being how they interact.
 

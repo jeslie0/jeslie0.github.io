@@ -1,10 +1,7 @@
----
-title: iPad Screen Sharing to Zoom on a University Network
-author: James Leslie
----
 #+title: iPad Screen Sharing to Zoom on a University Network
+#+author: James Leslie
 #+OPTIONS: tex:nil num:nil toc:nil
-#+date:<2021-03-05 Fri>
+#+date: 2021-03-05
 
 I am currently a teaching assistant for a first year linear algebra course. We recently made the switch to a hybrid setup, meaning that I am streaming the tutorials on Zoom as well as talking to a class in-person. Instead of writing on the physical whiteboards in the classroom, I instead write on my iPad and share the screen through Zoom. Previously, when the tutorials were just based on Zoom, this setup worked pretty well - I can share my screen over Zoom using my home WiFi network. However, I can't screen share over the university network due to the way it is set up.
 
