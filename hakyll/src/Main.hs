@@ -1,28 +1,32 @@
 {-# LANGUAGE OverloadedStrings #-}
+
 module Main where
 
-import Hakyll.Main
-
+import Compilers
+import Contexts
+import GitCommit
 import Hakyll.Core.Compiler
-import Hakyll.Core.Rules
-import Hakyll.Core.Routes
+import Hakyll.Core.Configuration
 import Hakyll.Core.File
 import Hakyll.Core.Item
+import Hakyll.Core.Routes
+import Hakyll.Core.Rules
+import Hakyll.Main
 import Hakyll.Web.CompressCss
+import Hakyll.Web.Html.RelativizeUrls
+import Hakyll.Web.Pandoc
 import Hakyll.Web.Template
 import Hakyll.Web.Template.Context
 import Hakyll.Web.Template.List
-import Hakyll.Web.Pandoc
-import Hakyll.Web.Html.RelativizeUrls
-
-import GitCommit
-import Compilers
-import Contexts
 import Routes
+import MetaData
+
+configuration :: Configuration
+configuration =
+  defaultConfiguration { provideMetadata = pandocMetadata (Just "") }
 
 main :: IO ()
-main = hakyll $ do
-
+main = hakyllWith configuration $ do
   match "site/images/*" $ do
     route stripSite
     compile copyFileCompiler
@@ -32,12 +36,13 @@ main = hakyll $ do
     compile copyFileCompiler
 
   match "site/css/*" $ do
-    route   stripSite
+    route stripSite
     compile compressCssCompiler
 
   match "site/blog/*.org" $ do
     route $ composeRoutes stripSite (setExtension "html")
-    compile $ shiftedHeaderPandocCompiler
+    compile $
+      shiftedHeaderPandocCompiler
         >>= loadAndApplyTemplate "templates/post.html" blogPostCtx
         >>= saveSnapshot "content"
         >>= loadAndApplyTemplate "templates/default.html" defaultContext'
@@ -49,10 +54,10 @@ main = hakyll $ do
     compile $ do
       posts <- recentFirst =<< loadAll "site/blog/*"
       let archiveCtx =
-            listField "posts" blogPostCtx (return posts) <>
-            constField "title" "Blog" <>
-            headVersionField "commit" HashAndDate <>
-            defaultContext
+            listField "posts" blogPostCtx (return posts)
+              <> constField "title" "Blog"
+              <> headVersionField "commit" HashAndDate
+              <> defaultContext
 
       makeItem ""
         >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
@@ -61,10 +66,11 @@ main = hakyll $ do
 
   match "site/*.org" $ do
     route $ composeRoutes stripSite (setExtension "html")
-    compile $ shiftedHeaderPandocCompiler
-      >>= loadAndApplyTemplate "templates/default.html" defaultContext'
-      >>= relativizeUrls
-      >>= minifyHtmlCompiler
+    compile $
+      shiftedHeaderPandocCompiler
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext'
+        >>= relativizeUrls
+        >>= minifyHtmlCompiler
 
   match "templates/*" $
     compile templateBodyCompiler

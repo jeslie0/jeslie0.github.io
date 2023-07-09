@@ -10,7 +10,17 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let pkgs = nixpkgs.legacyPackages.${system};
-          haskellPackages = pkgs.haskellPackages;
+          haskellPackages = pkgs.haskellPackages.override {
+            overrides = final: prev: {
+              hakyll = final.callCabal2nix "hakyll" patchedHakyll {} ;
+            };
+          };
+          patchedHakyll = pkgs.fetchFromGitHub {
+            owner = "jwiegley";
+            repo = "hakyll";
+            rev = "da45c36dfdcf37f90f5e0a02e0ef7d5baeb43c95";
+            hash = "sha256-qYS7kWPyebanGlIDEIf48jP/Mc6nGVss7E4+C1VyG8U=";
+          };
           hakyllDirectory = ./hakyll;
           packageName = with builtins;
             let cabalFileName = head ((filter (pkgs.lib.hasSuffix ".cabal")) (attrNames (readDir hakyllDirectory)));
