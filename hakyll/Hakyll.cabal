@@ -11,6 +11,7 @@ executable hakyll
 
     build-depends:    aeson,
                       base,
+                      bytestring,
                       containers,
                       directory,
                       hakyll,
@@ -21,6 +22,7 @@ executable hakyll
                       regex-base,
                       regex-tdfa,
                       text,
-                      time
+                      time,
+                      uri-encode
     hs-source-dirs:   src
     default-language: Haskell2010
