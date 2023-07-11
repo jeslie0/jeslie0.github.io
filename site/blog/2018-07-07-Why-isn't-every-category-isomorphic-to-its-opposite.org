@@ -3,6 +3,7 @@
 #+date: 2018-07-07
 #+katex: t
 #+OPTIONS: tex:t
+#+latex_header: \usepackage{math-packages}
 
 Whenever one comes across a mathematical object, such as a group, topological space etc, it is important to look at how it interacts with other similar objects. The same goes for categories with functors being how they interact.
 
@@ -31,9 +32,12 @@ A question one may ask is whether or not a category is isomorphic to its opposit
 The reason this doesn't hold is because the functors defined are contravariant, not covariant. To show such an isomorphism exists, one would need to construct a covariant functor \( F:\mathscr{A}^{op} \rightarrow \mathscr{A}\), so in particular the composition rule in Definition 1 must hold. Clearly for an arbitrary category, the canonical (contravariant) functor breaks this rule. A counter-example is to have a category with a terminal object and but no initial object. Its opposite has an initial object but no terminal, hence the two aren't isomorphic.
 
 #+begin_ex
-Take the following two categories \(\mathcal A\) and \(\mathcal B\), where \(\mathcal B = \mathcal A ^{\text{op}}\). 
+Take the following two categories \(\mathcal A\) and \(\mathcal B\), where \(\mathcal B = \mathcal A ^{\text{op}}\).
 
-[[./Images/untitled.png]]
+\begin{tikzcd}
+             &         & \bullet \arrow[ld, "f"'] \arrow[rd, "g"] &         &              &                                   & \bullet &                                    \\
+\mathscr A = & \bullet &                                          & \bullet & \mathscr B = & \bullet \arrow[ru, "\overline f"] &         & \bullet \arrow[lu, "\overline g"']
+\end{tikzcd}
 
 Suppose we have a covariant functor from \(\mathcal A \rightarrow \mathcal B\) that fixes the objects. The issue is that there are no arrows in \(\mathcal B\) that we can map \(f\) or \(g\) to. Since such a functor doesn't exist, \(\mathcal A\) and \(\mathcal B\) cannot be isomorphic. For such a functor to exist, it must be contravariant.
 #+end_ex

@@ -5,6 +5,7 @@
 #+LATEX_HEADER: \input{org-math-packages.tex} \usepackage{math-macros} \usepackage{math-environments}
 
 In mathematics, we are familiar with putting structure on sets, for example a group is a set with a binary operation satisfying certain properties. We can extend this notion to categories. The first examples I came across in my studies were monoidal categories, which are used to abstract the notion of a tensor product, and have deep ties to quantum mechanics and physics.
+
 #+BEGIN_definition
 A /monoidal category/ is a category \(\mathcal{C}\) with a functor \( \otimes: \mathcal{C} \times \mathcal{C} \rightarrow \mathcal{C}\), an object \( I \in \mathcal{C}\) called the unit and the following natural isomorphisms, written in terms of their components:
 
@@ -12,18 +13,15 @@ A /monoidal category/ is a category \(\mathcal{C}\) with a functor \( \otimes: \
 2. A left unitor \(\lambda_A: I \otimes A \rightarrow A\),
 3. A right unitor \(\rho_A: A \otimes I \rightarrow A\).
 
+These maps all have to satisfy the following diagrams, aptly named the triangle and pentagon identities.
 
- These maps all have to satisfy the following diagrams, aptly named the triangle and pentagon identities.
-
-
-\[\begin{tikzcd}
+\begin{tikzcd}
                                                                                                                                     & (A \otimes I) \otimes B \arrow[rr, "{\alpha_{A, I , B}}"] \arrow[rd, "\rho_A \otimes \text{id}_B"'] &                                                                                & A \otimes (I \otimes B) \arrow[ld, "\text{id}_A \otimes \lambda_B"]                    &                                     \\
                                                                                                                                     &                                                                                                     & A \otimes B                                                                    &                                                                                        &                                     \\
                                                                                                                                     & (A \otimes (B \otimes C)) \otimes D \arrow[rr, "{\alpha_{A, B \otimes C,D}}"]                       &                                                                                & A \otimes ((B \otimes C) \otimes D) \arrow[rd, "{\text{id}_A \otimes \alpha_{B,C,d}}"] &                                     \\
 ((A \otimes B)\otimes C) \otimes D \arrow[ru, "{\alpha_{A,B,C} \otimes \text{id}_D}"] \arrow[rrd, "{\alpha_{A \otimes B, C , D}}"'] &                                                                                                     &                                                                                &                                                                                        & A \otimes (B \otimes (C \otimes D)) \\
                                                                                                                                     &                                                                                                     & (A \otimes B) \otimes (C \otimes D) \arrow[rru, "{\alpha_{A,B,C \otimes D}}"'] &                                                                                        &                                    
-                                                                                                                                    \end{tikzcd}\]
-
+                                                                                                                                    \end{tikzcd}
 #+END_definition
 
 These two diagrams remarkably lead to a coherence theorem which states that every well formed formula built from \(\alpha, \lambda, \rho\) and their inverses holds. This gives us for free that \( \rho_I = \lambda_I\), which would otherwise be very painful to prove.
@@ -46,23 +44,23 @@ As \( 0\) is a zero-object, there is only one map \( 0 \rightarrow 0\), namely t
 
 We also see that \( f \circ g:0 \rightarrow 0\), so \( f \circ g = 1_0\). We can then build the following commuting square:
 
-\[ \begin{tikzcd}
+\begin{tikzcd}
 0 \arrow[r, "g"] \arrow[d, "1_0"'] & I \arrow[d, "1_I"] \\
 0                                  & I \arrow[l, "f"]  
-\end{tikzcd} \]
+\end{tikzcd}
 
 We can apply the functor \( - \otimes 0\) to this square to get the following square:
-\[\begin{tikzcd}
+\begin{tikzcd}
 0 \otimes 0 \arrow[r, "g \otimes 1_0"] \arrow[d, "1_0 \otimes 1_0"'] & I \otimes 0 \arrow[d, "1_I"]           \\
 0 \otimes 0                                                          & I \otimes 0 \arrow[l, "f \otimes 1_0"]
-\end{tikzcd}\]
+\end{tikzcd}
 
 Factoring \( 1_{I \otimes 0} = \lambda_0^{-1} \circ \lambda_0\) gives the following diagram:
 
-\[\begin{tikzcd}
+\begin{tikzcd}
 0 \otimes 0 \arrow[r, "g \otimes 1_0"] \arrow[d, "1_0 \otimes 1_0"'] & I \otimes 0 \arrow[d, "1_I"] \arrow[r, "\lambda_0"] & 0 \arrow[ld, "\lambda_0^{-1}"] \\
 0 \otimes 0                                                          & I \otimes 0 \arrow[l, "f \otimes 1_0"]              &                               
-\end{tikzcd}\]
+\end{tikzcd}
 
 We also know that \( 1_0 \otimes 1_0 = 1_{0 \otimes0}\), from the tensor product functor. As this commutes, we have \( \left((f \otimes 1_0) \circ \lambda_0^{-1} \right) \circ  \left(\lambda_0 \circ (g \otimes 1_0)\right) = 1_{0\otimes0}\). This results in the maps (1) and (2) being mutual inverses, hence \( 0 \cong 0 \otimes 0\), as required.
 

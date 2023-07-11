@@ -3,6 +3,7 @@
 #+date: 2018-04-23
 #+katex: true
 #+OPTIONS: tex:t num:nil toc:nil
+#+latex_header: \usepackage{tikz-cd}
 
 The Yoneda Lemma is one of the few 'theorems' one learns in a first course on category theory and it is an invaluable tool.
 
@@ -41,18 +42,22 @@ We apply this to the identity map on \( A\) to get a map \( \alpha_A(1_A):A \rig
 
 Take an arbitrary map \( g:B \rightarrow A\). Then \( ((H_f)_B)(g) = f \circ g = \alpha_A(1_A) \circ g\). We need to show that this is \( \alpha_B(g)\). This follows from the naturality of \( \alpha\). Indeed, for naturality gives us the following commutative square:
 
-\[\begin{tikzcd}
+
+\begin{tikzcd}
 H_A(A) \arrow[r, "- \circ g"] \arrow[d, "\alpha_A"'] & H_A(B) \arrow[d, "\alpha_B"] \\
-H_{A'}(A) \arrow[r, "-\circ g"']                     & H_A'(B)                     
-\end{tikzcd}\]
+H_{A'}(A) \arrow[r, "-\circ g"']                     & H_A'(B)
+\end{tikzcd}
+
 
 These functions take the following on \( 1_A\):
 
-\[\begin{tikzcd}
+\begin{center}
+\begin{tikzcd}
 1_A \arrow[dd, maps to] \arrow[r, maps to] & g \arrow[d, maps to]  \\
                                            & \alpha_B(g)           \\
 \alpha_A(1_A) \arrow[r, maps to]           & \alpha_A(1_A) \circ g
-\end{tikzcd}\]
+\end{tikzcd}
+\end{center}
 
 This says that \( \alpha_B(g) = \alpha_A(1_A) \circ g\). This means \( \alpha_B\) and \( (H_f)_B\) are equal as functions, which means that \( H_f = \alpha\). which by our reasoning above shows that \( \alpha = H_f\), hence \( H_\cdot\) is full.
 

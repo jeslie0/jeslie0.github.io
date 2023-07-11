@@ -24,7 +24,7 @@ Now before we figure out what a group object the category of groups is, it will 
 Considering a group \(G\), we shall write it's operation simply as concatenation (or \(\times_G\)) and when regarding it as a function, we shall call it \(f:G \times G \rightarrow G\). The following then holds for all \(a,b,c \in G\):
 
 \begin{align*}
-f : G \times G \to G \text{ is a group hom} &\LongLeftRightarrow f((a,b) \times_{G\timesG} (c,d))= f(a,b) \times_G f(c,d)\\
+f : G \times G \to G \text{ is a group hom} &\LongLeftRightarrow f((a,b) \times_{G \times G} (c,d))= f(a,b) \times_G f(c,d)\\
 &\LongLeftRightarrow f(ac, bd) = ab \times_G cd\\
 &\LongLeftRightarrow acbd=abcd\\
 &\LongLeftRightarrow cb=bc
