@@ -65,7 +65,7 @@ renderLatex :: Block -> Compiler Block
 renderLatex (RawBlock (Format "latex") code) = do
   svgContent <- latexToSvg code
   let imgSrc = "data:image/svg+xml;utf8," <> (encodeText . decodeUtf8 $ svgContent)
-  return $ Para [Image nullAttr [] (imgSrc, "")]
+  return $ Para [Image ("", ["latexfragment"], []) [] (imgSrc, "")]
 renderLatex block = return block
 
 latexTransform :: Pandoc -> Compiler Pandoc
@@ -84,11 +84,11 @@ latexToSvg code =
     readProcess "lualatex" ["--interaction=nonstopmode", "--shell-escape", "--output-format=dvi", "--output-directory=" <> tmpDir, texFile] ""
 
 
-    readProcess "dvisvgm" [dviFile, "-n", "-b", "min", "-c", "1", "-o", svgFile] ""
+    readProcess "dvisvgm" [dviFile, "-n", "-b", "min", "-c", "1.5", "-o", svgFile] ""
 
     B.readFile svgFile
 
 
-firstLatex = "\\documentclass{article}\n\\usepackage[pdftex,active,tightpage]{preview}\n\\usepackage{amsmath}\n\\usepackage{tikz}\n\\usepackage{tikz-cd}\n\\usepackage{amsthm}\n\\usepackage{physics}\n\\usetikzlibrary{matrix}\n\\usepackage{xcolor}\n\\definecolor{fg}{HTML}{839496}\n\n\\begin{document}\n\\color{fg}\n\\begin{preview}\n"
+firstLatex = "\\documentclass{article}\n\\usepackage[pdftex,active,tightpage]{preview}\n\\usepackage{amsmath}\n\\usepackage{tikz}\n\\usepackage{tikz-cd}\n\\usepackage{amsthm}\n\\usepackage{physics}\n\\usetikzlibrary{matrix}\n\\usepackage{xcolor}\n\\definecolor{fg}{HTML}{839496}\n\n\\begin{document}\n\\begin{preview}\n"
 
 secondLatex = "\\end{preview}\n\\end{document}\n"
