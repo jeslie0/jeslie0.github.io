@@ -24,10 +24,10 @@ Now before we figure out what a group object the category of groups is, it will 
 Considering a group \(G\), we shall write it's operation simply as concatenation (or \(\times_G\)) and when regarding it as a function, we shall call it \(f:G \times G \rightarrow G\). The following then holds for all \(a,b,c \in G\):
 
 \begin{align*}
-f : G \times G \to G \text{ is a group hom} &\LongLeftRightarrow f((a,b) \times_{G \times G} (c,d))= f(a,b) \times_G f(c,d)\\
-&\LongLeftRightarrow f(ac, bd) = ab \times_G cd\\
-&\LongLeftRightarrow acbd=abcd\\
-&\LongLeftRightarrow cb=bc
+f : G \times G \to G \text{ is a group hom} &\Longleftrightarrow f((a,b) \times_{G \times G} (c,d))= f(a,b) \times_G f(c,d)\\
+&\Longleftrightarrow f(ac, bd) = ab \times_G cd\\
+&\Longleftrightarrow acbd=abcd\\
+&\Longleftrightarrow cb=bc
 \end{align*}
 
 Therefore the group operation is a homomorphim if and only if the group is abelian! A surprise to be sure, but a welcome one. Now, how does this help us with our question? If there is a group homormorphism from \(G \times G \rightarrow G\) that satisfies the above properties, it must be the group operation on \(G\), by the following quick calculation:
