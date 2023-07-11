@@ -21,6 +21,7 @@ import Text.Pandoc.Options
 import Text.Pandoc.Shared
 import Text.Pandoc.Walk
 import Network.URI.Encode
+import Data.Time.Clock.System
 
 mathExtensions :: Extensions
 mathExtensions =
@@ -73,22 +74,24 @@ latexTransform = walkM renderLatex
 
 latexToSvg :: T.Text -> Compiler B.ByteString
 latexToSvg code =
-  let tmpDir = "/tmp"
-      dviFile = tmpDir <> "/temp.dvi"
-      svgFile = tmpDir <> "/temp.svg"
-      texFile = tmpDir <> "/temp.tex"
-   in unsafeCompiler $ do
+   unsafeCompiler $ do
+    time <- getSystemTime
+    let tmpDir = "/tmp/texfrag/"
+        dviFile = tmpDir <> show time.systemNanoseconds <> ".dvi"
+        svgFile = tmpDir <> show time.systemNanoseconds <> ".svg"
+        texFile = tmpDir <> show time.systemNanoseconds <> ".tex"
+
+    createDirectoryIfMissing True tmpDir
 
     TIO.writeFile texFile $ firstLatex <> code <> secondLatex
 
     readProcess "lualatex" ["--interaction=nonstopmode", "--shell-escape", "--output-format=dvi", "--output-directory=" <> tmpDir, texFile] ""
-
 
     readProcess "dvisvgm" [dviFile, "-n", "-b", "min", "-c", "1.5", "-o", svgFile] ""
 
     B.readFile svgFile
 
 
-firstLatex = "\\documentclass{article}\n\\usepackage[pdftex,active,tightpage]{preview}\n\\usepackage{amsmath}\n\\usepackage{tikz}\n\\usepackage{tikz-cd}\n\\usepackage{amsthm}\n\\usepackage{physics}\n\\usetikzlibrary{matrix}\n\\usepackage{xcolor}\n\\definecolor{fg}{HTML}{839496}\n\n\\begin{document}\n\\begin{preview}\n"
+firstLatex = "\\documentclass{article}\n\\usepackage[pdftex,active,tightpage]{preview}\n\\usepackage{amsmath}\n\\usepackage{tikz}\n\\usepackage{tikz-cd}\n\\usepackage{amsthm}\n\\usepackage{mathrsfs}\n\\usepackage{physics}\n\\usetikzlibrary{matrix}\n\\usepackage{xcolor}\n\\definecolor{fg}{HTML}{839496}\n\n\\begin{document}\n\\begin{preview}\n"
 
 secondLatex = "\\end{preview}\n\\end{document}\n"
