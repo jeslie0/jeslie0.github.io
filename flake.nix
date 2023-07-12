@@ -26,6 +26,18 @@
             let cabalFileName = head ((filter (pkgs.lib.hasSuffix ".cabal")) (attrNames (readDir hakyllDirectory)));
             in head (match "^.*name\:\ *([^[:space:]]*).*$" (readFile "${hakyllDirectory}\/${cabalFileName}"));
           hakyll = haskellPackages.callCabal2nix packageName hakyllDirectory {};
+          latex = pkgs.texlive.combine {
+          # Put the packages that we want texlive to use when compiling the PDF in here.
+          inherit (pkgs.texlive)
+            # scheme-minimal
+            # scheme-basic
+            # scheme-small
+            # scheme-medium
+            scheme-full
+            latex-bin
+            fontspec
+            latexmk;
+        };
       in
         {
           packages = {
@@ -33,7 +45,8 @@
               buildDepends = [ pkgs.makeWrapper ];
               postInstall = ''
                             wrapProgram $out/bin/hakyll \
-                            --prefix PATH : ${pkgs.lib.getBin pkgs.minify}/bin
+                            --prefix PATH : ${pkgs.lib.getBin pkgs.minify}/bin \
+                            --prefix PATH : ${pkgs.lib.getBin latex}/bin
                           '';
             });
             default = self.packages.${system}.hakyll;

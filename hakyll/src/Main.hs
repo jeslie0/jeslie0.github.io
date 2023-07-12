@@ -13,6 +13,7 @@ import Hakyll.Core.Routes
 import Hakyll.Core.Rules
 import Hakyll.Main
 import Hakyll.Web.CompressCss
+import Hakyll.Web.Feed
 import Hakyll.Web.Html.RelativizeUrls
 import Hakyll.Web.Pandoc
 import Hakyll.Web.Template
@@ -20,6 +21,7 @@ import Hakyll.Web.Template.Context
 import Hakyll.Web.Template.List
 import Routes
 import MetaData
+import Feed
 
 configuration :: Configuration
 configuration =
@@ -74,3 +76,13 @@ main = hakyllWith configuration $ do
 
   match "templates/*" $
     compile templateBodyCompiler
+
+  create ["rss.xml"] $ do
+      route idRoute
+      compile $ do
+          let feedCtx = blogPostCtx `mappend` bodyField "description"
+          posts <- fmap (take 10) . recentFirst =<<
+            loadAllSnapshots "site/blog/*.org" "content"
+          renderRss myFeedConfiguration feedCtx posts
+          -- Remove (take 10) when there are enough posts
+
