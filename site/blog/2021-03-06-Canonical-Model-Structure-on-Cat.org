@@ -2,7 +2,8 @@
 #+author: James Leslie
 #+date: 2021-03-06
 #+katex: true
-#+OPTIONS: tex:t num:nil toc:nil
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \usepackage{amsmath}
 
 When one first starts studying category theory, they learn that the correct notion of "the same" for categories is that of equivalence, rather than the stronger notion isomorphism. For those that have studied some algebraic topology, the situation is very similar to identifying spaces if they are homotopic, rather than homeomorphic. This is often given as an analogy, but the two notions can be reconciled by giving model structures where the weaker form of identification forms the subcategory of weak equivalences. Here, we define and present the so called canonical model structure on the category of categories. The proof of each step given can also be applied to the category of groupoids. 
 

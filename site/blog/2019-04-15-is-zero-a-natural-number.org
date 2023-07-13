@@ -3,6 +3,7 @@
 #+date: 2019-04-15
 #+options: tex:t
 #+katex: true
+#+latex_header: \usepackage{tikz-cd}
 
 I help tutor an introductory course on pure mathematics at Edinburgh University. One my responsibilities is to help answer questions that the students have in person and online on Piazza; a Q&A forum used by the class. The other day, a student created a poll asking whether or not zero is a natural number. I have found that this question usually always splits the audience, with a majority usually favouring "no" as the correct answer. I remember the first time I came across this debate was during my final year of high school, when our teacher described the "home of zero" as a controversial topic. At that time, for no legitimate reason, I chose to believe that it should be a natural number and this choice has more or less stuck with me till this day. Being a student of pure mathematics, it does strike me as an odd that this causes such a debate. Having the natural numbers with or without zero doesn't affect mathematics in the slightest; we can simply define a new set to be the naturals with or without zero.
 

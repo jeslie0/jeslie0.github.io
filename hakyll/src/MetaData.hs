@@ -27,6 +27,7 @@ import System.IO.Unsafe (unsafePerformIO)
 import qualified Text.Pandoc  as P
 import Text.Regex.Base.RegexLike
 import Text.Regex.TDFA
+import Text.Pandoc.Definition
 
 pandocMetadata :: Maybe String -> FilePath -> IO Metadata
 pandocMetadata mname file = do
@@ -65,7 +66,8 @@ buildMetadata file meta@(P.Meta metadata) =
           [ ("published", publishDate, P.writePlain),
             ("edited", editedDate file, P.writePlain),
             ("route", publishRoute, P.writePlain),
-            ("titleHtml", metaField "title", P.writeHtml5String)
+            ("titleHtml", metaField "title", P.writeHtml5String),
+            ("latex_header", latexHeaders, P.writePlain)
           ]
             ++ M.foldMapWithKey
               (\k _ -> [(T.unpack k, metaField k, P.writePlain)])
@@ -183,6 +185,19 @@ metaField name meta =
     Just (P.MetaBlocks [P.Plain ils]) -> ils
     Just (P.MetaBlocks [P.Para ils]) -> ils
     _ -> []
+
+latexHeaders :: P.Meta -> [P.Inline]
+latexHeaders meta =
+  case P.lookupMeta "header-includes" meta of
+    Just (P.MetaList xs) -> extractLatex xs
+    _ -> []
+    where
+      extractLatex ((P.MetaInlines [P.RawInline (Format "latex") includes]):xs) =
+        Str includes : Str "\n": extractLatex xs
+      extractLatex (_:xs) =
+        extractLatex xs
+      extractLatex [] =
+        []
 
 firstMatching :: Monad m => [a] -> (a -> m (Maybe b)) -> m (Maybe b)
 firstMatching [] _ = pure Nothing

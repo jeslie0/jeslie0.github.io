@@ -1,8 +1,9 @@
 #+title: Monoidal Categories
 #+date: 2018-04-15
 #+author: James Leslie
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \usepackage{amsmath}
 #+katex: true
-#+LATEX_HEADER: \input{org-math-packages.tex} \usepackage{math-macros} \usepackage{math-environments}
 
 In mathematics, we are familiar with putting structure on sets, for example a group is a set with a binary operation satisfying certain properties. We can extend this notion to categories. The first examples I came across in my studies were monoidal categories, which are used to abstract the notion of a tensor product, and have deep ties to quantum mechanics and physics.
 

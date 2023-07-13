@@ -3,7 +3,8 @@
 #+date: 2018-07-07
 #+katex: t
 #+OPTIONS: tex:t
-#+latex_header: \usepackage{math-packages}
+#+latex_header: \usepackage{tikz-cd}
+#+latex_header: \usepackage{mathrsfs}
 
 Whenever one comes across a mathematical object, such as a group, topological space etc, it is important to look at how it interacts with other similar objects. The same goes for categories with functors being how they interact.
 

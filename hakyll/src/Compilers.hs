@@ -1,27 +1,29 @@
+{-# LANGUAGE ImportQualifiedPost #-}
 {-# LANGUAGE OverloadedRecordDot #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE ImportQualifiedPost #-}
 
 module Compilers where
 
-import Data.Text qualified as T
-import Data.Text.IO qualified as TIO
+import Control.Monad
 import Data.ByteString qualified as B
 import Data.ByteString.Char8 qualified as C
+import Data.Maybe
+import Data.Text qualified as T
 import Data.Text.Encoding (decodeUtf8)
+import Data.Text.IO qualified as TIO
+import Data.Time.Clock.System
 import GHC.IO.Exception
 import Hakyll
 import Hakyll.Core.Compiler
 import Hakyll.Core.Item
 import Hakyll.Web.Pandoc
+import Network.URI.Encode
 import System.Directory
 import System.Process
 import Text.Pandoc.Definition
 import Text.Pandoc.Options
 import Text.Pandoc.Shared
 import Text.Pandoc.Walk
-import Network.URI.Encode
-import Data.Time.Clock.System
 
 mathExtensions :: Extensions
 mathExtensions =
@@ -70,11 +72,11 @@ renderLatex (RawBlock (Format "latex") code) = do
 renderLatex block = return block
 
 latexTransform :: Pandoc -> Compiler Pandoc
-latexTransform = walkM renderLatex
+latexTransform = walkM latexCompiler
 
 latexToSvg :: T.Text -> Compiler B.ByteString
-latexToSvg code =
-   unsafeCompiler $ do
+latexToSvg code = do
+  unsafeCompiler $ do
     time <- getSystemTime
     let tmpDir = "/tmp/texfrag/"
         dviFile = tmpDir <> show time.systemNanoseconds <> ".dvi"
@@ -83,7 +85,7 @@ latexToSvg code =
 
     createDirectoryIfMissing True tmpDir
 
-    TIO.writeFile texFile $ firstLatex <> code <> secondLatex
+    TIO.writeFile texFile code
 
     readProcess "lualatex" ["--interaction=nonstopmode", "--shell-escape", "--output-format=dvi", "--output-directory=" <> tmpDir, texFile] ""
 
@@ -92,6 +94,21 @@ latexToSvg code =
     B.readFile svgFile
 
 
-firstLatex = "\\documentclass{article}\n\\usepackage[pdftex,active,tightpage]{preview}\n\\usepackage{amsmath}\n\\usepackage{tikz}\n\\usepackage{tikz-cd}\n\\usepackage{amsthm}\n\\usepackage{mathrsfs}\n\\usepackage{physics}\n\\usetikzlibrary{matrix}\n\\usepackage{xcolor}\n\\definecolor{fg}{HTML}{839496}\n\n\\begin{document}\n\\begin{preview}\n"
+latexContext :: Context T.Text
+latexContext =
+  mconcat
+    [ field "body" (\item -> return . T.unpack $ item.itemBody),
+      field "latex_header" $ \item -> do
+        metadata <- getMetadata item.itemIdentifier
+        return $ fromMaybe "" $ lookupString "latex_header" metadata
+    ]
 
-secondLatex = "\\end{preview}\n\\end{document}\n"
+latexCompiler :: Block -> Compiler Block
+latexCompiler (RawBlock (Format "latex") code) =
+  (imageBlock . ("data:image/svg+xml;utf8," <>) . (encodeText . decodeUtf8) . itemBody <$>) $
+    makeItem code
+      >>= loadAndApplyTemplate "templates/latex.tex" latexContext
+      >>= withItemBody (return . T.pack >=> latexToSvg)
+  where
+    imageBlock imgSrc = Para [Image ("", ["latexfragment"], []) [] (imgSrc, "")]
+latexCompiler block = return block
