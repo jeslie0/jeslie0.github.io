@@ -2,7 +2,7 @@ name: Publish to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - develop
 
 permissions:
   contents: write
@@ -22,7 +22,7 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup nix magic cache
-      - uses: DeterminateSystems/nix-installer-action@main
+        uses: DeterminateSystems/nix-installer-action@main
 
       - name: Compile Haskell code
         run: nix build
