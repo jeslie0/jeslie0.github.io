@@ -1,9 +1,11 @@
 name: Publish to GitHub Pages
-
 on:
   push:
     branches:
-      - develop
+      - main
+
+permissions:
+  contents: write
 
 jobs:
   publish:
@@ -41,7 +43,7 @@ jobs:
             ${{ runner.os }}-hakyll-
 
       - name: Publish
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4.4.3
         with:
           branch: gh-pages
           folder: _site
