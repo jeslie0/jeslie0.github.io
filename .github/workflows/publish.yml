@@ -42,8 +42,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-hakyll-
 
-      - name: Publish
-        uses: JamesIves/github-pages-deploy-action@4.4.3
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4.4.3
+
         with:
           branch: gh-pages
           folder: _site
