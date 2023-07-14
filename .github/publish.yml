@@ -1,0 +1,47 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v18
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup nix magic cache
+      - uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Compile Haskell code
+        run: nix build
+
+      - name: Build website
+        run: ./result/bin/hakyll build
+
+      - name: Cache build artifacts
+        uses: actions/cache@v3
+        env:
+          cache-name: hakyll-site-cache
+        with:
+          path: |
+            _site
+            _cache
+          key: ${{ runner.os }}-hakyll-${{ github.sha }}-${{ hashFiles('_site/**') }}-${{ hashFiles('_cache/**') }}
+          restore-keys: |
+            ${{ runner.os }}-hakyll-
+
+      - name: Publish
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: _site
