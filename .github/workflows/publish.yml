@@ -23,6 +23,7 @@ jobs:
 
       - name: Setup nix magic cache
         uses: DeterminateSystems/nix-installer-action@main
+        uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Compile Haskell code
         run: nix build
