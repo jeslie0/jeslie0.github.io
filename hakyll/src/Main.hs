@@ -29,19 +29,19 @@ configuration =
 
 main :: IO ()
 main = hakyllWith configuration $ do
-  match "site/images/*" $ do
+  match "site/images/**" $ do
     route stripSite
     compile copyFileCompiler
 
-  match "site/files/*" $ do
+  match "site/files/**" $ do
     route stripSite
     compile copyFileCompiler
 
-  match "site/css/*" $ do
+  match "site/css/**" $ do
     route stripSite
     compile compressCssCompiler
 
-  match "site/blog/*.org" $ do
+  match "site/blog/**.org" $ do
     route $ composeRoutes stripSite (setExtension "html")
     compile $
       shiftedHeaderPandocCompiler
@@ -54,7 +54,7 @@ main = hakyllWith configuration $ do
   create ["blog.html"] $ do
     route idRoute
     compile $ do
-      posts <- recentFirst =<< loadAll "site/blog/*"
+      posts <- recentFirst =<< loadAll "site/blog/**.org"
       let archiveCtx =
             listField "posts" blogPostCtx (return posts)
               <> constField "title" "Blog"
@@ -74,7 +74,7 @@ main = hakyllWith configuration $ do
         >>= relativizeUrls
         >>= minifyHtmlCompiler
 
-  match "templates/*" $
+  match "templates/**" $
     compile templateBodyCompiler
 
   create ["rss.xml"] $ do
@@ -82,7 +82,7 @@ main = hakyllWith configuration $ do
       compile $ do
           let feedCtx = blogPostCtx `mappend` bodyField "description"
           posts <- fmap (take 10) . recentFirst =<<
-            loadAllSnapshots "site/blog/*.org" "content"
+            loadAllSnapshots "site/blog/**.org" "content"
           renderRss myFeedConfiguration feedCtx posts
           -- Remove (take 10) when there are enough posts
 
