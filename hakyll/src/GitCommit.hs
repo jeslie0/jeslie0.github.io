@@ -11,8 +11,12 @@ import Data.List
 import Data.Char
 import System.Process
 
-data GitVersionContent = Hash | Commit | Full | HashAndDate
-     deriving (Eq, Read)
+data GitVersionContent =
+  Hash -- ^ Just the hash
+  | Commit -- ^ Hash and commit message
+  | Full -- ^ Hash, commit message and time
+  | HashAndDate -- ^ Hash, date and author
+  deriving (Eq, Read)
 
 instance Show GitVersionContent where
     show content = case content of
