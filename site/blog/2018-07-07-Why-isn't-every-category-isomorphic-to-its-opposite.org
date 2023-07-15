@@ -37,7 +37,7 @@ Take the following two categories \(\mathcal A\) and \(\mathcal B\), where \(\ma
 
 \begin{tikzcd}
              &         & \bullet \arrow[ld, "f"'] \arrow[rd, "g"] &         &              &                                   & \bullet &                                    \\
-\mathscr A = & \bullet &                                          & \bullet & \mathscr B = & \bullet \arrow[ru, "\overline f"] &         & \bullet \arrow[lu, "\overline g"']
+\mathcal A = & \bullet &                                          & \bullet & \mathcal B = & \bullet \arrow[ru, "\overline f"] &         & \bullet \arrow[lu, "\overline g"']
 \end{tikzcd}
 
 Suppose we have a covariant functor from \(\mathcal A \rightarrow \mathcal B\) that fixes the objects. The issue is that there are no arrows in \(\mathcal B\) that we can map \(f\) or \(g\) to. Since such a functor doesn't exist, \(\mathcal A\) and \(\mathcal B\) cannot be isomorphic. For such a functor to exist, it must be contravariant.

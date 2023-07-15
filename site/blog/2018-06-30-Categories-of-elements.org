@@ -55,7 +55,7 @@ The category \( \mathbb{E}(X)\) has a terminal object if and only if there is an
 One of the most important uses of the category of elements is to show that any presheaf is a colimit of a certain diagram, in a canonical way. This is the main purpose of the category of elements in [1, Definition 6.2.16].
 
 #+BEGIN_proposition
-[1, Theorem 6.2.17] *Let \( \mathbb{A}\) be small and \( X:\mathbb{A}^{op} \rightarrow \mathbf{Set}\) a presheaf. Then \( X\) is the colimit of the following diagram:
+[1, Theorem 6.2.17] Let \( \mathbb{A}\) be small and \( X:\mathbb{A}^{op} \rightarrow \mathbf{Set}\) a presheaf. Then \( X\) is the colimit of the following diagram:
 
 \begin{tikzcd}
 \mathbb E(X) \arrow[r, "P", two heads] & \mathbb A \arrow[r, "H_\bullet", tail] & {[\mathbb A^{\text{op}}, \mathbf{Set}]}
