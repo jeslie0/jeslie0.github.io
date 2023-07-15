@@ -12,5 +12,6 @@ My second reflection is about anger. Before Woody came into my life, I thought t
 When my girlfriend and I were planning living with a new dog, I didn't think that Stoic values would be an important factor in raising it. I am glad that I was wrong.
 
 Attached is a picture of the (not so little) Woody. Today, he has been a real star of a puppy and as I type this, he is fast asleep in his bed.
-#+attr_html: :width 300 :class rounded corners
+
+#+attr_html: :width 300 :class rounded corners center
 [[../images/woody.jpeg]]
