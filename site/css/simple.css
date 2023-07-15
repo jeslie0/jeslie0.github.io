@@ -19,6 +19,7 @@
   --preformatted: #444;
   --marked: #ffdd33;
   --disabled: #efefef;
+  --text-filter: invert(7%) sepia(7%) saturate(18%) hue-rotate(323deg) brightness(102%) contrast(88%);
 }
 
 /* Dark theme */
@@ -34,6 +35,7 @@
     --code: #f06292;
     --preformatted: #ccc;
     --disabled: #111;
+    --text-filter: invert(100%) sepia(0%) saturate(633%) hue-rotate(176deg) brightness(93%) contrast(85%);
   }
   /* Add a bit of transparency so light media isn't so glaring in dark mode */
   img,
