@@ -30,16 +30,16 @@ getGitVersion :: GitVersionContent -- Kind of information
               -> FilePath          -- File to query information of
               -> IO String         --
 getGitVersion content path = do
-    (status, stdout, _) <- readProcessWithExitCode "git" [
+    (status, stdOut, stdErr) <- readProcessWithExitCode "git" [
         "log",
         "-1",
         "--format=" ++ show content,
         "--",
         "./" ++ path] ""
 
-    return $ case status  of
-        ExitSuccess -> trim stdout
-        _           -> ""
+    case status of
+      ExitSuccess -> return . trim $ stdOut
+      ExitFailure error -> print stdErr >> return ""
 
     where trim = dropWhileEnd isSpace
 

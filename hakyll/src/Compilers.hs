@@ -5,6 +5,7 @@
 module Compilers where
 
 import Control.Monad
+import Control.Exception
 import Data.ByteString qualified as B
 import Data.ByteString.Char8 qualified as C
 import Data.Maybe
@@ -20,6 +21,7 @@ import Hakyll.Web.Pandoc
 import Network.URI.Encode
 import System.Directory
 import System.Process
+import System.Environment
 import Text.Pandoc.Definition
 import Text.Pandoc.Options
 import Text.Pandoc.Shared
@@ -78,18 +80,22 @@ latexToSvg :: T.Text -> Compiler B.ByteString
 latexToSvg code = do
   unsafeCompiler $ do
     time <- getSystemTime
-    let tmpDir = "/tmp/texfrag/"
-        dviFile = tmpDir <> show time.systemNanoseconds <> ".dvi"
-        svgFile = tmpDir <> show time.systemNanoseconds <> ".svg"
-        texFile = tmpDir <> show time.systemNanoseconds <> ".tex"
+    mTmpDir <- lookupEnv "TMPDIR"
+    let tmpDir = fromMaybe "/tmp" mTmpDir
+        texfragDir = tmpDir <> "/texfrag/"
+        dviFile = texfragDir <> show time.systemNanoseconds <> ".dvi"
+        svgFile = texfragDir <> show time.systemNanoseconds <> ".svg"
+        texFile = texfragDir <> show time.systemNanoseconds <> ".tex"
 
-    createDirectoryIfMissing True tmpDir
+    createDirectoryIfMissing True texfragDir
 
     TIO.writeFile texFile code
 
-    readProcess "lualatex" ["--interaction=nonstopmode", "--shell-escape", "--output-format=dvi", "--output-directory=" <> tmpDir, texFile] ""
+    (luaExitCode, luaStdOut, luaStdErr) <- readProcessWithExitCode "lualatex" ["--interaction=nonstopmode", "--shell-escape", "--output-format=dvi", "--output-directory=" <> texfragDir, texFile] ""
+    if luaExitCode == ExitSuccess then return () else print luaStdOut >> print "\n\n" >> print luaStdErr
 
-    readProcess "dvisvgm" [dviFile, "-n", "-b", "min", "-c", "1.5", "-o", svgFile] ""
+    (dviExitCode, dviStdOut, dviStdErr) <- readProcessWithExitCode "dvisvgm" [dviFile, "-n", "-b", "min", "-c", "1.5", "-o", svgFile] ""
+    if dviExitCode == ExitSuccess then return () else print dviStdOut >> print "\n\n" >> print dviStdErr
 
     B.readFile svgFile
 
@@ -112,3 +118,8 @@ latexCompiler (RawBlock (Format "latex") code) =
   where
     imageBlock imgSrc = Para [Image ("", ["latexfragment"], []) [] (imgSrc, "")]
 latexCompiler block = return block
+
+
+printPossibleError :: Exception e => Either e a -> IO ()
+printPossibleError (Left err) = print err
+printPossibleError _ = return ()

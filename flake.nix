@@ -30,10 +30,10 @@
           # Put the packages that we want texlive to use when compiling the PDF in here.
           inherit (pkgs.texlive)
             # scheme-minimal
-            # scheme-basic
+            scheme-basic
             # scheme-small
             # scheme-medium
-            scheme-full
+            # scheme-full
             latex-bin
             fontspec
             latexmk;
@@ -46,10 +46,23 @@
               postInstall = ''
                             wrapProgram $out/bin/hakyll \
                             --prefix PATH : ${pkgs.lib.getBin pkgs.minify}/bin \
-                            --prefix PATH : ${pkgs.lib.getBin latex}/bin
+                            --prefix PATH : ${pkgs.lib.getBin latex}/bin \
+                            --prefix PATH : ${pkgs.lib.getBin pkgs.git}/bin
                           '';
             });
             default = self.packages.${system}.hakyll;
+            blog = pkgs.stdenvNoCC.mkDerivation {
+              name = "JamesBlog";
+              src = ./.;
+              buildInputs = [ self.packages.${system}.hakyll ];
+              buildPhase = ''
+                         ${self.packages.${system}.hakyll}/bin/hakyll build
+                         '';
+              installPhase = ''
+                           mkdir $out
+                           cp -r _site/* $out
+                           '';
+            };
           };
 
 

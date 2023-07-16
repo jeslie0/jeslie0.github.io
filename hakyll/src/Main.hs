@@ -19,6 +19,7 @@ import Hakyll.Web.Pandoc
 import Hakyll.Web.Template
 import Hakyll.Web.Template.Context
 import Hakyll.Web.Template.List
+import GHC.IO.Encoding
 import Routes
 import MetaData
 import Feed
@@ -27,8 +28,8 @@ configuration :: Configuration
 configuration =
   defaultConfiguration { provideMetadata = pandocMetadata (Just "") }
 
-main :: IO ()
-main = hakyllWith configuration $ do
+siteBuilder :: IO ()
+siteBuilder = hakyllWith configuration $ do
   match "site/images/**" $ do
     route stripSite
     compile copyFileCompiler
@@ -86,3 +87,7 @@ main = hakyllWith configuration $ do
           renderRss myFeedConfiguration feedCtx posts
           -- Remove (take 10) when there are enough posts
 
+main :: IO ()
+main =
+  setLocaleEncoding utf8
+  >> siteBuilder
