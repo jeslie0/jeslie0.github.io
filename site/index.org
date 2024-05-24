@@ -1,8 +1,4 @@
 #+title: James Leslie
-# #+attr_html: :width 200px :class rounded-corners :align right
-# [[file:./images/pic.jpg]]
-
-# This is required as pandoc doesn't export the align property correctly
 #+begin_export html
 <p><img src="./images/pic.jpg" class="rounded-corners" align="right" width="200" /></p>
 #+end_export

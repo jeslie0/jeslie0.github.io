@@ -61,6 +61,7 @@
             # Other useful tools
             buildInputs = with haskellPackages;
               [ cabal-install
+                haskell-language-server
               ];
 
             # Add build inputs of the following derivations.
