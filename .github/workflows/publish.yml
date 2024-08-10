@@ -28,7 +28,7 @@ jobs:
         run: nix build
 
       - name: Build website
-        run: ./result/bin/hakyll build
+        run: ./result/bin/hakyll build +RTS -N4 -RTS
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4.4.3

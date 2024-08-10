@@ -1,6 +1,6 @@
 #+title: James Leslie
 #+begin_export html
-<p><img src="./images/pic.jpg" class="rounded-corners" align="right" width="200" /></p>
+<p><img src="images/pic.jpg" class="rounded-corners" align="right" width="200" /></p>
 #+end_export
 * About Me
 Since mid 2022, I have been employed by [[https://waymont.com/][Waymont Consulting]] as a Software Consultant, developing software using C++ and React. Outside of work, I develop most of my projects using Haskell.

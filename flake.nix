@@ -2,8 +2,8 @@
   description = "My Haskell project";
 
   inputs = {
-    nixpkgs.url = github:nixos/nixpkgs/nixos-unstable;
-    flake-utils.url = github:numtide/flake-utils;
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, flake-utils }:
@@ -18,8 +18,8 @@
           patchedHakyll = pkgs.fetchFromGitHub {
             owner = "jwiegley";
             repo = "hakyll";
-            rev = "da45c36dfdcf37f90f5e0a02e0ef7d5baeb43c95";
-            hash = "sha256-qYS7kWPyebanGlIDEIf48jP/Mc6nGVss7E4+C1VyG8U=";
+            rev = "d13703e1aec0a0d2648a1bf98c80890833ff089f";
+            hash = "sha256-BRnBrJKA4gwD9TVp3IDawfX3Er8ZZXSfHFR2Kpx3OME=";
           };
           hakyllDirectory = ./hakyll;
           packageName = with builtins;

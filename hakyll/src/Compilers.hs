@@ -10,7 +10,7 @@ import Data.ByteString.Char8 qualified as C
 import Data.Maybe
 import Data.Text qualified as T
 import Data.Text.Encoding (decodeUtf8)
-import Data.Text.IO qualified as TIO
+import Data.Text.IO qualified as T
 import Data.Time.Clock.System
 import GHC.IO.Exception
 import Hakyll
@@ -64,12 +64,12 @@ minifyHtmlCompiler item = do
     (ExitSuccess, minifiedOutput, _) -> return $ itemSetBody minifiedOutput item
     (_, _, _) -> return item
 
-renderLatex :: Block -> Compiler Block
-renderLatex (RawBlock (Format "latex") code) = do
-  svgContent <- latexToSvg code
-  let imgSrc = "data:image/svg+xml;utf8," <> (encodeText . decodeUtf8 $ svgContent)
-  return $ Para [Image ("", ["latexfragment"], []) [] (imgSrc, "")]
-renderLatex block = return block
+-- renderLatex :: Block -> Compiler Block
+-- renderLatex (RawBlock (Format "latex") code) = do
+--   svgContent <- latexToSvg code
+--   let imgSrc = "data:image/svg+xml;utf8," <> (encodeText . decodeUtf8 $ svgContent)
+--   return $ Para [Image ("", ["latexfragment"], []) [] (imgSrc, "")]
+-- renderLatex block = return block
 
 latexTransform :: Pandoc -> Compiler Pandoc
 latexTransform = walkM latexCompiler
@@ -85,7 +85,7 @@ latexToSvg code = do
 
     createDirectoryIfMissing True tmpDir
 
-    TIO.writeFile texFile code
+    T.writeFile texFile code
 
     readProcess "lualatex" ["--interaction=nonstopmode", "--shell-escape", "--output-format=dvi", "--output-directory=" <> tmpDir, texFile] ""
 
@@ -93,11 +93,10 @@ latexToSvg code = do
 
     B.readFile svgFile
 
-
 latexContext :: Context T.Text
 latexContext =
   mconcat
-    [ field "body" (\item -> return . T.unpack $ item.itemBody),
+    [ field "body" $ return . T.unpack . itemBody,
       field "latex_header" $ \item -> do
         metadata <- getMetadata item.itemIdentifier
         return $ fromMaybe "" $ lookupString "latex_header" metadata

@@ -6,5 +6,5 @@ img.rounded-corners {
   display: block;
   margin-right: auto;
   margin-left: auto;
-  filter: var(--text-filter);
+  filter: invert(1);
 }
