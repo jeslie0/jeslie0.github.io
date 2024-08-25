@@ -8,14 +8,12 @@ import GitCommit
 import Hakyll.Core.Compiler
 import Hakyll.Core.Configuration
 import Hakyll.Core.File
-import Hakyll.Core.Item
 import Hakyll.Core.Routes
 import Hakyll.Core.Rules
 import Hakyll.Main
 import Hakyll.Web.CompressCss
 import Hakyll.Web.Feed
 import Hakyll.Web.Html.RelativizeUrls
-import Hakyll.Web.Pandoc
 import Hakyll.Web.Template
 import Hakyll.Web.Template.Context
 import Hakyll.Web.Template.List

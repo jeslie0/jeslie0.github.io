@@ -5,4 +5,4 @@ import Hakyll.Core.Identifier
 
 stripSite :: Routes
 stripSite =
-  customRoute $ \id -> drop (length "site/") $ toFilePath id
+  customRoute $ \iden -> drop (length "site/") $ toFilePath iden
