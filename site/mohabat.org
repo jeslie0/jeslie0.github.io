@@ -1,22 +1,49 @@
 #+title: Mohabat Tarkeshian (1994 - 2024)
 
-Mohabat Tarkeshian was a wonderful, kind and caring person who unexpected passed away at the young age of 29 in April 2024. She was many things - a great mathematician; a good friend; a fantastic listener and a very hard worker. To me, she was my best friend and my fiancée.
+#+html: <div class="container">
+#+html: <div class="column-left">
+Mohabat Tarkeshian was a wonderful, kind, and caring person who unexpectedly passed away at the young age of 29 in April 2024. She was many things—a great mathematician, a good friend, a fantastic listener, and an exceptionally hard worker. To me, she was my best friend and my fiancée.
 
-I had the great fortune to meet Mohabat when we both started our Ph.D programmes at The University of Western Ontario in September 2019. We shared an office together and became quick friends, bonding over our mutual enjoyment mathematical problems, good coffee and conversations about philosophy and psychology. I think that we were both drawn to each other from the moment we met, and we only grew closer as time went on.
+I had the great fortune to meet Mohabat when we both started our Ph.D. programs at The University of Western Ontario in September 2019. We shared an office and became quick friends, bonding over our mutual love of mathematical problems, good coffee, and conversations about philosophy and psychology. I think we were both drawn to each other from the moment we met, and we only grew closer as time passed.
 
-Mohabat and I became closer while we were revising for our Algebra comprehensive exams. I would regularly challenge her to a race to see which one of us could compute the Galois group of a certain field extension first, and Mohabat would always have a clean and correct solution before I did. Whilst this was going on, we were both experiencing Ontario's second Covid 19 lockdown so meeting each other was not an option. We did enjoy many Zoom dates together, where we would catch up and watch some episodes of It's Always Sunny in Philadelphia. She would be in tears laughing at some of the jokes on the show. The two of us looked back fondly on these times, as we knew it was the start of our love for one another.
+Mohabat and I became even closer while we were revising for our Algebra comprehensive exams. I would regularly challenge her to a race to see who could compute the Galois group of a certain field extension first, and she would always have a clean and correct solution before I did. During this time, Ontario was under its second COVID-19 lockdown, so meeting in person wasn’t an option. Instead, we enjoyed many Zoom dates, where we’d catch up and watch episodes of It's Always Sunny in Philadelphia. She would be in tears, laughing at some of the jokes. We looked back fondly on these times, as they marked the beginning of our love for one another.
 
-At the start of 2021, my PhD fell through and I left the programme. The most heartbreaking part was the knowledge that I would have to go back to the United Kingdom at some point and be separated from Mohabat. We made the most of our year together, going on some nice trips Niagara Falls and Tobermory, to name a few, with friends. Early on in this year, Mohabat accomplished one of her life long dreams of having a dog. Woody (the Chocolate Labrador) was a key part of Mohabat's life. He provided Mohabat with support; happiness; and the type of friendship you can only get from a dog, during some of the hardest and most stressful years of her life.
+At the start of 2021, my Ph.D. fell through, and I left the program. The most heartbreaking part was knowing that I’d eventually have to return to the United Kingdom, which meant being separated from Mohabat. We made the most of our year together, taking memorable trips to places like Niagara Falls and Tobermory with friends. During this time, Mohabat fulfilled one of her lifelong dreams—she got a dog. Woody, a Chocolate Labrador, became a key part of her life. He provided her with support, happiness, and the kind of companionship only a dog can offer during some of the most stressful years of her life.
 
-Despite moving back to the United Kingdom at the start of 2022, Mohabat and I continued our relationship and were determined to make it work through the distance. It wasn't easy for either of us, but we did our best. With the help and support of Mohabat, I started a new job. Mohabat continued to excel at her work and progress through her PhD programme. I took every opportunity to go and visit her and Woody that I could; both of us cherished the short times that we were together on the same continent.
+Despite my move back to the UK at the start of 2022, we remained committed to making our relationship work across the distance. It wasn’t easy for either of us, but we did our best. With Mohabat’s support, I started a new job, while she continued to excel in her work and Ph.D. program. I visited her and Woody whenever I could, and we both cherished the short times we had together on the same continent.
 
-I will always remember the summer of 2022 fondly as it was the summer that Mohabat and I visited Europe together. We stayed in Montpelier for a week so that she could attend The International Colloquium on Graph Theory and Combinatorics. The main highlight for me was the afternoon we spent relaxing together on the shore in the sun. We spent two months together, mostly where I was working in England, but also in the town I grew up in, in Scotland.
+I’ll always remember the summer of 2022 fondly, as it was the summer we visited Europe together. We spent a week in Montpellier while she attended the International Colloquium on Graph Theory and Combinatorics. For me, the highlight of that trip was the afternoon we spent relaxing on the shore in the sun. We spent two months together, mostly while I was working in England, and also in Scotland, where I showed her the town I grew up in.
 
-In 2023, Mohabat completed her PhD and began her new career as Assistant Professor at The University of St Francis Xavier, in Antigonish, Nova Scotia. There, she made lots of friends and made wonderful impressions on her many students. On New Years eve, she accepted my proposal and we entered the new year as fiancés.
+In 2023, Mohabat completed her Ph.D. and began her new career as an Assistant Professor at St. Francis Xavier University in Antigonish, Nova Scotia. There, she made many friends and left wonderful impressions on her students. On New Year’s Eve, she accepted my proposal, and we entered the new year as fiancés.
 
-On the morning of April 27th, while the two of us were out of a dog walk, Mohabat collapsed and was rushed to hospital. There, she passed away, surrounded both love from both me and her family.
+On the morning of April 27th, while we were out for a walk with Woody, Mohabat collapsed and was rushed to the hospital. Surrounded by the love of her family and me, she passed away.
 
-Mohabat changed my life, and the lives of those she met, for the better. She was my best friend, and my heart aches in her absence. I know that the main thing she would want now is for Woody to be taken care of, which I am doing my best to do. I strive to keep her alive by embodying the kindness and warmth that she shared with everyone she met.
+Mohabat changed my life, and the lives of everyone she met, for the better. She was my best friend, and my heart aches in her absence. I know that the main thing she would want now is for Woody to be taken care of, and I am doing my best to honor that. I strive to keep her memory alive by embodying the kindness and warmth she shared with everyone she met.
+
  -----
 
 Mohabat gained many awards during her time as a student. We kept an up to date list of them on her website, found [[https://mohabatmath.ca][here]].
+#+html: </div>
+
+#+html: <div class="column-right">
+#+attr_html: :width 150px :class image
+[[file:images/mohabat/IMG_3471.JPEG]]
+
+#+attr_html: :width 150px :class image
+[[file:images/mohabat/IMG_2359.JPEG]]
+
+#+attr_html: :width 150px :class image
+[[file:images/mohabat/IMG_3485.JPEG]]
+
+#+attr_html: :width 150px :class image
+[[file:images/mohabat/IMG_3512.JPEG]]
+
+#+attr_html: :width 150px :class image
+[[file:images/mohabat/IMG_3815.JPEG]]
+
+#+attr_html: :width 150px :class image
+[[file:images/mohabat/IMG_3087.JPEG]]
+
+
+#+html: </div>
+#+html: </div>

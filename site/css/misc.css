@@ -8,3 +8,46 @@ img.rounded-corners {
   margin-left: auto;
   filter: invert(1);
 }
+
+/* Container for the two columns */
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Left column (text) styling */
+.column-left {
+    flex: 3;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Right column (images) styling */
+.column-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/* Style for each image */
+.image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .column.right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .image {
+        flex: 1 1 45%;
+    }
+}
