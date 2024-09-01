@@ -4,6 +4,7 @@ module Main where
 
 import Compilers
 import Contexts
+import Feed
 import GitCommit
 import Hakyll.Core.Compiler
 import Hakyll.Core.Configuration
@@ -17,13 +18,12 @@ import Hakyll.Web.Html.RelativizeUrls
 import Hakyll.Web.Template
 import Hakyll.Web.Template.Context
 import Hakyll.Web.Template.List
-import Routes
 import MetaData
-import Feed
+import Routes
 
 configuration :: Configuration
 configuration =
-  defaultConfiguration { provideMetadata = pandocMetadata (Just "") }
+  defaultConfiguration {provideMetadata = pandocMetadata (Just "")}
 
 main :: IO ()
 main = hakyllWith configuration $ do
@@ -49,7 +49,7 @@ main = hakyllWith configuration $ do
         >>= relativizeUrls
         >>= minifyHtmlCompiler
 
-  create ["blog.html"] $ do
+  create ["blog/index.html"] $ do
     route idRoute
     compile $ do
       posts <- recentFirst =<< loadAll "site/blog/**.org"
@@ -64,8 +64,16 @@ main = hakyllWith configuration $ do
         >>= relativizeUrls
         >>= minifyHtmlCompiler
 
-  match "site/*.org" $ do
+  match "site/index.org" $ do
     route $ composeRoutes stripSite (setExtension "html")
+    compile $
+      shiftedHeaderPandocCompiler
+        >>= loadAndApplyTemplate "templates/default.html" defaultContext'
+        >>= relativizeUrls
+        >>= minifyHtmlCompiler
+
+  match "site/*.org" $ do
+    route $ composeRoutes fileToIndexDir (setExtension "html")
     compile $
       shiftedHeaderPandocCompiler
         >>= loadAndApplyTemplate "templates/default.html" defaultContext'
@@ -76,11 +84,12 @@ main = hakyllWith configuration $ do
     compile templateBodyCompiler
 
   create ["rss.xml"] $ do
-      route idRoute
-      compile $ do
-          let feedCtx = blogPostCtx `mappend` bodyField "description"
-          posts <- fmap (take 10) . recentFirst =<<
-            loadAllSnapshots "site/blog/**.org" "content"
-          renderRss myFeedConfiguration feedCtx posts
-          -- Remove (take 10) when there are enough posts
+    route idRoute
+    compile $ do
+      let feedCtx = blogPostCtx `mappend` bodyField "description"
+      posts <-
+        fmap (take 10) . recentFirst
+          =<< loadAllSnapshots "site/blog/**.org" "content"
+      renderRss myFeedConfiguration feedCtx posts
 
+-- Remove (take 10) when there are enough posts

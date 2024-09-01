@@ -62,6 +62,7 @@
             buildInputs = with haskellPackages;
               [ cabal-install
                 haskell-language-server
+                pkgs.minify
               ];
 
             # Add build inputs of the following derivations.

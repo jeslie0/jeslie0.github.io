@@ -80,8 +80,8 @@ executable hakyll
                       bytestring,
                       containers,
                       directory,
-                      hakyll,
                       filepath,
+                      hakyll,
                       pandoc,
                       pandoc-types,
                       process,
@@ -89,7 +89,8 @@ executable hakyll
                       regex-tdfa,
                       text,
                       time,
-                      uri-encode
+                      uri-encode,
+                      vector
 
     -- Directories containing source files.
     hs-source-dirs:   src
