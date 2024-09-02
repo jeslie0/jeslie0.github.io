@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$title$</title>
+    <link rel="stylesheet" href="/css/image_post.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+</head>
+<body>
+  $partial("templates/topnav.html")$
+  <main role="main">
+    <h1>$title$</h1>
+    <div class="container">
+      <div class="image-section">
+        <img src="$img$" $if(img-alt)$alt="$img-alt$"$endif$>
+      </div>
+
+      <div class="text-section">
+        $body$
+      </div>
+    </div>
+
+    <div class="additional-section">
+        $partial("templates/giscus.html")$
+    </div>
+  </main>
+  $partial("templates/footer.html")$
+</body>

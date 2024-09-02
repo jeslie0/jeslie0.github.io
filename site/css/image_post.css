@@ -1,0 +1,61 @@
+/* Container that holds the image and text */
+.container {
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 20px; /* Adds space below the container */
+    align-items: flex-start; /* Ensures that both the image and text start at the same height */
+}
+
+/* Image section */
+.image-section img {
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Text section */
+.text-section {
+    margin-left: 20px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.text-section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.text-section p {
+    margin: 5px 0;
+}
+
+.text-section a {
+    text-decoration: none;
+}
+
+/* Additional section below the container */
+.additional-section {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* Responsive layout: Stack the text below the image on small screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack the text below the image on smaller screens */
+        align-items: center;
+    }
+
+    .text-section {
+        margin-left: 0;
+        margin-top: 10px; /* Adds some space between the image and text */
+        text-align: left;
+        align-items: left;
+    }
+}

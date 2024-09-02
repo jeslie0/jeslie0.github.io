@@ -64,6 +64,30 @@ main = hakyllWith configuration $ do
         >>= relativizeUrls
         >>= minifyHtmlCompiler
 
+  match "site/woody/**.org" $ do
+    route $ composeRoutes stripSite (setExtension "html")
+    compile $
+      shiftedHeaderPandocCompiler
+        >>= saveSnapshot "woodyContent"
+        >>= loadAndApplyTemplate "templates/image_post.html" woodyPostCtx
+        >>= relativizeUrls
+        >>= minifyHtmlCompiler
+
+  create ["woody/index.html"] $ do
+    route idRoute
+    compile $ do
+      posts <- recentFirst =<< loadAllSnapshots "site/woody/**.org" "woodyContent"
+      let archiveCtx =
+            listField "woodyPosts" woodyPostCtx (return posts)
+              <> constField "title" "Woody"
+              <> headVersionField "commit" HashAndDate
+              <> defaultContext
+
+      makeItem ""
+        >>= loadAndApplyTemplate "templates/image-archive.html" archiveCtx
+        >>= relativizeUrls
+        >>= minifyHtmlCompiler
+
   match "site/index.org" $ do
     route $ composeRoutes stripSite (setExtension "html")
     compile $
