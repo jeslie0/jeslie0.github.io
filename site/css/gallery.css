@@ -3,7 +3,6 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Automatically resize columns */
     grid-gap: 20px; /* Space between images */
-    max-width: 1200px; /* Limit the width of the gallery */
     width: 100%;
 }
 
@@ -12,12 +11,15 @@
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: max-content;
+    padding: 10px
 }
 
 /* Images inside the gallery */
 .gallery-item img {
     max-width: 400px;
     height: auto;
+    width: auto;
     display: block;
     object-fit: cover;
     border-radius: 8px;
