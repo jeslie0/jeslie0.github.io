@@ -1,6 +1,0 @@
-#+title: A trip through the sky
-#+date: 2024-05-30
-#+img:  /images/woody/IMG_2329.JPEG
-We are flying!
-#+html: <!--more-->
-hellow

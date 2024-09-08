@@ -12,7 +12,9 @@
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: max-content;
-    padding: 10px
+    padding: 10px;
+    max-width: 400px;
+    word-wrap: break-word;
 }
 
 /* Images inside the gallery */

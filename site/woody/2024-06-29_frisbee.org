@@ -1,0 +1,9 @@
+#+title: Frisbee times during the summer
+#+date: 2024-06-29
+#+img:  /images/woody/IMG_7601.JPEG
+It was a lovely evening so Woody and I went to play with our frisbee in the local park.
+#+html: <!--more-->
+The sun was just right in the sky, and Woody let me take this lovely photo of him. He was very tired from sprinting about and fetching so well. I am so proud of Woody - it is very easy to think of times when he would never fetch anything outside, but now I trust him to come back to me even in the presence of other dogs. I know that Mohabat is proud of him.
+
+#+attr_html: :width 230px
+[[../images/woody/IMG_7605.JPEG]]
