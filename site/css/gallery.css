@@ -10,10 +10,10 @@
 .gallery-item {
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     width: max-content;
     padding: 10px;
-    max-width: 400px;
+    max-width: 100%;
     word-wrap: break-word;
 }
 
@@ -25,4 +25,34 @@
     display: block;
     object-fit: cover;
     border-radius: 8px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 768px) {
+    .gallery {
+        flex-direction: column; /* Stack the text below the image on smaller screens */
+        grid-template-columns: 1fr; /* Show one image per row on mobile */
+        width: 100%;
+    }
+
+    .gallery-item {
+        overflow: auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        width: 95%;
+        word-wrap: break-word;
+    }
+
+    /* Ensure the gallery item height adjusts properly on mobile */
+    .gallery-item img {
+        max-width: 80vw; /* Ensure image doesn't exceed the viewport width */
+        max-height: 80vh; /* Prevent image from exceeding 80% of the viewport height */
+        display: block;
+        margin: auto;
+    }
+
+    .gallery-item h3 {
+        text-align: center;
+    }
 }

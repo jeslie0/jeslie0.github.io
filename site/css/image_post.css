@@ -1,11 +1,17 @@
+* {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+     box-sizing: border-box;
+}
 /* Container that holds the image and text */
 .container {
     display: flex;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     width: 100%;
     margin-bottom: 20px; /* Adds space below the container */
     align-items: flex-start; /* Ensures that both the image and text start at the same height */
+    padding: 10px;
 }
 
 /* Image section */
@@ -44,7 +50,7 @@
 
 /* Additional section below the container */
 .additional-section {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
     width: 100%;
     text-align: center;
