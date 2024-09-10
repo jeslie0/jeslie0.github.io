@@ -1,0 +1,9 @@
+#+title: Bank holiday walk
+#+date: 2024-06-26
+#+img:  /images/woody/IMG_7580.JPEG
+It was a bank holiday today, which I only discovered at the end of last week!
+#+html: <!--more-->
+Woody and I met up with a friend from work and we went on a lunchtime walk in what felt like one of the last days of summer. We all went to a local pub and enjoyed a nice meal together. Woody was very well behaved and so was treated to a nice bone while we ate. He was very content and decided that he should nap afterwards. A good day, with good food and good company!
+
+#+attr_html: :width 230px
+[[../images/woody/IMG_7579.JPEG]]
