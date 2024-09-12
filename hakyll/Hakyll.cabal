@@ -68,7 +68,7 @@ executable hakyll
                       -- ColourFilter,
                       Feed,
                       GitCommit,
-                      MetaData,
+                      Metadata,
                       Routes
 
     -- LANGUAGE extensions used by modules in this package.

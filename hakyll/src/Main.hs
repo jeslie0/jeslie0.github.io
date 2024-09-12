@@ -18,7 +18,7 @@ import Hakyll.Web.Html.RelativizeUrls
 import Hakyll.Web.Template
 import Hakyll.Web.Template.Context
 import Hakyll.Web.Template.List
-import MetaData
+import Metadata
 import Routes
 
 configuration :: Configuration

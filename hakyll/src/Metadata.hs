@@ -5,29 +5,39 @@
 {-# LANGUAGE PatternGuards #-}
 {-# LANGUAGE ViewPatterns #-}
 
-module MetaData where
+module Metadata where
 
-import qualified Data.Aeson.Key as AT
-import qualified Data.Aeson.KeyMap as AT
-import qualified Data.Aeson.Types as AT
+import Data.Aeson.Key qualified as AT
+import Data.Aeson.KeyMap qualified as AT
+import Data.Aeson.Types qualified as AT
 import Data.Bifunctor (bimap)
 import Data.Char (toLower)
-import Data.Functor
-import qualified Data.Map.Strict  as M
-import Data.Maybe
-import qualified Data.Text  as T
-import qualified Data.Text.IO  as TIO
-import Data.Time
+import Data.Functor ((<&>))
+import Data.Map.Strict qualified as M
+import Data.Maybe (mapMaybe)
+import Data.Text qualified as T
+import Data.Text.IO qualified as TIO
+import Data.Time (TimeLocale, UTCTime (utctDay), parseTimeM)
 import Data.Time.Format.ISO8601
-import Hakyll.Core.Identifier
+  ( ISO8601 (iso8601Format),
+    formatShow,
+  )
+import Hakyll.Core.Identifier (Identifier, toFilePath)
 import Hakyll.Core.Metadata
-import System.Directory
-import System.FilePath
+  ( Metadata,
+    MonadMetadata,
+    getMetadataField,
+    lookupString,
+  )
+import System.Directory (getModificationTime)
+import System.FilePath (takeExtension)
 import System.IO.Unsafe (unsafePerformIO)
-import qualified Text.Pandoc  as P
+import Text.Pandoc qualified as P
+import Text.Pandoc.Definition (Format (Format), Inline (Str))
 import Text.Regex.Base.RegexLike
-import Text.Regex.TDFA
-import Text.Pandoc.Definition
+  ( AllTextSubmatches (AllTextSubmatches),
+  )
+import Text.Regex.TDFA ((=~))
 
 pandocMetadata :: Maybe String -> FilePath -> IO Metadata
 pandocMetadata mname file = do
@@ -144,7 +154,7 @@ publishDate meta =
     _ -> []
 
 itemUTC ::
-  MonadMetadata m =>
+  (MonadMetadata m) =>
   TimeLocale ->
   Identifier ->
   m (Maybe UTCTime)
@@ -191,15 +201,15 @@ latexHeaders meta =
   case P.lookupMeta "header-includes" meta of
     Just (P.MetaList xs) -> extractLatex xs
     _ -> []
-    where
-      extractLatex ((P.MetaInlines [P.RawInline (Format "latex") includes]):xs) =
-        Str includes : Str "\n": extractLatex xs
-      extractLatex (_:xs) =
-        extractLatex xs
-      extractLatex [] =
-        []
+  where
+    extractLatex ((P.MetaInlines [P.RawInline (Format "latex") includes]) : xs) =
+      Str includes : Str "\n" : extractLatex xs
+    extractLatex (_ : xs) =
+      extractLatex xs
+    extractLatex [] =
+      []
 
-firstMatching :: Monad m => [a] -> (a -> m (Maybe b)) -> m (Maybe b)
+firstMatching :: (Monad m) => [a] -> (a -> m (Maybe b)) -> m (Maybe b)
 firstMatching [] _ = pure Nothing
 firstMatching (x : xs) f =
   f x >>= \case
@@ -220,7 +230,7 @@ inlinesTo wr ill =
 stringify :: [P.Inline] -> T.Text
 stringify = inlinesTo P.writePlain
 
--- Maybe convert an Org date of form [YYYY-MM-DD WWW( HH:MM)?] to a date of the
+-- | Maybe convert an Org date of form [YYYY-MM-DD WWW( HH:MM)?] to a date of the
 -- form YYYY-MM-DD.
 orgDateToIso :: T.Text -> Maybe T.Text
 orgDateToIso (T.unpack -> date) =
