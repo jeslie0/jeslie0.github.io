@@ -11,19 +11,17 @@
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: max-content;
-    padding: 10px;
     max-width: 100%;
+    padding: 10px;
     word-wrap: break-word;
 }
 
 /* Images inside the gallery */
 .gallery-item img {
-    max-width: 400px;
-    height: auto;
-    width: auto;
+    max-height: 33vh;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
-    object-fit: cover;
     border-radius: 8px;
 }
 

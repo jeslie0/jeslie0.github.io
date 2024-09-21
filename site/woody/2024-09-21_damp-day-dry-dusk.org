@@ -1,0 +1,9 @@
+#+title: Damp day, dry dusk
+#+date: 2024-09-21
+#+img:  /images/woody/IMG_7705.JPEG
+Woody and I stayed inside for most of the morning due to heavy rainfall.
+#+html: <!--more-->
+The rain stopped later in the day and we enjoyed a nice time fetching. Woody was nearly perfectly dry and clean, but decided to step in a puddle on his way back home (although, knowing him, I am sure it was an accident...)
+
+#+attr_html: :width 230px
+[[../images/woody/IMG_7703.JPEG]]

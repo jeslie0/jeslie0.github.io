@@ -1,0 +1,9 @@
+#+title: Sunset at the park
+#+date: 2024-09-16
+#+img:  /images/woody/IMG_7684.JPEG
+After a nice time playing with some doggies, fetching a frisbee, and doing a lot of sniffing, Woody posed nicely for this pic.
+#+html: <!--more-->
+We have been blessed with a few extra days of summer, and both of us are making the most of the warmer evenings. The sun will be missed when the rain starts!
+
+# #+attr_html: :width 230px
+# [[../images/woody/IMG_7605.JPEG]]
