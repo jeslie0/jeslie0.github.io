@@ -2,7 +2,7 @@
 
 #+html: <div class="container">
 #+html: <div class="column-left">
-Mohabat Tarkeshian was a wonderful, kind, and caring person who unexpectedly passed away at the young age of 29 in April 2024. She was many things—a great mathematician, a good friend, a fantastic listener, and an exceptionally hard worker. To me, she was my best friend and my fiancée.
+Mohabat Tarkeshian was a wonderful, kind, and caring person who unexpectedly passed away at the young age of 29 in April 2024. She was many things—a great mathematician, a good friend, a fantastic listener, and an exceptionally hard worker. To me, she was also my best friend and my fiancée.
 
 I had the great fortune to meet Mohabat when we both started our Ph.D. programs at The University of Western Ontario in September 2019. We shared an office and became quick friends, bonding over our mutual love of mathematical problems, good coffee, and conversations about philosophy and psychology. I think we were both drawn to each other from the moment we met, and we only grew closer as time passed.
 
