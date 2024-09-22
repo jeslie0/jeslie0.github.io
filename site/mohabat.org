@@ -27,22 +27,22 @@ Mohabat gained many awards during her time as a student. We kept an up to date l
 
 #+html: <div class="column-right">
 #+attr_html: :width 150px :class image
-[[file:images/mohabat/IMG_3471.JPEG]]
+[[file:../images/mohabat/IMG_3471.JPEG]]
 
 #+attr_html: :width 150px :class image
-[[file:images/mohabat/IMG_2359.JPEG]]
+[[file:../images/mohabat/IMG_2359.JPEG]]
 
 #+attr_html: :width 150px :class image
-[[file:images/mohabat/IMG_3485.JPEG]]
+[[file:../images/mohabat/IMG_3485.JPEG]]
 
 #+attr_html: :width 150px :class image
-[[file:images/mohabat/IMG_3512.JPEG]]
+[[file:../images/mohabat/IMG_3512.JPEG]]
 
 #+attr_html: :width 150px :class image
-[[file:images/mohabat/IMG_3815.JPEG]]
+[[file:../images/mohabat/IMG_3815.JPEG]]
 
 #+attr_html: :width 150px :class image
-[[file:images/mohabat/IMG_3087.JPEG]]
+[[file:../images/mohabat/IMG_3087.JPEG]]
 
 
 #+html: </div>
