@@ -1,0 +1,9 @@
+#+title:Morning Frisbee fetching
+#+date: 2024-09-28
+#+img:  /images/woody/IMG_7724.JPEG
+After a week of rainfall, it was nice to get outside with Woody and see some sun!
+#+html: <!--more-->
+It was a chilly morning and the grass was still wet with dew, but when we were in the morning sun all we thought about was the warmth it provided. I appreciated the calmness in the air today. It reminded me of taking Woody out for weekend walks with Mohabat in London Ontario. Woody also enjoyed fetching and getting to meet some other doggies out for their morning walk.
+
+#+attr_html: :width 230px
+[[../images/woody/IMG_7726.JPEG]]

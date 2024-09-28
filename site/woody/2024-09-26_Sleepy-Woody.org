@@ -1,0 +1,5 @@
+#+title: Sleepy Woody
+#+date: 2024-09-26
+#+img: /images/woody/IMG_7720.JPEG
+After a lovely evening of playing with his toys, Woody thought the best thing would be to snuggle up with Mr Moose in his bed.
+#+html: <!--more-->
