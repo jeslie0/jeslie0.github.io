@@ -1,0 +1,9 @@
+#+title: Frisbee and mud
+#+date: 2024-10-17
+#+img:  /images/woody/IMG_7764.JPEG
+A little rain and mud won't Woody from chasing his favourite frisbee!
+#+html: <!--more-->
+This is the third frisbee that we are on now. We had a nice and bright yellow one that flew very well - a little too well, as a matter of fact. It flew right into a tree and that was that! This blue one doesn't go nearly as far, but it is still able to help me tire Woody!. As you can tell, he really loves to chase it.
+
+#+attr_html: :width 230px
+[[../images/woody/IMG_7767.JPEG]]
