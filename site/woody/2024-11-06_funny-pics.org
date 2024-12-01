@@ -1,0 +1,9 @@
+#+title: Funny pictures
+#+date: 2024-11-06
+#+img:  /images/woody/2024-11/f30501a6-033a-4d21-ae7e-f53a90c91e5f.jpg
+My dog sitter snapped this wonderful picture of woody.
+#+html: <!--more-->
+He is memorised by whatever treat is being used to keep him focused! Later, he thought he could smell something very tasty inside my bag...
+
+#+attr_html: :width 230px
+[[../images/woody/2024-11/IMG_7821.JPEG]]

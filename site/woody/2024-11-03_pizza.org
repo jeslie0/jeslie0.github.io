@@ -1,0 +1,9 @@
+#+title: Did someone say pizza?
+#+date: 2024-11-03
+#+img:  /images/woody/2024-11/IMG_7801.JPEG
+Continuing our walk, Woody and I stopped off at a little pizza cafe.
+#+html: <!--more-->
+He was very good and let me eat my pizza without any fuss! He was treated to a venison snack that he more or less inhaled.
+
+#+attr_html: :width 230px
+[[../images/woody/2024-11/IMG_7797.JPEG]]
