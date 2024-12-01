@@ -6,18 +6,7 @@ import Compilers
 import Contexts
 import Feed
 import GitCommit
-import Hakyll.Core.Compiler
-import Hakyll.Core.Configuration
-import Hakyll.Core.File
-import Hakyll.Core.Routes
-import Hakyll.Core.Rules
-import Hakyll.Main
-import Hakyll.Web.CompressCss
-import Hakyll.Web.Feed
-import Hakyll.Web.Html.RelativizeUrls
-import Hakyll.Web.Template
-import Hakyll.Web.Template.Context
-import Hakyll.Web.Template.List
+import Hakyll (Configuration (provideMetadata), Identifier, MonadMetadata, PageNumber, bodyField, buildPaginateWith, compile, composeRoutes, compressCssCompiler, constField, copyFileCompiler, create, defaultConfiguration, defaultContext, fromFilePath, hakyllWith, idRoute, listField, loadAll, loadAllSnapshots, loadAndApplyTemplate, makeItem, match, paginateContext, paginateEvery, paginateRules, recentFirst, relativizeUrls, renderRss, route, saveSnapshot, setExtension, sortRecentFirst, templateBodyCompiler)
 import Metadata
 import Routes
 
@@ -73,18 +62,22 @@ main = hakyllWith configuration $ do
         >>= relativizeUrls
         >>= minifyHtmlCompiler
 
-  create ["woody/index.html"] $ do
+  pages <- buildPaginateWith grouper "site/woody/**.org" makeId
+
+  paginateRules pages $ \pageNum patt -> do
     route idRoute
     compile $ do
-      posts <- recentFirst =<< loadAllSnapshots "site/woody/**.org" "woodyContent"
-      let archiveCtx =
+      posts <- recentFirst =<< loadAll patt
+      let paginateCtx = paginateContext pages pageNum
+          ctx =
             listField "woodyPosts" woodyPostCtx (return posts)
-              <> constField "title" "Woody"
+              <> constField "title" ("Woody - Page " <> show pageNum)
               <> headVersionField "commit" HashAndDate
+              <> paginateCtx
               <> defaultContext
 
       makeItem ""
-        >>= loadAndApplyTemplate "templates/image-archive.html" archiveCtx
+        >>= loadAndApplyTemplate "templates/image-archive.html" ctx
         >>= relativizeUrls
         >>= minifyHtmlCompiler
 
@@ -117,3 +110,10 @@ main = hakyllWith configuration $ do
       renderRss myFeedConfiguration feedCtx posts
 
 -- Remove (take 10) when there are enough posts
+
+-- Paginate
+grouper :: (MonadMetadata m, MonadFail m) => [Identifier] -> m [[Identifier]]
+grouper = fmap (paginateEvery 6) . sortRecentFirst
+
+makeId :: PageNumber -> Identifier
+makeId pageNum = fromFilePath $ "woody/" <> show pageNum <> "/index.html"

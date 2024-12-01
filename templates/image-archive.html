@@ -16,6 +16,16 @@
 
     <main role="main">
       <h1>$title$</h1>
+      <div>
+        $if(previousPageNum)$
+        <a href="$previousPageUrl$">◀ Newer Entries</a>
+        $endif$&nbsp;
+
+        $if(nextPageNum)$
+        <a href="$nextPageUrl$" style="float: right;">Older Entries ▶</a>
+        $endif$&nbsp;
+        </div>
+
         $partial("templates/woody-gallery.html")$
     </main>
 
