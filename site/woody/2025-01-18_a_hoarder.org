@@ -1,0 +1,8 @@
+#+title: A little hoarder
+#+date: 2025-01-18
+#+img:  /images/woody/2025/01/IMG_7990.JPEG
+
+Someone seems to love gathering up all of his toys into one spot. At least I won't be tripping up over them!
+#+html: <!--more-->
+# #+attr_html: :width 230px
+# [[../images/woody/2025/01/IMG_7960.JPEG]]

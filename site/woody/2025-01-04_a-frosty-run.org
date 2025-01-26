@@ -1,0 +1,8 @@
+#+title: A frosty run
+#+date: 2025-01-04
+#+img:  /images/woody/2025/01/IMG_7945.JPEG
+Woody seems to be enjoying his new running harness! He is getting much better at pulling me along the frozen trails by the river.
+#+html: <!--more-->
+
+#+attr_html: :width 230px
+[[../images/woody/2025/01/IMG_7960.JPEG]]

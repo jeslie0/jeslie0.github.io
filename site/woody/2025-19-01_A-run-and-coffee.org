@@ -1,0 +1,10 @@
+#+title:A run and coffee 
+#+date: 2025-01-19
+#+img:  /images/woody/2025/01/IMG_7994.JPEG
+Woody ran a long way today, all along the River Wey!
+#+html: <!--more-->
+He pulled me very well and even decided to race some of the boats that were in the river. He got a lovely snack when we reach our favourite cafe at the end of our route.
+
+
+#+attr_html: :width 230px
+[[../images/woody/2025/01/IMG_8001.JPEG]]
