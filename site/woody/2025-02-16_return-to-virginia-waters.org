@@ -1,5 +1,5 @@
 #+title: Return to Virginia Waters
-#+date: 2025-01-19
+#+date: 2025-02-16
 #+img:  /images/woody/2025/02/IMG_3336.JPEG
 Some lovely friends drove us to Virginia Waters!
 #+html: <!--more-->
