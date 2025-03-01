@@ -1,0 +1,10 @@
+#+title: An afternoon of sun
+#+date: 2025-03-01
+#+img:  /images/woody/2025/03/IMG_8067.JPEG
+The sun broke through the fog in the afternoon!
+#+html: <!--more-->
+Woody was a great little helper and was very useful while I was tuning my bike. Grabbing pieces of wood and running away was very useful to me!!! We sat down by the pond and enjoyed a little bit of relaxing in the Spring sun.
+
+
+#+attr_html: :width 230px
+[[../images/woody/2025/03/IMG_8076.JPEG]]
