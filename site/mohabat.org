@@ -1,6 +1,6 @@
 #+title: Mohabat Tarkeshian (1994 - 2024)
 
-#+html: <div class="container">
+#+html: <div class="two-cols">
 #+html: <div class="column-left">
 Mohabat Tarkeshian was a wonderful, kind, and caring person who unexpectedly passed away at the young age of 29 in April 2024. She was many things—a great mathematician, a good friend, a fantastic listener, and an exceptionally hard worker. To me, she was also my best friend and my fiancée.
 

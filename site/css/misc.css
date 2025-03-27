@@ -10,7 +10,7 @@ img.rounded-corners {
 }
 
 /* Container for the two columns */
-.container {
+.two-cols {
     display: flex;
     justify-content: space-between;
     gap: 20px;
