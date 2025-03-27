@@ -82,6 +82,7 @@ executable hakyll
                       directory,
                       filepath,
                       hakyll,
+                      hashing,
                       pandoc,
                       pandoc-types,
                       process,

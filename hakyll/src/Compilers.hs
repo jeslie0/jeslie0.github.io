@@ -5,18 +5,14 @@
 module Compilers where
 
 import Control.Monad
+import Crypto.Hash as Hash
 import Data.ByteString qualified as B
-import Data.ByteString.Char8 qualified as C
 import Data.Maybe
 import Data.Text qualified as T
-import Data.Text.Encoding (decodeUtf8)
+import Data.Text.Encoding (decodeUtf8, encodeUtf8)
 import Data.Text.IO qualified as T
-import Data.Time.Clock.System
 import GHC.IO.Exception
 import Hakyll
-import Hakyll.Core.Compiler
-import Hakyll.Core.Item
-import Hakyll.Web.Pandoc
 import Network.URI.Encode
 import System.Directory
 import System.Process
@@ -75,21 +71,32 @@ latexTransform :: Pandoc -> Compiler Pandoc
 latexTransform = walkM latexCompiler
 
 latexToSvg :: T.Text -> Compiler B.ByteString
-latexToSvg code = do
+latexToSvg latexFile = do
   unsafeCompiler $ do
-    time <- getSystemTime
     let tmpDir = "/tmp/texfrag/"
-        dviFile = tmpDir <> show time.systemNanoseconds <> ".dvi"
-        svgFile = tmpDir <> show time.systemNanoseconds <> ".svg"
-        texFile = tmpDir <> show time.systemNanoseconds <> ".tex"
+        hashCtx = Hash.hash @Hash.MD5 . encodeUtf8 $ latexFile
+        texFile = tmpDir <> show hashCtx <> ".tex"
+        dviFile = tmpDir <> show hashCtx <> ".dvi"
+        svgFile = tmpDir <> show hashCtx <> ".svg"
+
+    svgFileExists <- doesFileExist svgFile
 
     createDirectoryIfMissing True tmpDir
 
-    T.writeFile texFile code
+    unless svgFileExists $ do
+      T.writeFile texFile latexFile
 
-    readProcess "lualatex" ["--interaction=nonstopmode", "--shell-escape", "--output-format=dvi", "--output-directory=" <> tmpDir, texFile] ""
+      void $ readProcess "lualatex" ["--interaction=nonstopmode", "--shell-escape", "--output-format=dvi", "--output-directory=" <> tmpDir, texFile] ""
 
-    readProcess "dvisvgm" [dviFile, "-n", "-b", "min", "-c", "1.5", "-o", svgFile] ""
+      svgStr <- readProcess "dvisvgm" [dviFile, "-n", "-b", "min", "-c", "1.5", "-O", "none", "--relative", "-v", "0", "--stdout", "--currentcolor"] ""
+
+      let idFix = T.replace "id='" ("id='" <> (T.pack . show $ hashCtx)) (T.pack svgStr)
+          xlinkFix = T.replace "xlink:href='#" ("xlink:href='#" <> (T.pack . show $ hashCtx)) idFix
+
+      T.writeFile svgFile xlinkFix
+
+      removeFile texFile
+      removeFile dviFile
 
     B.readFile svgFile
 
@@ -104,10 +111,10 @@ latexContext =
 
 latexCompiler :: Block -> Compiler Block
 latexCompiler (RawBlock (Format "latex") code) =
-  (imageBlock . ("data:image/svg+xml;utf8," <>) . (encodeText . decodeUtf8) . itemBody <$>) $
-    makeItem code
-      >>= loadAndApplyTemplate "templates/latex.tex" latexContext
-      >>= withItemBody (return . T.pack >=> latexToSvg)
+  (makeContainer . decodeUtf8 . itemBody <$>) $ do
+    item <- makeItem code
+    latexContent <- loadAndApplyTemplate "templates/latex.tex" latexContext item
+    withItemBody (return . T.pack >=> latexToSvg) latexContent
   where
-    imageBlock imgSrc = Para [Image ("", ["latexfragment"], []) [] (imgSrc, "")]
+    makeContainer content = Div ("", ["latexfragment"],[]) [RawBlock (Format "html") content]
 latexCompiler block = return block

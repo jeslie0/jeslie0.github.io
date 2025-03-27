@@ -2,6 +2,7 @@
     --maxwidth: 50em;
     --background-color: #fffffa;
     --text-color: #2E3440;
+    --currentcolor: var(--text-color);
 }
 
 body {
@@ -14,10 +15,6 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     text-rendering: optimizeLegibility;
-}
-
-path {
-    fill: var(--text-color);
 }
 
 h1, h2, h3, h4, h5, h6 {

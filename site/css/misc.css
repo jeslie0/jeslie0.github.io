@@ -3,10 +3,9 @@ img.rounded-corners {
 }
 
 .latexfragment {
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-  filter: invert(1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Container for the two columns */
