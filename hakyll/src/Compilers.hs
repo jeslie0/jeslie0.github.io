@@ -13,7 +13,6 @@ import Data.Text.Encoding (decodeUtf8, encodeUtf8)
 import Data.Text.IO qualified as T
 import GHC.IO.Exception
 import Hakyll
-import Network.URI.Encode
 import System.Directory
 import System.Process
 import Text.Pandoc.Definition
@@ -36,7 +35,7 @@ mathExtensions =
 pandocWriterOptions :: WriterOptions
 pandocWriterOptions =
   defaultHakyllWriterOptions
-    { writerHTMLMathMethod = MathJax ""
+    { writerHTMLMathMethod = MathML 
     }
 
 pandocReaderOptions :: ReaderOptions
