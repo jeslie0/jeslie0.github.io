@@ -16,9 +16,11 @@
 
 /* Image section */
 .image-section img {
-    max-width: 400px;
-    height: auto;
+    max-width: 95%;
+    max-height: 50vh;
     border-radius: 8px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Text section */

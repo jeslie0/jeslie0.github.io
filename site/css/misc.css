@@ -38,15 +38,30 @@ img.rounded-corners {
 
 /* Responsive design for smaller screens */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
+    /* Container for the two columns */
+    .two-cols {
+        display: block;
+        justify-content: space-between;
+        gap: 20px;
     }
-    .column.right {
-        flex-direction: row;
-        flex-wrap: wrap;
+
+    /* Left column (text) styling */
+    .column-left {
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .column-right {
         gap: 10px;
     }
-    .image {
-        flex: 1 1 45%;
+
+    .column-right img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+   
+    /* For the image gallery */
+    .container {
+        flex-direction: column;
     }
 }
