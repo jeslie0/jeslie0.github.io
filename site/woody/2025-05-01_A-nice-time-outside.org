@@ -1,0 +1,5 @@
+#+title: A nice time outside
+#+date: 2025-05-01
+#+img:  /images/woody/2025/04/IMG_8271.JPEG
+#+html: <!--more-->
+

@@ -1,0 +1,8 @@
+#+title: Back to the beach
+#+date: 2025-07-01
+#+img:  /images/woody/2025/07/IMG_8469.JPEG
+#+html: <!--more-->
+
+
+#+attr_html: :width 230px
+[[../images/woody/2025/07/IMG_8467.JPEG]]

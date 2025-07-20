@@ -1,0 +1,9 @@
+#+title: The start of a holiday
+#+date: 2025-06-30
+#+img:  /images/woody/2025/06/IMG_8427.JPEG
+Woody had a nice little holiday to Winchester. It was far too hot outside so there was lots of sleeping on the sofa.
+#+html: <!--more-->
+
+
+#+attr_html: :width 230px
+[[../images/woody/2025/06/IMG_8392.JPEG]]

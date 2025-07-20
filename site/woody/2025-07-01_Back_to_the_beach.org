@@ -1,0 +1,9 @@
+#+title: Back to the beach
+#+date: 2025-07-01
+#+img:  /images/woody/2025/07/IMG_8435.JPEG
+Woody was thrilled to get back the beach again! He had the whole beach to himself and loved fetching his toys from the water.
+#+html: <!--more-->
+
+
+# #+attr_html: :width 230px
+# [[../images/woody/2025/07/IMG_8435.JPEG]]
