@@ -6,7 +6,7 @@ import Compilers
 import Contexts
 import Feed
 import GitCommit
-import Hakyll (Configuration (provideMetadata), Identifier, MonadMetadata, PageNumber, bodyField, buildPaginateWith, compile, composeRoutes, compressCssCompiler, constField, copyFileCompiler, create, defaultConfiguration, defaultContext, fromFilePath, hakyllWith, idRoute, listField, loadAll, loadAllSnapshots, loadAndApplyTemplate, makeItem, match, paginateContext, paginateEvery, paginateRules, recentFirst, relativizeUrls, renderRss, route, saveSnapshot, setExtension, sortRecentFirst, templateBodyCompiler)
+import Hakyll (Configuration (provideMetadata), Identifier, MonadMetadata, PageNumber, bodyField, buildPaginateWith, buildTags, compile, composeRoutes, compressCssCompiler, constField, copyFileCompiler, create, defaultConfiguration, defaultContext, fromCapture, fromFilePath, hakyllWith, idRoute, listField, loadAll, loadAllSnapshots, loadAndApplyTemplate, makeItem, match, paginateContext, paginateEvery, paginateRules, recentFirst, relativizeUrls, renderRss, route, saveSnapshot, setExtension, sortRecentFirst, tagsRules, templateBodyCompiler, tagsField, renderTagList)
 import Metadata
 import Routes
 
@@ -52,6 +52,23 @@ main = hakyllWith configuration $ do
         >>= loadAndApplyTemplate "templates/archive.html" archiveCtx
         >>= relativizeUrls
         >>= minifyHtmlCompiler
+
+  create ["blog/tags/index.html"] $ do
+    tags <- buildTags "site/blog/*.org" (fromCapture "blog/tags/*.html")
+    tagsRules tags $ \tagStr tagsPattern -> do
+      route idRoute
+      compile $ do
+        posts <- recentFirst =<< loadAll tagsPattern -- "site/blog/**.org"
+        let archiveCtx =
+              listField "posts" blogPostCtx (return posts)
+                <> constField "title" ("Blog > " <> tagStr)
+                <> headVersionField "commit" HashAndDate
+                <> defaultContext
+
+        makeItem ""
+          >>= loadAndApplyTemplate "templates/tags-archive.html" archiveCtx
+          >>= relativizeUrls
+          >>= minifyHtmlCompiler
 
   match "site/woody/**.org" $ do
     route $ composeRoutes stripSite (setExtension "html")

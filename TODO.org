@@ -1,0 +1,21 @@
+#+title: TODOs
+#+TODO: TODO(t) IN-PROGRESS(i!) BLOCKED(b@) | DONE(d!) WONTFIX(w@)
+#+PROPERTY: CLOCK_INTO_DRAWER t
+#+STARTUP: logdrawer
+#+COLUMNS: %5ISSUE_ID %35ITEM %12TODO %6PRIORITY %8EFFORT %20TAGS
+#+ARCHIVE: %s_archive::* Archived Issues
+#+CATEGORY: jeslie0.github.io
+#+NEXT_ISSUE_ID: 2
+
+#+BEGIN: clocktable :scope file :maxlevel 1 :properties ("EFFORT") :match "ISSUE_ID>0"
+#+END:
+
+* TODO [#B] Add watermarking to served images
+:PROPERTIES:
+:ISSUE_ID: 1
+:CREATED:  [2026-09-08 Tue]
+:TYPE:     improvement
+:EFFORT:   8:00
+:END:
+
+To prevent image theft, the images should contain some form of data that declares the source to be my website
