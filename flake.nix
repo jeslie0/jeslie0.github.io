@@ -16,10 +16,10 @@
             };
           };
           patchedHakyll = pkgs.fetchFromGitHub {
-            owner = "jwiegley";
+            owner = "jeslie0";
             repo = "hakyll";
-            rev = "d13703e1aec0a0d2648a1bf98c80890833ff089f";
-            hash = "sha256-BRnBrJKA4gwD9TVp3IDawfX3Er8ZZXSfHFR2Kpx3OME=";
+            rev = "01dfbd02fb03cdfa26ea2dd86c9880885df86da2";
+            hash = "sha256-me8fLNEQr8hkQfq4Uw3SeckCbcALk2oQJVxg6NPPedg=";
           };
           hakyllDirectory = ./hakyll;
           packageName = with builtins;
@@ -29,11 +29,11 @@
           latex = pkgs.texlive.combine {
           # Put the packages that we want texlive to use when compiling the PDF in here.
           inherit (pkgs.texlive)
-            # scheme-minimal
+            scheme-minimal
             # scheme-basic
             # scheme-small
             # scheme-medium
-            scheme-full
+            # scheme-full
             latex-bin
             fontspec
             latexmk;

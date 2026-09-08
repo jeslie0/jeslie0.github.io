@@ -1,6 +1,6 @@
 packages: .
 source-repository-package
     type: git
-    location: https://github.com/jwiegley/hakyll.git
-    tag: d13703e1aec0a0d2648a1bf98c80890833ff089f
+    location: https://github.com/jeslie0/hakyll.git
+    tag: 01dfbd02fb03cdfa26ea2dd86c9880885df86da2
     --sha256: sha256-qYS7kWPyebanGlIDEIf48jP/Mc6nGVss7E4+C1VyG8U=
