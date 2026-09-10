@@ -19,6 +19,7 @@ import Text.Pandoc.Definition
 import Text.Pandoc.Options
 import Text.Pandoc.Shared
 import Text.Pandoc.Walk
+import Text.Pandoc.Transforms (headerShift)
 
 mathExtensions :: Extensions
 mathExtensions =
