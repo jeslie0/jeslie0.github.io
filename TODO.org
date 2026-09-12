@@ -5,7 +5,7 @@
 #+COLUMNS: %5ISSUE_ID %35ITEM %12TODO %6PRIORITY %8EFFORT %20TAGS
 #+ARCHIVE: %s_archive::* Archived Issues
 #+CATEGORY: jeslie0.github.io
-#+NEXT_ISSUE_ID: 2
+#+NEXT_ISSUE_ID: 5
 
 #+BEGIN: clocktable :scope file :maxlevel 1 :properties ("EFFORT") :match "ISSUE_ID>0"
 #+END:
@@ -19,3 +19,31 @@
 :END:
 
 To prevent image theft, the images should contain some form of data that declares the source to be my website
+* TODO [#A] Get tags working
+:PROPERTIES:
+:ISSUE_ID: 2
+:CREATED:  [2026-09-11 Fri]
+:TYPE:     chore
+:EFFORT:   3:00
+:END:
+
+We need tags in the blog posts to appear on the index page and also in the blog page. They should link to a dedicated page for all posts with that tag.
+Source: [[file:/home/james/workspaces/jeslie0.github.io/src/Main.hs::88][Main.hs:88]]
+* TODO [#A] Get blog posts working again
+:PROPERTIES:
+:ISSUE_ID: 3
+:CREATED:  [2026-09-11 Fri]
+:TYPE:     chore
+:EFFORT:   4:00
+:END:
+
+Source: [[file:/home/james/workspaces/jeslie0.github.io/src/Main.hs::88][Main.hs:88]]
+* TODO [#B] Get Woody and Mohabat pages up and running
+:PROPERTIES:
+:ISSUE_ID: 4
+:CREATED:  [2026-09-11 Fri]
+:TYPE:     chore
+:EFFORT:   1:00
+:END:
+
+Source: [[file:/home/james/workspaces/jeslie0.github.io/src/Main.hs::88][Main.hs:88]]

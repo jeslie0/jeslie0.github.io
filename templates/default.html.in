@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+  $partial("templates/head.html.in")$
+  <body class="page">
+    $partial("templates/header.html.in")$
+    $body$
+    $partial("templates/footer.html.in")$
+  </body>
+</html>

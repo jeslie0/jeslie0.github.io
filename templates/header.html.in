@@ -1,0 +1,10 @@
+<header>
+  <h1 class="site-title">James Leslie</h1>
+  <div class="tagline">this is my tagline</div>
+  <nav>
+    <a href="/">Blog</a>
+    <a href="/mohabat">Mohabat</a>
+    <a href="/woody/1">Woody</a>
+    <a href="/about">About</a>
+  </nav>
+</header>

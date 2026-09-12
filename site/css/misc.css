@@ -12,13 +12,13 @@ img.rounded-corners {
 .two-cols {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    /* gap: 20px; */
 }
 
 /* Left column (text) styling */
 .column-left {
     flex: 3;
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 8px;
 }
 
