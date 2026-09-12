@@ -1,8 +1,8 @@
 {
-  description = "My Haskell project";
+  description = "Tools for building and deploying my website";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
   };
 
   outputs =
