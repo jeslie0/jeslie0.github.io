@@ -1,0 +1,60 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /home/james/workspaces/jeslie0.github.io/TODO.org
+
+
+* Archived Issues
+
+** DONE [#A] Get tags working
+:PROPERTIES:
+:ISSUE_ID: 2
+:CREATED:  [2026-09-11 Fri]
+:TYPE:     chore
+:EFFORT:   3:00
+:ARCHIVE_TIME: 2026-09-12 Sat 13:43
+:ARCHIVE_FILE: ~/workspaces/jeslie0.github.io/TODO.org
+:ARCHIVE_CATEGORY: jeslie0.github.io
+:ARCHIVE_TODO: DONE
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2026-09-12 Sat 13:43]
+:END:
+
+We need tags in the blog posts to appear on the index page and also in the blog page. They should link to a dedicated page for all posts with that tag.
+Source: [[file:/home/james/workspaces/jeslie0.github.io/src/Main.hs::88][Main.hs:88]]
+
+** DONE [#A] Get blog posts working again
+:PROPERTIES:
+:ISSUE_ID: 3
+:CREATED:  [2026-09-11 Fri]
+:TYPE:     chore
+:EFFORT:   4:00
+:ARCHIVE_TIME: 2026-09-12 Sat 13:43
+:ARCHIVE_FILE: ~/workspaces/jeslie0.github.io/TODO.org
+:ARCHIVE_CATEGORY: jeslie0.github.io
+:ARCHIVE_TODO: DONE
+:END:
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2026-09-12 Sat 13:43]
+:END:
+
+Source: [[file:/home/james/workspaces/jeslie0.github.io/src/Main.hs::88][Main.hs:88]]
+
+** DONE [#B] Get Woody and Mohabat pages up and running
+:PROPERTIES:
+:ISSUE_ID: 4
+:CREATED:  [2026-09-11 Fri]
+:TYPE:     chore
+:EFFORT:   1:00
+:ARCHIVE_TIME: 2026-09-12 Sat 13:43
+:ARCHIVE_FILE: ~/workspaces/jeslie0.github.io/TODO.org
+:ARCHIVE_CATEGORY: jeslie0.github.io
+:ARCHIVE_TODO: DONE
+:END:
+:LOGBOOK:
+- State "DONE"       from "BLOCKED"    [2026-09-12 Sat 13:43]
+- State "IN-PROGRESS" from "TODO"       [2026-09-12 Sat 13:42]
+:END:
+
+Source: [[file:/home/james/workspaces/jeslie0.github.io/src/Main.hs::88][Main.hs:88]]
