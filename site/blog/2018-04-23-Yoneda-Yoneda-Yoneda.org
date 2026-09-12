@@ -1,9 +1,8 @@
 #+title: Yoneda, Yoneda, Yoneda
 #+author: James Leslie
 #+date: 2018-04-23
-#+katex: true
-#+OPTIONS: tex:t num:nil toc:nil
 #+latex_header: \usepackage{tikz-cd}
+#+tags: mathematics, category-theory
 
 The Yoneda Lemma is one of the few 'theorems' one learns in a first course on category theory and it is an invaluable tool.
 

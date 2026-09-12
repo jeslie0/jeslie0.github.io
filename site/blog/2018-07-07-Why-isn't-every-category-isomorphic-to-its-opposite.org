@@ -1,8 +1,7 @@
 #+title: Why isn't every category isomorphic to its opposite?
 #+author: James Leslie
 #+date: 2018-07-07
-#+katex: t
-#+OPTIONS: tex:t
+#+tags: mathematics, category-theory
 #+latex_header: \usepackage{tikz-cd}
 #+latex_header: \usepackage{mathrsfs}
 

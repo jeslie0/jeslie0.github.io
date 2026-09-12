@@ -69,6 +69,7 @@ executable hakyll
                       Feed,
                       GitCommit,
                       Metadata,
+                      Misc,
                       Routes
 
     -- LANGUAGE extensions used by modules in this package.

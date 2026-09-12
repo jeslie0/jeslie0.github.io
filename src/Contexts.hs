@@ -4,7 +4,6 @@ module Contexts where
 
 import GitCommit
 import Hakyll
-import Hakyll.Web.Template.Context
 
 postTagsField :: Context String
 postTagsField = do

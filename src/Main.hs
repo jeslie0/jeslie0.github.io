@@ -4,13 +4,11 @@ module Main where
 
 import Compilers
 import Contexts
-import Data.Foldable (traverse_)
-import Data.String (IsString (..))
 import Feed
 import GitCommit
-import Hakyll (Configuration (provideMetadata), Identifier, MonadMetadata, PageNumber, Rules, Tags, bodyField, buildPaginateWith, buildTags, compile, composeRoutes, compressCssCompiler, constField, copyFileCompiler, create, defaultConfiguration, defaultContext, fromCapture, fromFilePath, hakyllWith, idRoute, listField, loadAll, loadAllSnapshots, loadAndApplyTemplate, makeItem, match, paginateContext, paginateEvery, paginateRules, recentFirst, relativizeUrls, renderRss, renderTagList, route, saveSnapshot, setExtension, sortRecentFirst, tagsField, tagsRules, templateBodyCompiler)
-import Hakyll.Web.Tags (getTags)
+import Hakyll (Configuration (provideMetadata), Identifier, MonadMetadata, PageNumber, Rules, bodyField, buildPaginateWith, buildTags, compile, composeRoutes, compressCssCompiler, constField, copyFileCompiler, create, defaultConfiguration, defaultContext, fromCapture, fromFilePath, hakyllWith, idRoute, listField, loadAll, loadAllSnapshots, loadAndApplyTemplate, makeItem, match, paginateContext, paginateEvery, paginateRules, recentFirst, relativizeUrls, renderRss, route, saveSnapshot, setExtension, sortRecentFirst, tagsRules, templateBodyCompiler)
 import Metadata
+import Misc (titleCase)
 import Routes
 
 configuration :: Configuration
@@ -46,7 +44,21 @@ staticRules = do
     compile compressCssCompiler
 
 blogRule :: Rules ()
-blogRule =
+blogRule = do
+  tags <- buildTags "site/blog/**.org" (fromCapture "tags/*.html")
+
+  tagsRules tags $ \tagStr tagsPattern -> do
+    route $ composeRoutes (fileToIndexDirWith "tags") (setExtension "html")
+    compile $ do
+      posts <- loadAll tagsPattern >>= recentFirst
+      let postsCtx =
+            constField "title" (titleCase tagStr)
+              <> listField "posts" blogPostCtx (return posts)
+              <> defaultContext'
+      makeItem ""
+        >>= loadAndApplyTemplate "templates/tag-page.html.in" postsCtx
+        >>= relativizeUrls
+
   match "site/blog/**.org" $ do
     route $ composeRoutes stripSite (setExtension "html")
     compile $
@@ -55,7 +67,6 @@ blogRule =
         >>= saveSnapshot "content"
         >>= relativizeUrls
         >>= minifyHtmlCompiler
-
 
 indexRule :: Rules ()
 indexRule =
@@ -90,7 +101,6 @@ notesArchiveRule =
           loadAndApplyTemplate "templates/notes-archive.html.in" archiveCtx ident
             >>= relativizeUrls
             >>= minifyHtmlCompiler
-
 
 noteRule :: Rules ()
 noteRule =

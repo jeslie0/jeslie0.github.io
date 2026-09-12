@@ -13,3 +13,7 @@ stripSite =
 fileToIndexDir :: Routes
 fileToIndexDir =
   customRoute $ \ident -> (takeBaseName . toFilePath $ ident) </> "index.html"
+
+fileToIndexDirWith :: FilePath ->  Routes
+fileToIndexDirWith path =
+  customRoute $ \ident -> path </> (takeBaseName . toFilePath $ ident) </> "index.html"

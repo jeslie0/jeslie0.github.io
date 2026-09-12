@@ -1,7 +1,7 @@
 #+title: The Canonical Model Structure on Cat/Gpd
 #+author: James Leslie
 #+date: 2021-03-06
-#+katex: true
+#+tags: mathematics, category-theory
 #+latex_header: \usepackage{tikz-cd}
 #+latex_header: \usepackage{amsmath}
 

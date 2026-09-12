@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  $partial("templates/head.html.in")$
+  <body class="page">
+    $partial("templates/header.html.in")$
+      <h1>$title$</h1>
+      <ul class="posts">
+        $for(posts)$
+          <li>
+            <time>$date$</time>
+            <div class="entry">
+              <a href="$url$">$title$</a>
+            </div>
+          </li>
+        $endfor$
+      </ul>
+    $partial("templates/footer.html.in")$
+  </body>
+</html>

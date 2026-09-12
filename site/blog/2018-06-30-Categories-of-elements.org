@@ -1,8 +1,7 @@
 #+title: Categories of elements
 #+author: James Leslie
-#+katex: true
-#+OPTIONS: tex:t
 #+date: 2018-06-30
+#+tags: mathematics, category-theory
 #+latex_header: \usepackage{tikz-cd}
 #+latex_header: \usepackage{dsfont}
 #+latex_header: \usepackage{amsmath}

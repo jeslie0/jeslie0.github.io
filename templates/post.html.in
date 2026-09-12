@@ -10,6 +10,13 @@
         $if(author)$
         by $author$
         $endif$
+
+        <div class="tags">
+          tags:
+          $for(tags)$
+            <a class="tag" href="/tags/$tag$">$tag$</a>
+          $endfor$
+        </div>
       </section>
       <section>
         $body$
