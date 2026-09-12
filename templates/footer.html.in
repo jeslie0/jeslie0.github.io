@@ -1,3 +1,4 @@
 <footer>
-  Site made with org-mode and hakyll.
+  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
+  <p>Page updated with commit $commit$.</p>
 </footer>

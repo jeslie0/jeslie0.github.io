@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  $partial("templates/head.html.in")$
+  <body class="page">
+    $partial("templates/header.html.in")$
+    <article>
+      <h1>$title$</h1>
+      <section>
+        $body$
+      </section>
+    </article>
+  $partial("templates/footer.html.in")$
+  </body>
+</html>

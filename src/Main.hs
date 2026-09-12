@@ -17,6 +17,20 @@ configuration :: Configuration
 configuration =
   defaultConfiguration {provideMetadata = pandocMetadata (Just "")}
 
+main :: IO ()
+main = hakyllWith configuration $ do
+  staticRules
+  blogRule
+  indexRule
+  woodyRule
+  notesArchiveRule
+  noteRule
+  generalOrgRule
+  rssRule
+
+  match "templates/**" $
+    compile templateBodyCompiler
+
 staticRules :: Rules ()
 staticRules = do
   match "site/images/**" $ do
@@ -42,6 +56,7 @@ blogRule =
         >>= relativizeUrls
         >>= minifyHtmlCompiler
 
+
 indexRule :: Rules ()
 indexRule =
   create ["index.html"] $ do
@@ -59,38 +74,34 @@ indexRule =
             >>= relativizeUrls
             >>= minifyHtmlCompiler
 
-main :: IO ()
-main = hakyllWith configuration $ do
-  staticRules
-  blogRule
-  indexRule
-  woodyRule
-  generalOrgRule
-  rssRule
-
-  match "templates/**" $
-    compile templateBodyCompiler
-
-
-  -- create ["blog/tags/index.html"] $ do
-  --   tags <- buildTags "site/blog/*.org" (fromCapture "blog/tags/*.html")
-  --   tagsRules tags $ \tagStr tagsPattern -> do
-  --     route idRoute
-  --     compile $ do
-  --       posts <- recentFirst =<< loadAll tagsPattern -- "site/blog/**.org"
-  --       let archiveCtx =
-  --             listField "posts" blogPostCtx (return posts)
-  --               <> constField "title" ("Blog > " <> tagStr)
-  --               <> headVersionField "commit" HashAndDate
-  --               <> defaultContext
-
-  --       makeItem ""
-  --         >>= loadAndApplyTemplate "templates/tags-archive.html" archiveCtx
-  --         >>= relativizeUrls
-  --         >>= minifyHtmlCompiler
+notesArchiveRule :: Rules ()
+notesArchiveRule =
+  create ["notes/index.html"] $ do
+    route idRoute
+    compile $ do
+      notes <- loadAll "site/notes/**.org"
+      let archiveCtx =
+            listField "notes" blogPostCtx (return notes)
+              <> constField "title" "Notes"
+              <> headVersionField "commit" HashAndDate
+              <> defaultContext
+      makeItem ""
+        >>= \ident ->
+          loadAndApplyTemplate "templates/notes-archive.html.in" archiveCtx ident
+            >>= relativizeUrls
+            >>= minifyHtmlCompiler
 
 
-
+noteRule :: Rules ()
+noteRule =
+  match "site/notes/**.org" $ do
+    route $ composeRoutes fileToIndexDir (setExtension "html")
+    compile $
+      shiftedHeaderPandocCompiler
+        >>= loadAndApplyTemplate "templates/note.html.in" defaultContext'
+        >>= saveSnapshot "content"
+        >>= relativizeUrls
+        >>= minifyHtmlCompiler
 
 rssRule :: Rules ()
 rssRule = create ["rss.xml"] $ do
@@ -102,7 +113,7 @@ rssRule = create ["rss.xml"] $ do
         =<< loadAllSnapshots "site/blog/**.org" "content"
     renderRss myFeedConfiguration feedCtx posts
 
-woodyRule :: Rules()
+woodyRule :: Rules ()
 woodyRule = do
   match "site/woody/**.org" $ do
     route $ composeRoutes stripSite (setExtension "html")
@@ -134,7 +145,7 @@ woodyRule = do
 
 -- Remove (take 10) when there are enough posts
 
-generalOrgRule :: Rules()
+generalOrgRule :: Rules ()
 generalOrgRule =
   match "site/*.org" $ do
     route $ composeRoutes fileToIndexDir (setExtension "html")

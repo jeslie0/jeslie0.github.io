@@ -3,6 +3,7 @@
   <div class="tagline">this is my tagline</div>
   <nav>
     <a href="/">Blog</a>
+    <a href="/notes">Notes</a>
     <a href="/mohabat">Mohabat</a>
     <a href="/woody/1">Woody</a>
     <a href="/about">About</a>
