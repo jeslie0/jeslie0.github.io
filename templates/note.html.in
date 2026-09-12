@@ -9,6 +9,6 @@
         $body$
       </section>
     </article>
-  $partial("templates/footer.html.in")$
+    $partial("templates/footer.html.in")$
   </body>
 </html>
