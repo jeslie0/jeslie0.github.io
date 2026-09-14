@@ -14,7 +14,7 @@
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Stoicism and raising a puppy</title>
 </head>
@@ -54,12 +54,18 @@
 <p>My second reflection is about anger. Before Woody came into my life, I thought that I was very hard to anger: I can’t remember a recent time that felt really angry. Now though, it seems like every day my anger rises to the surface. This usually happens when Woody thinks it’s a good idea to go around trying to eat everything in the house, including computer cables. When this happens, I have a real desire to punish Woody, but really this is only anger trying to take control. Punishment in the form of yelling or hitting serves no good, even in trying to get Woody’s behaviour to change. Some say that it can even reinforce the behaviour. The only reason I have a desire to punish him is because of the anger that bubbles up. The only purpose it serves is as a release for me. I need to accept that chewing is a part of his nature, especially now that he is teething. The best thing to do is to try and redirect his attention to one of his many toys, designed for withstanding his mighty chomp. When he can’t be redirected, it’s time for him to sleep.</p>
 <p>When my girlfriend and I were planning living with a new dog, I didn’t think that Stoic values would be an important factor in raising it. I am glad that I was wrong.</p>
 <p>Attached is a picture of the (not so little) Woody. Today, he has been a real star of a puppy and as I type this, he is fast asleep in his bed.</p>
-<p><img src="../images/woody.jpeg" class="rounded corners center" width="300" /></p>
+<p><img src="../images/woody.jpeg" class="rounded-corners center" width="300" /></p>
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit da1a0fa on 2026-09-14, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
@@ -75,7 +81,7 @@
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>The Canonical Model Structure on Cat/Gpd</title>
 </head>
@@ -111,9 +117,17 @@
         </div>
       </section>
       <section>
-        <p>When one first starts studying category theory, they learn that the correct notion of “the same” for categories is that of equivalence, rather than the stronger notion isomorphism. For those that have studied some algebraic topology, the situation is very similar to identifying spaces if they are homotopic, rather than homeomorphic. This is often given as an analogy, but the two notions can be reconciled by giving model structures where the weaker form of identification forms the subcategory of weak equivalences. Here, we define and present the so called canonical model structure on the category of categories. The proof of each step given can also be applied to the category of groupoids.</p>
-<p>We denote the category of (small) categories by <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐂</mi><mi>𝐚</mi><mi>𝐭</mi></mrow><annotation encoding="application/x-tex">\mathbf{Cat}</annotation></semantics></math> and the category of (small) groupoids <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>𝐆</mi><mi>𝐩</mi><mi>𝐝</mi></mrow><annotation encoding="application/x-tex">\mathbf{Gpd}</annotation></semantics></math>.</p>
-<p>This proof can be found on the nLab’s “<a href="https://ncatlab.org/nlab/show/canonical+model+structure+on+Cat">canonical model structure on Cat</a>” page, but here we go into a lot more detail of the constructions.</p>
+        <h2 id="contents">Contents <span class="tag" data-tag-name="TOC"><span class="smallcaps">TOC</span></span></h2>
+<ul>
+<li><a href="#the-model-structure">The model structure</a>
+<ul>
+<li><a href="#2-out-of-3">2-out-of-3</a></li>
+<li><a href="#retracts">Retracts</a></li>
+<li><a href="#lifting-properties">Lifting properties</a></li>
+<li><a href="#factorisations">Factorisations</a></li>
+</ul></li>
+<li><a href="#putting-it-all-together">Putting it all together</a></li>
+</ul>
 <h2 id="the-model-structure">The model structure</h2>
 <div class="definition">
 <p>Let <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mi>C</mi><annotation encoding="application/x-tex">C</annotation></semantics></math> be a category and <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(A, B)</annotation></semantics></math> a pair of subcategories. The pair <math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false" form="prefix">(</mo><mi>A</mi><mo>,</mo><mi>B</mi><mo stretchy="false" form="postfix">)</mo></mrow><annotation encoding="application/x-tex">(A, B)</annotation></semantics></math> is a <em>weak factorisation system</em> if:</p>
@@ -1069,8 +1083,14 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit da1a0fa on 2026-09-14, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
@@ -1086,7 +1106,7 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>iPad Screen Sharing to Zoom on a University Network</title>
 </head>
@@ -1129,8 +1149,14 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit 154579f on 2026-09-12, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
@@ -1146,7 +1172,7 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Is zero a natural number?</title>
 </head>
@@ -1255,8 +1281,14 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit 154579f on 2026-09-12, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
@@ -1272,7 +1304,7 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>A group object in the category of groups</title>
 </head>
@@ -1338,8 +1370,14 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit 154579f on 2026-09-12, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
@@ -1355,7 +1393,7 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Why isn't every category isomorphic to its opposite?</title>
 </head>
@@ -1484,8 +1522,14 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit 154579f on 2026-09-12, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
@@ -1501,7 +1545,7 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Categories of elements</title>
 </head>
@@ -2288,8 +2332,14 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit 154579f on 2026-09-12, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
@@ -2305,7 +2355,7 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Yoneda, Yoneda, Yoneda</title>
 </head>
@@ -2521,8 +2571,14 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit 154579f on 2026-09-12, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
@@ -2538,7 +2594,7 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
-  <link rel="stylesheet" href="/style.css" type="text/css" />
+  <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Monoidal Categories</title>
 </head>
@@ -3036,8 +3092,14 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
       </section>
     </article>
   <footer>
-  <p>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</p>
-  <p>Page updated with commit 154579f on 2026-09-12, by James Leslie.</p>
+  <hr>
+  <ul class="no-bullet">
+    <li>Site made with <a href="https://orgmode.org/">org-mode</a> and <a href="https://jaspervdj.be/hakyll/">Hakyll</a>.</li>
+
+    <li>The theme is a customised version of <a href="https://owickstrom.github.io/the-proportional-web/">Oskar Wickstrom's The Proportional Web</a>.</li>
+
+    <li>Page updated with commit 154579f on 2026-09-12, by James Leslie.</li>
+  </ul>
 </footer>
 
   </body>
