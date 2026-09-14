@@ -5,7 +5,7 @@
     $partial("templates/header.html.in")$
     <main role="main">
       <h1>$title$</h1>
-      <div>
+      <div class="prev-next">
         $if(previousPageNum)$
         <a href="$previousPageUrl$">◀ Newer Entries</a>
         $endif$&nbsp;

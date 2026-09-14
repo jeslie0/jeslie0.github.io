@@ -5,11 +5,14 @@
 #+latex_header: \usepackage{tikz-cd}
 #+latex_header: \usepackage{amsmath}
 
-When one first starts studying category theory, they learn that the correct notion of "the same" for categories is that of equivalence, rather than the stronger notion isomorphism. For those that have studied some algebraic topology, the situation is very similar to identifying spaces if they are homotopic, rather than homeomorphic. This is often given as an analogy, but the two notions can be reconciled by giving model structures where the weaker form of identification forms the subcategory of weak equivalences. Here, we define and present the so called canonical model structure on the category of categories. The proof of each step given can also be applied to the category of groupoids. 
+* Contents :TOC:
+- [[#the-model-structure][The model structure]]
+  - [[#2-out-of-3][2-out-of-3]]
+  - [[#retracts][Retracts]]
+  - [[#lifting-properties][Lifting properties]]
+  - [[#factorisations][Factorisations]]
+- [[#putting-it-all-together][Putting it all together]]
 
-We denote the category of (small) categories by \(\mathbf{Cat}\) and the category of (small) groupoids \(\mathbf{Gpd}\).
-
-This proof can be found on the nLab's "[[https://ncatlab.org/nlab/show/canonical+model+structure+on+Cat][canonical model structure on Cat]]" page, but here we go into a lot more detail of the constructions.
 * The model structure
 #+BEGIN_definition
   Let \(C\) be a category and \((A, B)\) a pair of subcategories. The pair \((A, B)\) is a /weak factorisation system/ if:

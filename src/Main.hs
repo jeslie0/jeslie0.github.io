@@ -4,9 +4,10 @@ module Main where
 
 import Compilers
 import Contexts
+import Control.Monad.IO.Class (MonadIO (..))
 import Feed
 import GitCommit
-import Hakyll (Configuration (provideMetadata), Identifier, MonadMetadata, PageNumber, Rules, bodyField, buildPaginateWith, buildTags, compile, composeRoutes, compressCssCompiler, constField, copyFileCompiler, create, defaultConfiguration, defaultContext, fromCapture, fromFilePath, hakyllWith, idRoute, listField, loadAll, loadAllSnapshots, loadAndApplyTemplate, makeItem, match, paginateContext, paginateEvery, paginateRules, recentFirst, relativizeUrls, renderRss, route, saveSnapshot, setExtension, sortRecentFirst, tagsRules, templateBodyCompiler)
+import Hakyll (Configuration (provideMetadata), Identifier, Item (..), MonadMetadata, PageNumber, Rules, bodyField, buildPaginateWith, buildTags, compile, composeRoutes, compressCss, compressCssCompiler, constField, copyFileCompiler, create, defaultConfiguration, defaultContext, fromCapture, fromFilePath, getResourceBody, hakyllWith, idRoute, listField, load, loadAll, loadAllSnapshots, loadAndApplyTemplate, makeItem, match, paginateContext, paginateEvery, paginateRules, preprocess, recentFirst, relativizeUrls, renderRss, route, saveSnapshot, setExtension, sortRecentFirst, tagsRules, templateBodyCompiler)
 import Metadata
 import Misc (titleCase)
 import Routes
@@ -18,6 +19,7 @@ configuration =
 main :: IO ()
 main = hakyllWith configuration $ do
   staticRules
+  cssRule
   blogRule
   indexRule
   woodyRule
@@ -42,6 +44,16 @@ staticRules = do
   match "site/style.css" $ do
     route stripSite
     compile compressCssCompiler
+
+-- Yoinked from https://maxfii.github.io/2022/08/static-asset-hashing-in-hakyll/.
+cssRule :: Rules ()
+cssRule = do
+  match "stylesheets/**.css" $ compile getResourceBody
+  create ["styles.css"] $ do
+    route idRoute
+    compile $ do
+      items <- loadAll "stylesheets/**.css"
+      makeItem $ compressCss $ concatMap itemBody items
 
 blogRule :: Rules ()
 blogRule = do

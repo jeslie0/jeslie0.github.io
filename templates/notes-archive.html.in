@@ -6,9 +6,7 @@
     <ul class="notes">
       $for(notes)$
         <li>
-            <div class="entry">
               <a href="$url$">$title$</a>
-            </div>
         </li>
       $endfor$
     </ul>

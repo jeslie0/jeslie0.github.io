@@ -1,8 +1,6 @@
-* {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-     box-sizing: border-box;
-}
+/*****************************************************************************/
+/*                             Woody image posts                             */
+/*****************************************************************************/
 /* Container that holds the image and text */
 .container {
     display: flex;
@@ -72,5 +70,67 @@
         margin-top: 10px; /* Adds some space between the image and text */
         text-align: left;
         align-items: left;
+    }
+}
+
+img.rounded-corners {
+    border-radius: 300px;
+}
+
+/* Container for the two columns */
+.two-cols {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Left column (text) styling */
+.column-left {
+    flex: 3;
+    /* padding: 20px; */
+    border-radius: 8px;
+}
+/* Right column (images) styling */
+.column-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style for each image */
+.image {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    /* Container for the two columns */
+    .two-cols {
+        display: block;
+        justify-content: space-between;
+        gap: 20px;
+    }
+
+    /* Left column (text) styling */
+    .column-left {
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .column-right {
+        gap: 10px;
+    }
+
+    .column-right img {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* For the image gallery */
+    .container {
+        flex-direction: column;
     }
 }

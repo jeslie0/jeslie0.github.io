@@ -15,5 +15,5 @@ When my girlfriend and I were planning living with a new dog, I didn't think tha
 
 Attached is a picture of the (not so little) Woody. Today, he has been a real star of a puppy and as I type this, he is fast asleep in his bed.
 
-#+attr_html: :width 300 :class rounded corners center
+#+attr_html: :width 300 :class rounded-corners center
 [[../images/woody.jpeg]]

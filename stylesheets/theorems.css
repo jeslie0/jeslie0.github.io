@@ -1,3 +1,6 @@
+/*****************************************************************************/
+/*                            Theorems and Proofs                            */
+/*****************************************************************************/
 .theorem:before {
     counter-increment: theorem;
     content: "Theorem " counter(theorem) ". ";
@@ -42,7 +45,6 @@
     margin: 12px 0;
     font-style: normal;
 }
-
 .definition:before {
     counter-increment: theorem;
     content: "Definition " counter(theorem) ". ";
@@ -94,13 +96,18 @@
     font-style: normal;
 }
 
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
-
 body {
     counter-reset: theorem;
+}
+
+math[display="block"] {
+    margin: 1rem 0 1rem;
+
+}
+
+.latexfragment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 1rem;
 }
