@@ -151,7 +151,7 @@ table {
   box-sizing: border-box;
 }
 * + * {
-  margin-top: var(--line-height);
+  /* margin-top: var(--line-height); */
 }
 
 /* src/headings.css */
@@ -162,8 +162,8 @@ h4,
 h5,
 h6 {
   font-weight: var(--font-weight-normal);
-  margin: calc(var(--line-height) * 2) 0 var(--line-height);
-  line-height: var(--line-height);
+  /* margin: calc(var(--line-height) * 2) 0 var(--line-height); */
+  /* line-height: var(--line-height); */
 }
 .header-section-number {
   font-family: "Alegreya", serif;
