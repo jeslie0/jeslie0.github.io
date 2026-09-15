@@ -104,3 +104,7 @@ p.tags-line a {
 .tags-line a:hover {
     color: var(--accent);
 }
+
+footer {
+    margin-bottom: 1rem;
+}
