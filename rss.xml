@@ -14,6 +14,8 @@
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Stoicism and raising a puppy</title>
@@ -81,6 +83,8 @@
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>The Canonical Model Structure on Cat/Gpd</title>
@@ -1106,6 +1110,8 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>iPad Screen Sharing to Zoom on a University Network</title>
@@ -1172,6 +1178,8 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Is zero a natural number?</title>
@@ -1304,6 +1312,8 @@ Note that we have a functor <math display="inline" xmlns="http://www.w3.org/1998
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>A group object in the category of groups</title>
@@ -1393,6 +1403,8 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Why isn't every category isomorphic to its opposite?</title>
@@ -1545,6 +1557,8 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Categories of elements</title>
@@ -2355,6 +2369,8 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Yoneda, Yoneda, Yoneda</title>
@@ -2594,6 +2610,8 @@ f(g,h) &amp;= f((g,e) \times_{G \times G} (e,h)) &amp;&amp;\\
     <description><![CDATA[<!DOCTYPE html>
 <html>
   <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
   <link rel="stylesheet" href="/styles.css" type="text/css" />
   <link rel="shortcut icon" href="#" />
   <title>Monoidal Categories</title>
