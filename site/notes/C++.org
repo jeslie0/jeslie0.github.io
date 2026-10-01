@@ -1,4 +1,9 @@
 #+title: C++
 #+author: James Leslie
 
-TODO
+* Links
+- Universal/Forwarding references: [[https://isocpp.org/blog/2012/11/universal-references-in-c11-scott-meyers][Universal References in C++11]];
+- Power of 10: [[https://en.wikipedia.org/wiki/The_Power_of_10:_Rules_for_Developing_Safety-Critical_Code][The Power of 10: Rules for Developing Safety-Critical Code]];
+- Memory safety: [[https://verdagon.dev/blog/vale-memory-safe-cpp][Making C++ Memory-Safe Without Borrow Checking, Reference Counting, or Tracing Garbage Collection]];
+- Overview of TMP: [[https://web.stanford.edu/class/archive/cs/cs106l.1214/lectures/L16-TMP.pdf][Template Metaprogramming]];
+- Are we modules yet?: [[https://mropert.github.io/2026/04/13/modules_in_2026/][Can we finally use C++ Modules in 2026]].
